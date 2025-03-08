@@ -276,6 +276,288 @@ const TermsOfUseComponent = () => {
         </p>
       </div>
 
+      <h2 className={styles.sectionTitle}>JW Player and InPlayer Terms Of Use</h2>
+      <div className={styles.jwpContent}>
+        <ol>
+          <li>
+            ACCEPTING THESE TERMS This document and the other documents that we reference below make up our house rules, or what we officially call our Terms
+            and Conditions (the “Terms”).
+            <p>
+              These Terms set out your rights and responsibilities when you view, access or use the InPlayer paywall platform (the “Platform”) and related
+              online services provided through the Platform (the “Services”) in connection with the purchase of access to certain copyrighted content, materials
+              and proprietary information (“Premium Content”) made available by third party owners of such Premium Content (a “Content Provider”) on their
+              website (the “Content Provider Site”). The Platform and the Services collectively are referred to as the “Offering”.
+            </p>
+            <p>
+              The Platform is owned by JWDP UK Ltd, a company registered in England and Wales with company number 14407943 and having its registered address at
+              3rd Floor 1 Ashley Road, Altrincham, Cheshire, United Kingdom, WA14 2DT (“JW Player”), and for the purpose of these Terms, the terms “we”, “us”,
+              “our”, refers to JW Player. “You” refers to you, as a “User” of the Offering (or any part thereof).
+            </p>
+            <p>
+              BY ACCESSING AND USING ANY PART OF THE OFFERING, YOU ARE ACKNOWLEDGING THAT YOU ARE EITHER 18 YEARS OF AGE OR HAVE THE CONSENT OF A LEGAL PARENT
+              OR GUARDIAN, AND THAT YOU HAVE READ, UNDERSTOOD, AND ARE AGREEING TO BE BOUND BY THESE TERMS. IF YOU DON’T AGREE WITH THE TERMS, YOU MAY NOT USE
+              ANY PART OF THE OFFERING.
+            </p>
+            <p>
+              Although we may attempt to notify you if any major changes are made to these Terms, you agree that each visit to the Platform shall be subject to
+              the then-current Terms available on the Platform. Accordingly, you should check these Terms periodically for changes prior to using the Platform.
+            </p>
+            <p>When you purchase Premium Content from us, you are agreeing to these Terms.</p>
+          </li>
+          <li>
+            Cancel your subscription at any time.
+            <p>
+              a. Content Provider Terms. The Content Provider may require you to accept their own set of terms and conditions available on the Content Provider
+              Site which will govern your use of and access to any Premium Content originating from that Content Provider.
+            </p>
+            <p>
+              b. Third Party Software Terms. In order to view certain Premium Content, you may also be required to download and install certain third party
+              software products. All right, title and interest in such third party software is retained by the applicable third party provider. The downloading,
+              use and installation of such third party software products may be subject to additional terms and conditions set forth in an end user licence
+              agreement available on the applicable third party website, which you will be required to review and affirmatively accept prior to and as a
+              condition of your downloading, installation and use of the third party software.
+            </p>
+          </li>
+          <li>JW PLAYER ACCOUNT</li>
+          <p>
+            a. Your User Account with JW Player. In most cases, you’ll need to create a user account with JW Player to use our Offering to purchase and access
+            Premium Content made available by a Content Provider (a “User Account”).
+          </p>
+          <p>
+            b. Managing your User Account. You can access, edit and update your User Account information at any time by logging in to the Platform via the
+            relevant Content Provider Site and clicking the “Account” button. If you don’t see the “Account” button, look for a “Profile”, “My Account” or
+            similar button on the Content Provider Site in the navigation menu.
+          </p>
+          <p>c. Rules about your User Account. There are a few rules about the User Account you create:</p>
+          <p>
+            (i) Be honest with us.Make sure to provide accurate information about yourself. It’s not OK to use false information or impersonate another person
+            or company through your User Account.
+          </p>
+          <p>
+            (ii) You are responsible for your account. You’re solely responsible for any activity on your User Account, so please make sure that all the
+            information you’ve used to create your User Account will be kept accurate and up-to-date.
+          </p>
+          <p>
+            (iii) Protect your account. As we mentioned above, you’re solely responsible for any activity on your User Account, so it’s important to keep your
+            User Account password secure and not share it with any third parties.
+          </p>
+          <p>
+            (iv) What to do if you think someone is impersonating you.If you, as a User have a reason to believe that your User Account details have been
+            obtained by another User without consent, immediately contact JW Player to suspend your User Account and cancel any unauthorised payments or
+            subscriptions that may be pending. In case an unauthorised use is made before you notify us of the unauthorised nature of the order or payment, JW
+            Player will suspend access to the Offering and withdraw any scheduled payments pending investigation. We will begin an investigation, after which we
+            will be able to determine whether or not to cancel access to the Offering and make a full or partial refund of the payment to you.
+          </p>
+          <li>ORDER PROCESS</li>
+          <p>
+            a. Acceptance of your order. We will send you an email acknowledging receipt of your order for Premium Content once you have made a payment and your
+            order will be deemed accepted when we give you access to such Premium Content. Depending on the type of Premium Content you have purchased, your
+            access may be time-limited; where that is the case, we will inform you of the applicable time period.
+          </p>
+          <p>
+            b. Access purchase issues. In case your access purchase is not processed for some reason (for example your card doesn’t have enough balance or
+            expired) we will let you know so the issue can be solved and you get your access as soon as possible.
+          </p>
+          <li>ACCESS TO OFFERING</li>
+          <p>
+            a. Ownership in the Offering. The Platform and the copyrighted text, software, graphics, photos, interactive features, logos, trademarks and other
+            proprietary materials and information provided thereon, including the Premium Content that you have purchased through the Platform (collectively the
+            “Platform Content”) is owned or controlled by, or licensed to, JW Player or the Content Provider. JW Player reserves all rights not expressly
+            granted in and to the Platform and the Platform Content on behalf of itself or its licensors (including its Content Providers).
+          </p>
+          <p>
+            b. License to the Offering. We grant you a limited, non-exclusive, non-transferable, and revocable license to access, use and display the Platform
+            and the Platform Content, subject to these Terms and the following restrictions:
+          </p>
+          <p>
+            (i) Don’t use our services to break the law. You agree that you will not violate any laws in connection with your use of the Offering. This includes
+            any local, state, federal, and international laws that may apply to you. You will also not use the Platform to store or transmit any content that
+            infringes upon any person’s intellectual property rights.
+          </p>
+          <p>
+            (ii) Don’t steal anything from our Content Providers. You agree not to download, decipher, decompile, “crawl,” “scrape,” or “spider” any page of the
+            Platform or to reverse engineer or attempt to obtain the source code of the Platform. These restrictions shall not apply to Premium Content made
+            available by a particular Content Provider where you can download their Premium Content, using the Offering as intended.
+          </p>
+          <p>
+            (iii) Don’t try to harm our systems. You agree not to interfere with or try to disrupt the Offering, for example by distributing a virus or other
+            harmful computer code.
+          </p>
+          <p>(iv) Other limitations. You agree not to:</p>
+          <p>
+            a. distribute in any medium any part of the Platform (including any Premium Content purchased by you) without JW Player’s prior written consent;
+          </p>
+          <p>b. alter or modify any portion of the Platform (including any Premium Content purchased by you);</p>
+          <p>
+            c. copy, reproduce, distribute, display portions of, or link to this Platform or any Platform Content contained hereon for commercial purposes
+            without JW Player’s prior express written consent (including, but not limited to, the sale of advertising on the Platform, or the use of the
+            Platform to generate advertising or subscription revenue) or the consent of the relevant Content Provider, as applicable; and/or
+          </p>
+          <p>
+            d. reproduce, distribute, modify, copy, publish, display, transmit, adapt, upload, create derivative works of, post or in any way exploit the
+            Platform or the Platform Content in any manner or for any purpose, except as expressly permitted under these Terms.
+          </p>
+          <p>
+            c. Suspension of service. JW Player will use all reasonable endeavours to provide the Offering on an error-free basis and without interruption.
+            Notwithstanding, JW Player, does not provide any guarantee that provision of the Offering will be error-free or without interruption and reserves
+            the right to alter or suspend provision of the Offering in order to: (a) deal with technical problems or make minor technical changes, (b) update
+            the Offering to reflect changes in relevant laws and regulatory requirements, or (c) make any changes to the Offering (see paragraph e below). We
+            will contact you in advance to tell you we’re suspending the Offering, unless the problem is urgent or an emergency.
+          </p>
+          <p>
+            d. JW Player right to remove Premium Content. If we reasonably believe that any Premium Content (1) is in breach of these Terms, or (2) may cause
+            harm to JW Player, the users of the Offering, or any third parties, we reserve the right to remove or take down some or all of such Premium Content.
+            Where reasonably practicable, we will give you prior notice of the removal of any such Premium Content which you have purchased, along with the
+            reason for our action, unless we reasonably believe that to do so: (a) would violate the law or the direction of a legal enforcement authority, or
+            would otherwise risk legal liability for JW Player; (b) would compromise an investigation or the integrity or operation of the Offering; or (c)
+            would cause harm to any user, other third party, or to JW Player.
+          </p>
+          <p>e. JW Player’s right to make changes to the Offering.</p>
+          <p>
+            (i) We always have the right to change the Offering to: (a) reflect changes in relevant laws and regulatory requirements, (b) implement minor
+            technical adjustments and improvements, for example to address a security threat; and (c) update Premium Content, provided that the Premium Content
+            always matches the description of it that was provided to you before you purchased it.
+          </p>
+          <p>
+            (ii) In addition, we can also make the following types of changes to the Offering or these Terms, but if we do so we will notify you and you can
+            then contact our Support Center if you wish to end the contract before the changes take effect, and receive a refund for any Premium Content that
+            you’ve paid for in advance, but not yet received.
+          </p>
+          <p>
+            f. Links to third party websites and/or materials. Links will appear on the Platform that are used to link to third party website(s) (including the
+            websites of our Content Providers) which are not owned or operated by JW Player (“Linked Sites“). JW Player reserves the right to add, change, or
+            remove any link at any time. Each Linked Site may have an individual privacy policy and/or terms of use which govern your use of and access to such
+            Linked Site and any Premium Content originating from the owner or operator of such Linked Site, and we recommend that you review the policies
+            applicable to these sites prior to your use of such Linked Site. JW Player is not responsible for and does not endorse or warrant in any way any
+            content, materials, information, goods or services available through Linked Sites or any privacy or other practices of such Linked Sites.
+          </p>
+          <li>PAYMENTS</li>
+          <p>a. Fees.</p>
+          <p>
+            (i) You agree to pay the charges or subscription fees incurred in connection with your User Account at the rates in effect and as notified to you at
+            the time of making a purchase of Premium Content.
+          </p>
+          <p>
+            (ii) The Content Provider who has made the Premium Content available reserves the right to adjust the price and terms for their access models in any
+            manner and at any time as they may determine in their sole and absolute discretion. If the Content Provider decides to change the price of your
+            subscription, you will be notified via email before the price change takes effect and this will not affect any previously purchased Premium Content.
+            You will also have the right to terminate these Terms before such change comes into effect by electing not to renew your subscription.
+          </p>
+          <p>
+            b. Payment methods. You can make a payment or start a subscription by using different payment methods, made available through third party payment
+            providers available via the Platform. You should be aware that the available payment methods may vary depending on the Content Provider that is
+            providing the Premium Content you wish to purchase.
+          </p>
+          <p>c. Subscriptions.</p>
+          <p>
+            (i) If you choose to start a subscription plan for any Premium Content, your subscription will start on the date of your purchase when we will send
+            you an email confirming that your subscription has been activated. Your subscription will expire one calendar date before the end of your initial
+            term, or any renewal term. For example, if your subscription commences on 1 January and it is for one month, it will expire on 31 January.
+          </p>
+          <p>
+            (ii) If you purchase a subscription for Premium Content through the Platform, by consenting to these Terms, you hereby authorize JW Player to charge
+            you the applicable subscription fee at the then-current rate on a recurring basis (depending on your chosen subscription package), using the payment
+            method you have used for the original payment.
+          </p>
+          <p>
+            (iii) You will have the right to cancel your subscription at any time, including after a renewal, by contacting our Support Center. Your access to
+            the applicable Premium Content will end with effect from the termination date.
+          </p>
+          <p>
+            (iv) You may not assign or transfer your subscription to any other person or entity. You must be at least 18 years old (or have the permission of a
+            credit card holder who is) to order a subscription online.
+          </p>
+          <li>REFUNDS</li>
+          <p>
+            a. Refund policies are specific to the Content Provider. Each Content Provider will have its own refund policies which should be available on the
+            Content Provider Site and which we will seek to implement. If you are having trouble locating such refund policies, please don’t hesitate to contact
+            us via our Support Center.
+          </p>
+          <p>b. JW Player’s refund policy.</p>
+          <p>a. To make sure that as a User, you are protected by JW Player, we also have our own refund policy.</p>
+          <p>b. Request for refunds can be made within 72 hours from the original transaction.</p>
+          <p>
+            c. You will be granted a refund within72 hours after the refund request was submitted, in the same payment method of the original payment, where:
+          </p>
+          <p>i. You have made a duplicate purchase using the same email address.</p>
+          <p>ii. The availability of the Premium Content you have purchased was cancelled.</p>
+          <p>iii. The Premium Content wasn’t published by the Content Provider.</p>
+          <p>
+            iv. More than 80% of the Premium Content delivery had quality issues (no sound, or poor sound and video quality) not due to any technical issue
+            related to you.
+          </p>
+          <p>v. The Premium Content was misleading – the description didn’t relate to the actual Premium Content.</p>
+          <p>d. JW Player will not issue refunds if you were prevented from accessing the Premium Content due to reasons attributable to you.</p>
+          <p>e. The Content Provider will always have the final say in whether your refund request is approved.</p>
+          <li>TERMINATION OF THESE TERMS</li>
+          <p>
+            a. Your right to change your mind. You have fourteen (14) days after the date we confirm your order to change your mind about a purchase, but you
+            will lose this right when you start to download or stream the Premium Content. If you want to exercise your right to change your mind, please
+            contact our Support Center. We will refund you for any payments made as soon as possible and within fourteen (14) days of you telling us you’ve
+            changed your mind. We will refund you by the method you used for payment. We don’t charge a fee for the refund.
+          </p>
+          <p>b. JW Player’s right to end the contract with you. We have the right to end this contract with you and claim any compensation due if:</p>
+          <p>
+            a. You don’t make any payment to us when it’s due and you still don’t make payment within twenty (20) days of us reminding you that payment is due;
+          </p>
+          <p>
+            b. You don’t, within a reasonable time of us asking for it, provide us with information, cooperation or access that we need to provide the product.
+          </p>
+          <li>
+            WHAT TO DO IF THERE IS SOMETHING WRONG WITH THE PREMIUM CONTENT <br /> If you think there is something wrong with the Premium Content, you must
+            contact our Support Center.
+          </li>
+          <li>
+            WHAT JW PLAYER IS LIABLE FOR <br />
+            We will be responsible for losses you suffer caused by us breaking this contract unless the loss is:
+          </li>
+          <p>
+            a. Unexpected. It was not obvious that it would happen and nothing you said to us before we accepted your order meant we should have expected it
+            (so, in the law, the loss was unforeseeable).
+          </p>
+          <p>
+            b. Avoidable. Something you could have avoided by taking reasonable action. For example, damage to your own digital content or device, which was
+            caused by Premium Content we supplied to you and which you could have avoided by following our advice to apply a free update or by correctly
+            following the installation instructions or having the minimum system requirements advised by us.
+          </p>
+          <li>
+            WE’RE NOT RESPONSIBLE FOR DELAYS OUTSIDE OUR CONTROL <br /> If our supply of Premium Content is delayed by an event outside our control, will
+            contact you as soon as possible to let you know and do what we can to reduce the delay. As long as we do this, we won’t compensate you for the
+            delay, but if the delay is likely to be substantial you can contact our Support Center to end the contract and receive a refund for any Premium
+            Content you have paid for in advance, but not received.
+          </li>
+          <li>
+            DISPUTE RESOLUTION OPTIONS <br />
+            a. Complaints. Our Support Center will do their best to resolve any problems you have with us or our Offering (including the Premium Content).
+          </li>
+          <p>
+            b. You can go to court. These terms are governed by English law and wherever you live you can bring claims against us in the English courts. If you
+            live in Wales, Scotland or Northern Ireland, you can also bring claims against us in the courts of the country you live in. We can claim against you
+            in the courts of the country you live in.
+          </p>
+          <li>
+            OTHER IMPORTANT TERMS <br />
+            a. We can transfer our contract with you, so that a different organization is responsible for supplying your product. We’ll tell you in writing if
+            this happens and we’ll ensure that the transfer won’t affect your rights under the contract. If you’re unhappy with the transfer you can contact our
+            Support Center to end the contract within 30 days of us telling you about it and we will refund you any payments you’ve made in advance for Premium
+            Content not provided.
+          </li>
+          <p>b. You can only transfer your contract with us to someone else if we agree to this.</p>
+          <p>
+            c. Nobody else has any rights under this contract. This contract is between you and JW Player. Nobody else can enforce it and neither of us will
+            need to ask anybody else to sign-off on ending or changing it.
+          </p>
+          <p>
+            d. If a court invalidates some of this contract, the rest of it will still apply. If a court or other authority decides that some of these terms are
+            unlawful, the rest will continue to apply.
+          </p>
+          <p>
+            e. Even if we delay in enforcing this contract, we can still enforce it later. We might not immediately chase you for not doing something (like
+            paying) or for doing something you’re not allowed to, but that doesn’t mean we can’t do it later.
+          </p>
+        </ol>
+      </div>
+
       <h2 className={styles.sectionTitle}>RETURNS, REFUNDS & EXCHANGES</h2>
 
       <div className={styles.returnsContent}>

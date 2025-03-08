@@ -146,11 +146,11 @@ const RegistrationForm: React.FC<Props> = ({
       )}
       <div className={styles.termsAndConditions}>
         <div>
-          <Checkbox disabled={!hasConsent} name={'consent'} checked={hasConsent} />
+          <Checkbox name={'privacyConsent'} />
         </div>
         <div>
-          I agree to our <Link to="/">Terms and Conditions</Link> and acknowledge that I have read our <Link to="/">Privacy Policy</Link> and{' '}
-          <Link to="/">Cookies Statement</Link>
+          I agree to our <Link to="/terms-of-use">Terms and Conditions</Link> and acknowledge that I have read our{' '}
+          <Link to="/privacy-policy">Privacy Policy</Link> and <Link to="/">Cookies Statement</Link>
         </div>
       </div>
 
