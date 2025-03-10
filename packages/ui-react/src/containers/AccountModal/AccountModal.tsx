@@ -166,7 +166,7 @@ const AccountModal = () => {
   const dialogSize = ['delete-account-confirmation'].includes(view ?? '') ? 'large' : 'small';
 
   return (
-    <Dialog size={dialogSize} open={!!viewParam} onClose={closeHandler}>
+    <Dialog size={dialogSize} open={!!viewParam} onClose={closeHandler} hideCloseButton={view === 'create-account'}>
       {shouldShowBanner && banner && (
         <div className={styles.banner}>
           <img src={banner} alt="" />

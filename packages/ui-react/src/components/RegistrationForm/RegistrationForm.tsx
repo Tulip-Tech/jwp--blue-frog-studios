@@ -19,6 +19,7 @@ import Link from '../Link/Link';
 import { modalURLFromLocation } from '../../utils/location';
 import PasswordField from '../form-fields/PasswordField/PasswordField';
 import RecaptchaField from '../RecaptchaField/RecaptchaField';
+import Checkbox from '../form-fields/Checkbox/Checkbox';
 
 import styles from './RegistrationForm.module.scss';
 
@@ -94,7 +95,7 @@ const RegistrationForm: React.FC<Props> = ({
           </FormFeedback>
         ) : null}
       </div>
-      <h2 className={styles.title}>{t('registration.sign_up')}</h2>
+      <h2 className={styles.title}>Sign up to start watching</h2>
       <TextField
         value={values.email}
         onChange={onChange}
@@ -143,6 +144,16 @@ const RegistrationForm: React.FC<Props> = ({
           })}
         </div>
       )}
+      <div className={styles.termsAndConditions}>
+        <div>
+          <Checkbox name={'privacyConsent'} />
+        </div>
+        <div>
+          I agree to our <Link to="/terms-of-use">Terms and Conditions</Link> and acknowledge that I have read our{' '}
+          <Link to="/privacy-policy">Privacy Policy</Link> and <Link to="/">Cookies Statement</Link>
+        </div>
+      </div>
+
       {loadRecaptcha && <RecaptchaField siteKey={captchaSiteKey} ref={recaptchaRef} size={cookieConsent === 'accepted' ? 'invisible' : 'normal'} />}
       <Button
         className={styles.continue}

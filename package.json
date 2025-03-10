@@ -64,5 +64,8 @@
     "micromatch": ">=4.0.8",
     "vitest/**/vite": "^5.4.11",
     "ws": ">=5.2.4"
+  },
+  "dependencies": {
+    "lucide-react": "^0.477.0"
   }
 }

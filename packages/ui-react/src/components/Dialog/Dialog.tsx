@@ -14,14 +14,15 @@ type Props = {
   size?: 'small' | 'large';
   children: React.ReactNode;
   role?: React.AriaRole;
+  hideCloseButton?: boolean;
 } & React.AriaAttributes;
 
-const Dialog: React.FC<Props> = ({ open, onClose, children, size = 'small', role, ...ariaAttributes }: Props) => {
+const Dialog: React.FC<Props> = ({ open, onClose, children, size = 'small', role, hideCloseButton, ...ariaAttributes }: Props) => {
   return (
     <Modal open={open} onClose={onClose} AnimationComponent={Slide} role={role} centered>
       <div className={classNames(styles.dialog, styles[size])} data-testid={testId('dialog')} {...ariaAttributes}>
         {children}
-        <ModalCloseButton onClick={onClose} />
+        {!hideCloseButton && <ModalCloseButton onClick={onClose} />}
       </div>
     </Modal>
   );

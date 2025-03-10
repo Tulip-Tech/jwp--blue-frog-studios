@@ -38,6 +38,8 @@ const HeaderNavigation = ({ className, navItems }: { className?: string; navItem
             <Button activeClassname={styles.navButton} label={item.label} to={item.to} variant="text" />
           </li>
         ))}
+        <Button activeClassname={styles.navButton} label={'Pricing'} to={'/pricing'} variant="text" />
+        <Button activeClassname={styles.navButton} label={'Blue Frog Studios'} to={'https://bluefrogstudios.ca/'} variant="text" />
       </ul>
     </nav>
   );
