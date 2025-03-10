@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
-import classNames from 'classnames';
-import { IS_DEVELOPMENT_BUILD } from '@jwp/ott-common/src/utils/common';
-import { Facebook, Heart, Instagram, Twitter, Youtube, CheckCircle, XCircle, Loader } from 'lucide-react';
-
-import MarkdownComponent from '../MarkdownComponent/MarkdownComponent';
+import { Facebook, Heart, Instagram, Twitter, Youtube, Loader } from 'lucide-react';
 
 import styles from './Footer.module.scss';
-import CustomPopover from './popover';
+import CustomPopover from './Popover';
 
 type Props = {
   text: string;
 };
 
-const Footer: React.FC<Props> = ({ text }) => {
+const Footer: React.FC<Props> = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [isSuccess, setIsSuccess] = useState<boolean | null>(null);

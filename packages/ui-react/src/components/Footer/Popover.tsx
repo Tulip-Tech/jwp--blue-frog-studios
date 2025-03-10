@@ -1,5 +1,6 @@
 import React from 'react';
 import { CheckCircle, XCircle, X } from 'lucide-react';
+
 import styles from './Footer.module.scss';
 
 type PopoverProps = {

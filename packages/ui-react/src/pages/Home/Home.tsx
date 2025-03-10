@@ -37,7 +37,7 @@ const Home = () => {
               </li>
             </ul>
             <div className={styles.signupForm}>
-              <Button label="Sign Up Now" color="primary" to="/?u=create-account" />
+              <Button label="Sign Up Now" color="primary" to="/pricing" />
             </div>
             <div style={{ marginTop: '2rem' }}>
               Already a member? <strong>Sign in here.</strong>
