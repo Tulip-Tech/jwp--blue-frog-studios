@@ -4,9 +4,9 @@ import { IS_DEVELOPMENT_BUILD } from '@jwp/ott-common/src/utils/common';
 import { Facebook, Heart, Instagram, Twitter, Youtube, CheckCircle, XCircle, Loader } from 'lucide-react';
 
 import MarkdownComponent from '../MarkdownComponent/MarkdownComponent';
-import Popover from '../Popover/Popover';
 
 import styles from './Footer.module.scss';
+import CustomPopover from './popover';
 
 type Props = {
   text: string;
@@ -42,7 +42,7 @@ const Footer: React.FC<Props> = ({ text }) => {
       setTimeout(() => {
         setIsPopoverOpen(false);
         setTimeout(() => setIsSuccess(null), 300);
-      }, 3000);
+      }, 5000);
     } catch (error) {
       setIsSuccess(false);
       setMessage('❌ Subscription failed. Please try again.');
@@ -53,7 +53,7 @@ const Footer: React.FC<Props> = ({ text }) => {
       setTimeout(() => {
         setIsPopoverOpen(false);
         setTimeout(() => setIsSuccess(null), 300);
-      }, 3000);
+      }, 5000);
     }
   };
 
@@ -351,13 +351,8 @@ const Footer: React.FC<Props> = ({ text }) => {
           </div>
           <div className={styles.text}>© {new Date().getFullYear()}, Blue Frog Studio</div>
         </div>
-        <Popover isOpen={isPopoverOpen} onClose={() => setIsPopoverOpen(false)}>
-          <div className={classNames(styles.popover, isSuccess ? styles.success : styles.error)}>
-            {isSuccess ? <CheckCircle size={18} /> : <XCircle size={18} />}
-            <span>{message}</span>
-          </div>
-        </Popover>
       </footer>
+      {isPopoverOpen && <CustomPopover message={message} isSuccess={isSuccess} onClose={() => setIsPopoverOpen(false)} />}
     </div>
   );
 };

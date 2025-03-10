@@ -21,9 +21,7 @@ const Home = () => {
           <div className={styles.heroText}>
             <h2>Watch Your Favorite Concerts</h2>
             <h3>On Demand</h3>
-
             <p className={styles.tagline}>Great music lives here!</p>
-
             <ul className={styles.featuresList}>
               <li>
                 <span className={styles.checkIcon}>✓</span>
@@ -38,10 +36,11 @@ const Home = () => {
                 Sign up to start your risk-free trial today. Cancel anytime.
               </li>
             </ul>
-
             <div className={styles.signupForm}>
-              Sign Up Now
-              <Button label="Sign Up" color="primary" to="/?u=create-account" />
+              <Button label="Sign Up Now" color="primary" to="/?u=create-account" />
+            </div>
+            <div style={{ marginTop: '2rem' }}>
+              Already a member? <strong>Sign in here.</strong>
             </div>
           </div>
         </div>
