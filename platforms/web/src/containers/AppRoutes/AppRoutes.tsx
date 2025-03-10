@@ -29,6 +29,7 @@ import FavoritesSection from '@jwp/ott-ui-react/src/pages/User/sections/Favorite
 import PaymentsSection from '@jwp/ott-ui-react/src/pages/User/sections/PaymentsSection/PaymentsSection';
 import PrivacyPolicyComponent from '@jwp/ott-ui-react/src/pages/PrivacyPolicy/PrivacyPolicy';
 import TermsOfUseComponent from '@jwp/ott-ui-react/src/pages/TermsOfUse/TermsOfUse';
+import PricingComponent from '@jwp/ott-ui-react/src/pages/Pricing/Pricing';
 
 import RoutesContainer from '#src/containers/RoutesContainer/RoutesContainer';
 
@@ -47,6 +48,7 @@ export default function AppRoutes() {
           <Route path={PATH_SEARCH} element={<Search />} />
           <Route path={'/privacy-policy'} element={<PrivacyPolicyComponent />} />
           <Route path={'/terms-of-use'} element={<TermsOfUseComponent />} />
+          <Route path={'/pricing'} element={<PricingComponent />} />
           <Route path={PATH_USER} element={<User />}>
             <Route path={RELATIVE_PATH_USER_ACCOUNT} element={<AccountSection />} />
             <Route path={RELATIVE_PATH_USER_FAVORITES} element={<FavoritesSection />} />
