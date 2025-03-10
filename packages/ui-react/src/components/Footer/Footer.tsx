@@ -1,35 +1,87 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 import { IS_DEVELOPMENT_BUILD } from '@jwp/ott-common/src/utils/common';
-import { Facebook, Heart, Instagram, Twitter, Youtube } from 'lucide-react';
+import { Facebook, Heart, Instagram, Twitter, Youtube, CheckCircle, XCircle, Loader } from 'lucide-react';
 
 import MarkdownComponent from '../MarkdownComponent/MarkdownComponent';
+import Popover from '../Popover/Popover';
 
 import styles from './Footer.module.scss';
+
 type Props = {
   text: string;
 };
 
 const Footer: React.FC<Props> = ({ text }) => {
-  const chunks = text.split('|').map((chuck) => chuck.trim());
-  const footerContent = chunks.map((value, index) => <MarkdownComponent key={index} markdownString={value} inline tag={chunks.length > 1 ? 'li' : 'div'} />);
-  const wrapper = chunks.length > 1 ? <ul className={styles.list}>{footerContent}</ul> : footerContent;
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [isSuccess, setIsSuccess] = useState<boolean | null>(null);
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setLoading(true);
+
+    const formData = new FormData();
+    formData.append('EMAIL', email);
+    formData.append('tags', '21');
+
+    try {
+      const response = await fetch('https://bluefrogstudios.us5.list-manage.com/subscribe/post?u=db6aa24436dd305543368e54b&id=5e457a6032&f_id=00d4ede0f0', {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData,
+      });
+
+      setIsSuccess(true);
+      setMessage('🎉 Successfully subscribed!');
+      setEmail('');
+      setIsPopoverOpen(true);
+
+      setTimeout(() => {
+        setIsPopoverOpen(false);
+        setTimeout(() => setIsSuccess(null), 300);
+      }, 3000);
+    } catch (error) {
+      setIsSuccess(false);
+      setMessage('❌ Subscription failed. Please try again.');
+      setIsPopoverOpen(true);
+    } finally {
+      setLoading(false);
+
+      setTimeout(() => {
+        setIsPopoverOpen(false);
+        setTimeout(() => setIsSuccess(null), 300);
+      }, 3000);
+    }
+  };
 
   return (
     <div>
-      {' '}
       <section className={styles.newsletterSection}>
         <div className={styles.container}>
           <h2 className={styles.heading}>GET ON THE VIP LIST!</h2>
           <p className={styles.description}>Be the first to be notified about upcoming shows, live streams, concerts on-demand, and exclusive offers.</p>
-          <form className={styles.form}>
-            <input type="email" className={styles.input} placeholder="email@example.com" required />
+
+          {/* Mailchimp Form with Prevented Default Submission */}
+          <form className={styles.form} onSubmit={handleSubmit}>
+            <input
+              type="email"
+              name="EMAIL"
+              className={styles.input}
+              placeholder="email@example.com"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
             <button type="submit" className={styles.button}>
-              Subscribe
+              {loading ? <Loader className={styles.loader} size={20} /> : 'Subscribe'}
             </button>
           </form>
         </div>
       </section>
+
       <footer className={styles.footer}>
         <div className={styles.footerContent}>
           <div className={styles.section}>
@@ -299,6 +351,12 @@ const Footer: React.FC<Props> = ({ text }) => {
           </div>
           <div className={styles.text}>© {new Date().getFullYear()}, Blue Frog Studio</div>
         </div>
+        <Popover isOpen={isPopoverOpen} onClose={() => setIsPopoverOpen(false)}>
+          <div className={classNames(styles.popover, isSuccess ? styles.success : styles.error)}>
+            {isSuccess ? <CheckCircle size={18} /> : <XCircle size={18} />}
+            <span>{message}</span>
+          </div>
+        </Popover>
       </footer>
     </div>
   );
