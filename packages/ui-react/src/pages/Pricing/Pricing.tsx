@@ -1,11 +1,20 @@
 'use client';
 
-import { useState } from 'react';
 import { Check } from 'lucide-react';
+import { useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
+import useOffers from '@jwp/ott-hooks-react/src/useOffers';
+
+import Button from '../../components/Button/Button';
 
 import styles from './Pricing.module.scss';
 
 const PricingComponent = () => {
+  const location = useLocation();
+  const pathname = location.pathname;
+
+  const { subscriptionOffers } = useOffers();
+
   return (
     <div className={styles.container}>
       <h1 className={styles.heading}>
@@ -38,11 +47,13 @@ const PricingComponent = () => {
           </ul>
 
           <div className={styles.priceContainer}>
-            <span className={styles.price}>£6.99</span>
-            <span className={styles.period}>/month</span>
+            <span className={styles.price}>{subscriptionOffers?.[0]?.customerPriceInclTax}</span>
+            <span className={styles.period}>/{subscriptionOffers?.[0]?.period}</span>
           </div>
 
-          <button className={styles.monthlyButton}>Start streaming for free</button>
+          <Link className={styles.monthlyButton} to={`${pathname}/?u=create-account`}>
+            Start watching for free
+          </Link>
         </div>
 
         <div className={`${styles.planCard} ${styles.annualPlan}`}>
@@ -69,12 +80,42 @@ const PricingComponent = () => {
           </ul>
 
           <div className={styles.priceContainer}>
-            <span className={styles.price}>£49.99</span>
-            <span className={styles.period}>/year</span>
+            <span className={styles.price}>{subscriptionOffers?.[1]?.customerPriceInclTax}</span>
+            <span className={styles.period}>/{subscriptionOffers?.[1]?.period}</span>
           </div>
 
-          <button className={styles.annualButton}>Start streaming for free</button>
+          <Link className={styles.annualButton} to={`${pathname}/?u=create-account`}>
+            Start watching for free
+          </Link>
         </div>
+      </div>
+      <div className={styles.textBlock}>
+        <h1 className={styles.heading}>Take your concert viewing experience to the next level</h1>
+        <ul className={styles.featuresList}>
+          <li>
+            <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
+            <span>BlueFrog+ makes watching your favorite concerts on demand easier than ever.</span>
+          </li>
+          <li>
+            <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
+            <span>Enjoy a sleek interface filled with features like pre-built genre playlists and advanced search options.</span>
+          </li>
+          <li>
+            <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
+            <span>With over 100 concerts available and new premieres or live streams added weekly, there&apos;s always something new to explore.</span>
+          </li>
+          <li>
+            <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
+            <span>
+              Each concert is filmed in stunning 4K resolution with multi-tracked sound, performed before an intimate audience of just 100 people, in the
+              state-of-the-art{' '}
+              <a href="https://bluefrogstudios.ca/" target="_blank" rel="noreferrer" style={{ color: '#36C5F2' }}>
+                Blue Frog Studios.
+              </a>
+            </span>
+          </li>
+        </ul>
+        <Button label="Sign Up Now" color="primary" to={`${pathname}/?u=create-account`} />
       </div>
     </div>
   );

@@ -39,9 +39,9 @@ export default ({ mode, command }: ConfigEnv): UserConfigExport => {
   }
 
   const app: OTTConfig = {
-    name: process.env.APP_NAME || 'JW OTT Webapp',
-    shortname: process.env.APP_SHORT_NAME || 'JW OTT',
-    description: process.env.APP_DESCRIPTION || 'JW OTT Webapp is an open-source, dynamically generated video website.',
+    name: process.env.APP_NAME || 'BLUEFROG+',
+    shortname: process.env.APP_SHORT_NAME || 'BLUEFROG+',
+    description: process.env.APP_DESCRIPTION || 'BLUEFROG+',
   };
 
   // Fonts

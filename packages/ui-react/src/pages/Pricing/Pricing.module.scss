@@ -19,6 +19,7 @@
   font-size: 3rem;
   font-weight: 600;
   margin-bottom: 2.5rem;
+  margin-top: 5rem;
   line-height: 1.2;
 }
 
@@ -125,6 +126,7 @@
   cursor: pointer;
   width: 300px;
   transition: background-color 0.2s ease;
+  text-decoration: none;
 
   &:hover {
     background-color: #f7751a;
@@ -142,6 +144,7 @@
   cursor: pointer;
   width: 300px;
   transition: background-color 0.2s ease;
+  text-decoration: none;
 
   &:hover {
     background-color: #1a3649;
@@ -161,4 +164,10 @@
   .planCard {
     max-width: 100%;
   }
+}
+.textBlock {
+  padding-top: 10rem;
+  padding-bottom: 8rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Facebook, Heart, Instagram, Twitter, Youtube, Loader } from 'lucide-react';
+import { useConfigStore } from '@jwp/ott-common/src/stores/ConfigStore';
+import { shallow } from '@jwp/ott-common/src/utils/compare';
 
 import styles from './Footer.module.scss';
 import CustomPopover from './Popover';
@@ -53,6 +55,17 @@ const Footer: React.FC<Props> = () => {
     }
   };
 
+  const { config } = useConfigStore(
+    ({ config, accessModel, supportedLanguages }) => ({
+      config,
+      accessModel,
+      supportedLanguages,
+    }),
+    shallow,
+  );
+  const { assets } = config;
+  const banner = assets.banner;
+
   return (
     <div>
       <section className={styles.newsletterSection}>
@@ -60,7 +73,6 @@ const Footer: React.FC<Props> = () => {
           <h2 className={styles.heading}>GET ON THE VIP LIST!</h2>
           <p className={styles.description}>Be the first to be notified about upcoming shows, live streams, concerts on-demand, and exclusive offers.</p>
 
-          {/* Mailchimp Form with Prevented Default Submission */}
           <form className={styles.form} onSubmit={handleSubmit}>
             <input
               type="email"
@@ -84,39 +96,25 @@ const Footer: React.FC<Props> = () => {
             <h3 className={styles.sectionTitle}>MENU</h3>
             <ul className={styles.menuList}>
               <li>
-                <a target="_blank" rel="noreferrer" href="/search">
-                  Search
-                </a>
+                <a href="/">Home</a>
               </li>
               <li>
-                <a target="_blank" rel="noreferrer" href="https://bluefrogstudios.ca/collections/concerts">
-                  Concert Tickets
-                </a>
+                <a href="/p/ImnnYk7s/live">Live</a>
               </li>
               <li>
-                <a target="_blank" rel="noreferrer" href="https://bluefrogplus.com/">
-                  BLUEFROG+
-                </a>
+                <a href="/p/2hxmUxJ9/upcoming">Upcoming</a>
               </li>
               <li>
-                <a target="_blank" rel="noreferrer" href="https://bluefrogstudios.ca/blogs/theword">
-                  The Word with Wayne Cox
-                </a>
+                <a href="/p/EAkmWTzM/all-concerts">All Concerts</a>
               </li>
               <li>
-                <a target="_blank" rel="noreferrer" href="https://bluefrogstudios.ca/pages/about-us">
-                  About Us
-                </a>
+                <a href="/p/BYkbUKPm/free-clips">Free Clips</a>
               </li>
               <li>
-                <a target="_blank" rel="noreferrer" href="https://bluefrogstudios.ca/pages/faqs">
-                  FAQ
-                </a>
+                <a href="/pricing">Pricing</a>
               </li>
               <li>
-                <a target="_blank" rel="noreferrer" href="https://bluefrogstudios.ca/pages/streaming-help">
-                  Streaming Help
-                </a>
+                <a href="https://bluefrogstudios.ca/">Blue Frog Studios</a>
               </li>
             </ul>
           </div>
@@ -176,7 +174,7 @@ const Footer: React.FC<Props> = () => {
 
           <div className={styles.logoSection}>
             <div className={styles.logo}>
-              <img src="/images/BLUEFROGSTUDIO.webp" alt="Blue Frog Studios Logo" width={'150px'} height={''} />
+              <img src={banner || ''} alt="BLUEFROG+ Logo" width={'250px'} height={'auto'} />
             </div>
           </div>
         </div>
@@ -345,7 +343,7 @@ const Footer: React.FC<Props> = () => {
               ></path>
             </svg>
           </div>
-          <div className={styles.text}>© {new Date().getFullYear()}, Blue Frog Studio</div>
+          <div className={styles.text}>© {new Date().getFullYear()}, BLUEFROG+</div>
         </div>
       </footer>
       {isPopoverOpen && <CustomPopover message={message} isSuccess={isSuccess} onClose={() => setIsPopoverOpen(false)} />}
