@@ -114,7 +114,15 @@ const Footer: React.FC<Props> = () => {
                 <a href="/pricing">Pricing</a>
               </li>
               <li>
-                <a href="https://bluefrogstudios.ca/">Blue Frog Studios</a>
+                <a href="https://bluefrogstudios.ca/" target="_blank" rel="noreferrer">
+                  Blue Frog Studios
+                </a>
+              </li>
+              <li>
+                <a href="/privacy-policy">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="/terms-of-use">Terms Of Use</a>
               </li>
             </ul>
           </div>
