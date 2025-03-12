@@ -15,6 +15,7 @@ import LoadingOverlay from '../LoadingOverlay/LoadingOverlay';
 import Icon from '../Icon/Icon';
 
 import styles from './ChooseOfferForm.module.scss';
+import { Check } from 'lucide-react';
 
 type OfferBoxProps = {
   offer: Offer;
@@ -60,23 +61,27 @@ const OfferBox: React.FC<OfferBoxProps> = ({ offer, selected, onChange }: OfferB
         checked={selected}
         data-testid={testId(offer.offerId)}
       />
+
       <div className={styles.label}>
-        <label htmlFor={offer.offerId}>
+        {!(offer.period === 'month') && <div className={styles.saveBadge}>Save 16%</div>}
+
+        <label htmlFor={offer.offerId} style={{ padding: '16px' }}>
           <h2 className={styles.offerTitle} id={`title-${offer.offerId}`}>
             {title}
           </h2>
           <span className="hidden">.</span>
           <hr className={styles.offerDivider} aria-hidden={true} />
-          <ul className={styles.offerBenefits}>
+          {/* <ul className={styles.offerBenefits}>
             {offer.freeDays || offer.freePeriods ? renderListItem(getFreeTrialText(offer) || '', CheckCircle) : null}
             {!!secondBenefit && renderListItem(secondBenefit, CheckCircle)}
             {renderListItem(t('choose_offer.benefits.watch_on_all_devices'), CheckCircle)}
-          </ul>
+          </ul> */}
           <div className={styles.fill} />
           <div className={styles.offerPrice}>
             {getOfferPrice(offer)} {!!periodString && <small>/{periodString}</small>}
           </div>
         </label>
+        {selected && <div className={styles.selectedIndicator}>Selected</div>}
       </div>
     </div>
   );
@@ -119,8 +124,25 @@ const ChooseOfferForm: React.FC<Props> = ({ values, errors, submitting, offers, 
   return (
     <form onSubmit={onSubmit} data-testid={testId('choose-offer-form')} noValidate>
       {onBackButtonClickHandler ? <DialogBackButton onClick={onBackButtonClickHandler} /> : null}
-      <h1 className={styles.title}>{t('choose_offer.title')}</h1>
-      <p className={styles.subtitle}>{t('choose_offer.watch_this_on_platform', { siteName })}</p>
+      <h1 className={styles.title}>
+        <span style={{ fontStyle: 'italic' }}>Your</span> plan after the free trial
+      </h1>
+      {/* <p className={styles.subtitle}>{t('choose_offer.watch_this_on_platform', { siteName })}</p> */}
+
+      <ul className={styles.featuresList}>
+        <li>
+          <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
+          <span>Your free trial gives full access to Blue Frog Plus. Watch on any device.</span>
+        </li>
+        <li>
+          <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
+          <span> If you enjoy your free trial and decide to sign up, what would be your preferred plan?</span>
+        </li>
+        <li>
+          <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
+          <span>Cancel your trial at any time, no string attached.</span>
+        </li>
+      </ul>
       {errors.form ? <FormFeedback variant="error">{errors.form}</FormFeedback> : null}
       {showOfferTypeSwitch && (
         <div className={styles.offerGroupSwitch}>

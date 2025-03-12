@@ -11,6 +11,7 @@ import { useAccountStore } from '@jwp/ott-common/src/stores/AccountStore';
 import ChooseOfferForm from '../../../components/ChooseOfferForm/ChooseOfferForm';
 import LoadingOverlay from '../../../components/LoadingOverlay/LoadingOverlay';
 import useQueryParam from '../../../hooks/useQueryParam';
+import StepIndicator from '../StepIndicator/StepIndicator';
 
 const ChooseOffer = () => {
   const navigate = useNavigate();
@@ -81,15 +82,25 @@ const ChooseOffer = () => {
   }
 
   return (
-    <ChooseOfferForm
-      onSubmit={handleSubmit}
-      onChange={handleChange}
-      values={values}
-      errors={errors}
-      submitting={submitting}
-      offers={visibleOffers}
-      showOfferTypeSwitch={hasMultipleOfferTypes}
-    />
+    <>
+      <StepIndicator
+        currentStep={2}
+        steps={[
+          { id: 'registration', label: 'Email & password' },
+          { id: 'choose-offer', label: 'Plan' },
+          { id: 'checkout', label: 'Verification' },
+        ]}
+      />
+      <ChooseOfferForm
+        onSubmit={handleSubmit}
+        onChange={handleChange}
+        values={values}
+        errors={errors}
+        submitting={submitting}
+        offers={visibleOffers}
+        showOfferTypeSwitch={hasMultipleOfferTypes}
+      />
+    </>
   );
 };
 
