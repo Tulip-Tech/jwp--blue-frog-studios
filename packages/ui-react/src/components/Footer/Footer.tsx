@@ -131,10 +131,14 @@ const Footer: React.FC<Props> = () => {
                 </a>
               </li>
               <li>
-                <a href="/privacy-policy">Privacy Policy</a>
+                <a href="/privacy-policy" target="_blank" rel="noreferrer">
+                  Privacy Policy
+                </a>
               </li>
               <li>
-                <a href="/terms-of-use">Terms Of Use</a>
+                <a href="/terms-of-use" target="_blank" rel="noreferrer">
+                  Terms Of Use
+                </a>
               </li>
             </ul>
           </div>

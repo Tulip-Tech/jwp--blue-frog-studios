@@ -265,22 +265,28 @@ $light-gray: #ccc;
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .heroText {
     h2 {
-      font-size: 2.5rem;
+      font-size: 2.3rem;
+      text-align: left !important;
     }
 
     h3 {
-      font-size: 2.8rem;
+      font-size: 2.3rem;
+      text-align: left !important;
     }
+  }
+
+  .tagline {
+    text-align: left !important;
   }
 
   .tvFrame {
     width: 300px;
     height: 200px;
   }
-}
-
-export default {
+  .heroSection {
+    padding: 40px 0;
+  }
 }

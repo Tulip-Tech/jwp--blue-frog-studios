@@ -57,8 +57,8 @@ const PricingComponent = () => {
         </div>
 
         <div className={`${styles.planCard} ${styles.annualPlan}`}>
-          <div className={styles.saveBadge}>Save 40%</div>
-          <h2 className={styles.planTitle}>Annually</h2>
+          <div className={styles.saveBadge}>Save 16%</div>
+          <h2 className={styles.planTitle}>Annual</h2>
 
           <ul className={styles.featuresList}>
             <li>

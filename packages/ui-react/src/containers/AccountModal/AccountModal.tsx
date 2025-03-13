@@ -163,8 +163,19 @@ const AccountModal = () => {
   };
 
   const shouldShowBanner = !['delete-account', 'delete-account-confirmation', 'edit-card', 'warning-account-deletion'].includes(view ?? '');
-  const dialogSize = ['delete-account-confirmation'].includes(view ?? '') ? 'large' : 'small';
+  const getDialogSize = () => {
+    if (['delete-account-confirmation'].includes(view ?? '')) {
+      return 'large';
+    }
 
+    if (['create-account', 'choose-offer', 'checkout', 'login', 'forgot-password'].includes(view ?? '')) {
+      return 'medium';
+    }
+
+    return 'small';
+  };
+
+  const dialogSize = getDialogSize();
   return (
     <Dialog size={dialogSize} open={!!viewParam} onClose={closeHandler} hideCloseButton={view === 'create-account'}>
       {shouldShowBanner && banner && (

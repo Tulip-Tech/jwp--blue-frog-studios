@@ -4,7 +4,7 @@
 .container {
   width: 100%;
   min-height: 100vh;
-  padding: 2rem;
+  // padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,7 +49,7 @@
 }
 
 .annualPlan {
-  background-color: #001f34;
+  background-color: #062336;
   color: white;
 }
 
@@ -154,6 +154,8 @@
 @media (max-width: 768px) {
   .heading {
     font-size: 2rem;
+    padding: 0 1.5rem;
+    margin-top: 2rem !important;
   }
 
   .plansContainer {
@@ -164,10 +166,44 @@
   .planCard {
     max-width: 100%;
   }
+  .textBlock {
+    text-align: center;
+  }
+
+  .textBlock li {
+    text-align: center;
+  }
+  .textBlock {
+    margin-top: 5rem !important;
+  }
 }
 .textBlock {
-  padding-top: 10rem;
+  margin-top: 10rem;
+  // margin-bottom: 8rem;
+  padding-left: 400px;
+  padding-right: 400px;
   padding-bottom: 8rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  // margin: 0 auto;
+  background: #fff;
+  color: #1a3649;
+}
+
+@media (max-width: 1024px) {
+  .heading {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+  }
+
+  .plansContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .planCard {
+    max-width: 90%;
+  }
+
+  .textBlock {
+    padding: 1.5rem;
+  }
 }

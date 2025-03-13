@@ -89,7 +89,14 @@ const SidebarContainer = () => {
             <MenuButton label={custom?.[translationKey] || label} to={determinePath({ type, contentId })} />
           </li>
         ))}
+        <MenuButton label={'Pricing'} to={'/pricing'} />
+        <a href="https://bluefrogstudios.ca/" target="_blank" rel="noopener noreferrer">
+          <MenuButton label={'Blue Frog Studios'} />
+        </a>
       </ul>
+
+      {/* <Button activeClassname={styles.navButton} label={'Pricing'} to={'/pricing'} variant="text" />
+      <Button activeClassname={styles.navButton} label={'Blue Frog Studios'} to={'https://bluefrogstudios.ca/'} variant="text" /> */}
       <hr className={styles.separator} />
       <SidebarUserActions
         sideBarOpen={sideBarOpen}
