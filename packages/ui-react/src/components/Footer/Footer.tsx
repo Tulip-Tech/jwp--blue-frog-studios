@@ -96,22 +96,34 @@ const Footer: React.FC<Props> = () => {
             <h3 className={styles.sectionTitle}>MENU</h3>
             <ul className={styles.menuList}>
               <li>
-                <a href="/">Home</a>
+                <a target="_blank" rel="noreferrer" href="/">
+                  Home
+                </a>
               </li>
               <li>
-                <a href="/p/ImnnYk7s/live">Live</a>
+                <a target="_blank" rel="noreferrer" href="/p/ImnnYk7s/live">
+                  Live
+                </a>
               </li>
               <li>
-                <a href="/p/2hxmUxJ9/upcoming">Upcoming</a>
+                <a target="_blank" rel="noreferrer" href="/p/2hxmUxJ9/upcoming">
+                  Upcoming
+                </a>
               </li>
               <li>
-                <a href="/p/EAkmWTzM/all-concerts">All Concerts</a>
+                <a target="_blank" rel="noreferrer" href="/p/EAkmWTzM/all-concerts">
+                  All Concerts
+                </a>
               </li>
               <li>
-                <a href="/p/BYkbUKPm/free-clips">Free Clips</a>
+                <a target="_blank" rel="noreferrer" href="/p/BYkbUKPm/free-clips">
+                  Free Clips
+                </a>
               </li>
               <li>
-                <a href="/pricing">Pricing</a>
+                <a target="_blank" rel="noreferrer" href="/pricing">
+                  Pricing
+                </a>
               </li>
               <li>
                 <a href="https://bluefrogstudios.ca/" target="_blank" rel="noreferrer">
@@ -130,8 +142,8 @@ const Footer: React.FC<Props> = () => {
           <div className={styles.section}>
             <h3 className={styles.sectionTitle}>CONTACT</h3>
             <div className={styles.address}>
-              <p>1328 Johnshrefn Road</p>
-              <p>White Rock British Columbia</p>
+              <p>1328 Johnson Road</p>
+              <p>White Rock, British Columbia</p>
               <p>V4B 3Z2 Canada</p>
             </div>
             <div className={styles.socialIcons}>
@@ -148,12 +160,12 @@ const Footer: React.FC<Props> = () => {
                 <Youtube size={18} />
               </a>
             </div>
-            <button className={styles.followButton}>
+            {/* <button className={styles.followButton}>
               <span className={styles.heartIcon}>
                 <Heart size={14} />
               </span>
               Follow on shop
-            </button>
+            </button> */}
           </div>
 
           <div className={styles.section}>
@@ -172,12 +184,12 @@ const Footer: React.FC<Props> = () => {
                 <Youtube size={18} />
               </a>
             </div>
-            <button className={styles.followButton}>
+            {/* <button className={styles.followButton}>
               <span className={styles.heartIcon}>
                 <Heart size={14} />
               </span>
               Follow on shop
-            </button>
+            </button> */}
           </div>
 
           <div className={styles.logoSection}>
@@ -188,7 +200,7 @@ const Footer: React.FC<Props> = () => {
         </div>
 
         <div className={styles.bottomBar}>
-          <div className={styles.paymentMethods}>
+          {/* <div className={styles.paymentMethods}>
             <svg
               className={styles.paymentIcon}
               version="1.1"
@@ -350,7 +362,7 @@ const Footer: React.FC<Props> = () => {
                 fill="#142688"
               ></path>
             </svg>
-          </div>
+          </div> */}
           <div className={styles.text}>© {new Date().getFullYear()}, BLUEFROG+</div>
         </div>
       </footer>
