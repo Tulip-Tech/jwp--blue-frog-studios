@@ -16,6 +16,7 @@ import PaymentForm, { type PaymentFormData } from '../../../components/PaymentFo
 import AdyenInitialPayment from '../../AdyenInitialPayment/AdyenInitialPayment';
 import { useAriaAnnouncer } from '../../AnnouncementProvider/AnnoucementProvider';
 import useRecaptcha from '../../../hooks/useRecaptcha';
+import StepIndicator from '../StepIndicator/StepIndicator';
 
 const Checkout = () => {
   const location = useLocation();
@@ -118,67 +119,77 @@ const Checkout = () => {
   const isPayPalPayment = !noPaymentRequired && paymentMethod?.methodName === 'paypal';
 
   return (
-    <CheckoutForm
-      order={order}
-      offer={selectedOffer}
-      offerType={offerType}
-      error={errors.form}
-      onBackButtonClick={backButtonClickHandler}
-      paymentMethods={paymentMethods}
-      paymentMethodId={paymentMethodId}
-      onPaymentMethodChange={handlePaymentMethodChange}
-      onCouponFormSubmit={handleSubmit}
-      onCouponInputChange={handleChange}
-      onRedeemCouponButtonClick={() => setCouponFormOpen(true)}
-      onCloseCouponFormClick={() => setCouponFormOpen(false)}
-      couponInputValue={couponCode}
-      couponFormOpen={couponFormOpen}
-      couponFormApplied={showCouponCodeSuccess}
-      couponFormSubmitting={couponFormSubmitting}
-      couponFormError={errors.couponCode}
-      submitting={isSubmitting || adyenUpdating}
-      captchaSiteKey={captchaSiteKey}
-      recaptchaRef={recaptchaRef}
-    >
-      {noPaymentRequired && (
-        <NoPaymentRequired
-          onSubmit={async () => {
-            const captchaValue = await getCaptchaValue();
+    <>
+      <StepIndicator
+        currentStep={3}
+        steps={[
+          { id: 'registration', label: 'Email & password' },
+          { id: 'choose-offer', label: 'Plan' },
+          { id: 'checkout', label: 'Verification' },
+        ]}
+      />
+      <CheckoutForm
+        order={order}
+        offer={selectedOffer}
+        offerType={offerType}
+        error={errors.form}
+        onBackButtonClick={backButtonClickHandler}
+        paymentMethods={paymentMethods}
+        paymentMethodId={paymentMethodId}
+        onPaymentMethodChange={handlePaymentMethodChange}
+        onCouponFormSubmit={handleSubmit}
+        onCouponInputChange={handleChange}
+        onRedeemCouponButtonClick={() => setCouponFormOpen(true)}
+        onCloseCouponFormClick={() => setCouponFormOpen(false)}
+        couponInputValue={couponCode}
+        couponFormOpen={couponFormOpen}
+        couponFormApplied={showCouponCodeSuccess}
+        couponFormSubmitting={couponFormSubmitting}
+        couponFormError={errors.couponCode}
+        submitting={isSubmitting || adyenUpdating}
+        captchaSiteKey={captchaSiteKey}
+        recaptchaRef={recaptchaRef}
+      >
+        {noPaymentRequired && (
+          <NoPaymentRequired
+            onSubmit={async () => {
+              const captchaValue = await getCaptchaValue();
 
-            return submitPaymentWithoutDetails.mutateAsync({ captchaValue });
-          }}
-          error={submitPaymentWithoutDetails.error?.message || null}
-        />
-      )}
-      {isStripePayment && (
-        <PaymentForm
-          onPaymentFormSubmit={async (cardPaymentPayload: PaymentFormData) =>
-            await submitPaymentStripe.mutateAsync({ cardPaymentPayload, referrer, returnUrl: waitingUrl })
-          }
-        />
-      )}
-      {isAdyenPayment && (
-        <>
-          <AdyenInitialPayment
-            paymentSuccessUrl={offerType === 'svod' ? welcomeUrl : closeModalUrl}
-            setUpdatingOrder={setAdyenUpdating}
-            orderId={order.id}
-            type="card"
-            getCaptchaValue={getCaptchaValue}
+              return submitPaymentWithoutDetails.mutateAsync({ captchaValue });
+            }}
+            error={submitPaymentWithoutDetails.error?.message || null}
           />
-        </>
-      )}
-      {isPayPalPayment && (
-        <PayPal
-          onSubmit={async () => {
-            const captchaValue = await getCaptchaValue();
+        )}
+        {isStripePayment && (
+          <PaymentForm
+            onPaymentFormSubmit={async (cardPaymentPayload: PaymentFormData) =>
+              await submitPaymentStripe.mutateAsync({ cardPaymentPayload, referrer, returnUrl: waitingUrl })
+            }
+          />
+        )}
+        {isAdyenPayment && (
+          <>
+            <AdyenInitialPayment
+              paymentSuccessUrl={offerType === 'svod' ? welcomeUrl : closeModalUrl}
+              setUpdatingOrder={setAdyenUpdating}
+              orderId={order.id}
+              type="card"
+              getCaptchaValue={getCaptchaValue}
+            />
+          </>
+        )}
+        {isPayPalPayment && (
+          <PayPal
+            onSubmit={async () => {
+              const captchaValue = await getCaptchaValue();
 
-            submitPaymentPaypal.mutate({ successUrl: successUrlPaypal, waitingUrl, cancelUrl, errorUrl, couponCode, captchaValue });
-          }}
-          error={submitPaymentPaypal.error?.message || null}
-        />
-      )}
-    </CheckoutForm>
+              submitPaymentPaypal.mutate({ successUrl: successUrlPaypal, waitingUrl, cancelUrl, errorUrl, couponCode, captchaValue });
+            }}
+            error={submitPaymentPaypal.error?.message || null}
+          />
+        )}
+      </CheckoutForm>
+    </>
   );
 };
 

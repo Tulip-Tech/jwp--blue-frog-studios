@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.stepWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  color: #7a9299;
+  transition: color 0.3s ease;
+
+  &.active {
+    color: #ffffff;
+  }
+}
+
+.number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #7a9299;
+  color: #7a9299;
+  font-size: 14px;
+  font-weight: 500;
+  margin-right: 8px;
+
+  .active & {
+    background-color: #ffffff;
+    color: #000814;
+    border: none;
+  }
+}
+
+.label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.connector {
+  width: 40px;
+  height: 1px;
+  background-color: #7a9299;
+  margin: 0 12px;
+
+  &.active {
+    background-color: #7a9299;
+  }
+}

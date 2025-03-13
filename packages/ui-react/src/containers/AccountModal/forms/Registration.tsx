@@ -1,4 +1,4 @@
-import React, { useEffect, useState, type ChangeEventHandler } from 'react';
+import React, { useCallback, useEffect, useState, type ChangeEventHandler } from 'react';
 import { object, string } from 'yup';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router';
@@ -10,10 +10,14 @@ import useSocialLoginUrls from '@jwp/ott-hooks-react/src/useSocialLoginUrls';
 import useForm from '@jwp/ott-hooks-react/src/useForm';
 import { modalURLFromLocation, modalURLFromWindowLocation } from '@jwp/ott-ui-react/src/utils/location';
 import { useAccountStore } from '@jwp/ott-common/src/stores/AccountStore';
+import useOffers from '@jwp/ott-hooks-react/src/useOffers';
+import { useConfigStore } from '@jwp/ott-common/src/stores/ConfigStore';
+import { ACCESS_MODEL } from '@jwp/ott-common/src/constants';
 
 import RegistrationForm from '../../../components/RegistrationForm/RegistrationForm';
 import { useAriaAnnouncer } from '../../AnnouncementProvider/AnnoucementProvider';
 import useRecaptcha from '../../../hooks/useRecaptcha';
+import StepIndicator from '../StepIndicator/StepIndicator';
 
 const Registration = () => {
   const accountController = getModule(AccountController);
@@ -32,6 +36,9 @@ const Registration = () => {
   }));
 
   const { recaptchaRef, captchaSiteKey, getCaptchaValue } = useRecaptcha();
+  const accessModel = useConfigStore((s) => s.accessModel);
+  const { mediaOffers } = useOffers();
+  const hasMediaOffers = mediaOffers.length > 0;
 
   const handleChangeConsent: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = ({ currentTarget }) => {
     if (!currentTarget) return;
@@ -60,6 +67,12 @@ const Registration = () => {
 
   const socialLoginURLs = useSocialLoginUrls(modalURLFromWindowLocation('personal-details'));
 
+  const nextStep = useCallback(() => {
+    const hasOffers = accessModel === ACCESS_MODEL.SVOD || (accessModel === ACCESS_MODEL.AUTHVOD && hasMediaOffers);
+
+    navigate(modalURLFromLocation(location, hasOffers ? 'choose-offer' : 'welcome'), { replace: true });
+  }, [navigate, location, accessModel, hasMediaOffers]);
+
   const { handleSubmit, handleChange, handleBlur, values, errors, validationSchemaError, submitting } = useForm<RegistrationFormData>({
     initialValues: { email: '', password: '' },
     validationSchema: object().shape({
@@ -86,28 +99,38 @@ const Registration = () => {
     },
     onSubmitSuccess: () => {
       announce(t('registration.success'), 'success');
-      navigate(modalURLFromLocation(location, 'personal-details'));
+      nextStep();
     },
   });
 
   return (
-    <RegistrationForm
-      onSubmit={handleSubmit}
-      onChange={handleChange}
-      onConsentChange={handleChangeConsent}
-      onBlur={handleBlur}
-      values={values}
-      errors={errors}
-      consentErrors={consentErrors}
-      validationError={validationSchemaError}
-      submitting={submitting}
-      consentValues={consentValues}
-      publisherConsents={publisherConsents}
-      loading={loading || publisherConsentsLoading}
-      socialLoginURLs={socialLoginURLs}
-      captchaSiteKey={captchaSiteKey}
-      recaptchaRef={recaptchaRef}
-    />
+    <>
+      <StepIndicator
+        currentStep={1}
+        steps={[
+          { id: 'registration', label: 'Email & password' },
+          { id: 'choose-offer', label: 'Plan' },
+          { id: 'checkout', label: 'Verification' },
+        ]}
+      />
+      <RegistrationForm
+        onSubmit={handleSubmit}
+        onChange={handleChange}
+        onConsentChange={handleChangeConsent}
+        onBlur={handleBlur}
+        values={values}
+        errors={errors}
+        consentErrors={consentErrors}
+        validationError={validationSchemaError}
+        submitting={submitting}
+        consentValues={consentValues}
+        publisherConsents={publisherConsents}
+        loading={loading || publisherConsentsLoading}
+        socialLoginURLs={socialLoginURLs}
+        captchaSiteKey={captchaSiteKey}
+        recaptchaRef={recaptchaRef}
+      />
+    </>
   );
 };
 

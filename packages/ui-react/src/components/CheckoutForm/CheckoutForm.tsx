@@ -7,6 +7,7 @@ import Close from '@jwp/ott-theme/assets/icons/close.svg?react';
 import PayPal from '@jwp/ott-theme/assets/icons/paypal.svg?react';
 import CreditCard from '@jwp/ott-theme/assets/icons/creditcard.svg?react';
 import type { ReCAPTCHA } from 'react-google-recaptcha';
+import { Check, LockKeyhole } from 'lucide-react';
 
 import Button from '../Button/Button';
 import IconButton from '../IconButton/IconButton';
@@ -94,11 +95,25 @@ const CheckoutForm: React.FC<Props> = ({
   const cardPaymentMethod = paymentMethods?.find((method) => method.methodName === 'card');
   const paypalPaymentMethod = paymentMethods?.find((method) => method.methodName === 'paypal');
 
-  const orderTitle = offerType === 'svod' ? (offer.period === 'month' ? t('checkout.monthly') : t('checkout.yearly')) : offer.offerTitle;
+  const orderTitle =
+    offerType === 'svod' ? (offer.period === 'month' ? 'Monthly after the free trial period' : 'Yearly after the free trial period') : offer.offerTitle;
   return (
     <div>
       {error ? <FormFeedback variant="error">{error}</FormFeedback> : null}
-      <h1 className={styles.title}>{t('checkout.payment_method')}</h1>
+      <h1 className={styles.title}>Start your free trial</h1>
+      <ul className={styles.featuresList}>
+        <li>
+          <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
+          <span>
+            To start your free trial, our system requires that we verify your payment details. If you decide to cancel during your free trial, there will be no
+            charge.
+          </span>
+        </li>
+        <li>
+          <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
+          <span> Your free trial gives you full access to everything on Blue Frog Plus</span>
+        </li>
+      </ul>
       <div className={styles.order}>
         <div className={styles.orderInfo}>
           <p className={classNames(styles.orderTitle, { [styles.orderTitleMargin]: offerType === 'svod' })}>{orderTitle}</p>
@@ -108,6 +123,19 @@ const CheckoutForm: React.FC<Props> = ({
           <span>{formatPrice(offer.customerPriceInclTax, order.currency, offer.customerCountry)}</span>
           {offerType === 'svod' && <small>/{getOfferPeriod()}</small>}
         </div>
+      </div>
+      <div className={styles.dueToday}>
+        <span>Due Today: </span>
+        <span>$0</span>
+      </div>
+      <div className={styles.poweredBy}>
+        <p>
+          Powered by: <strong>InPlayer</strong>
+        </p>
+        <p style={{ display: 'flex', alignItems: 'center', gap: '4px', justifyContent: 'center' }}>
+          <LockKeyhole size={16} />
+          Secured checkout
+        </p>
       </div>
       <div className={styles.couponForm}>
         {couponFormOpen ? (

@@ -21,7 +21,7 @@
   justify-content: center;
   margin-bottom: 24px;
 
-  > input  {
+  > input {
     &:checked + .label {
       border-radius: 4px;
       transform: scale(1.02);
@@ -54,22 +54,48 @@
   clip-path: inset(50%);
 
   &:checked + .label {
-    color: variables.$black;
-    background-color: variables.$white;
-    border-color: variables.$white;
+    color: variables.$white;
+    // background-color: variables.$white;
+    // border-color: #f7751a;
+    border: 2px solid #f7751a;
   }
+}
+.selectedIndicator {
+  background-color: #f7751a !important;
+  color: white;
+  text-align: center;
+  padding: 5px 0;
+  font-weight: bold;
+  width: 100%;
+  // margin-top: -25px;
+  text-transform: uppercase;
+  font-size: 14px;
 }
 
 .label {
   display: flex;
+  position: relative;
   flex-direction: column;
   height: 100%;
-  padding: 16px;
+  // padding: 16px;
   background-color: rgba(variables.$black, 0.34);
   border: 1px solid rgba(variables.$white, 0.34);
   border-radius: 4px;
   cursor: pointer;
   transition: border 0.2s ease, background 0.2s ease, transform 0.2s ease-out;
+}
+
+.saveBadge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #00d68f;
+  color: black;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 10px;
+  z-index: 1;
 }
 
 .offerGroupLabel {
@@ -130,6 +156,7 @@
   justify-content: center;
   align-items: baseline;
   font-size: 32px;
+  margin-bottom: 20px;
 
   > small {
     margin-left: 4px;
@@ -137,3 +164,27 @@
   }
 }
 
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 2rem 0;
+
+  li {
+    display: flex;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+    line-height: 1.4;
+    font-size: large;
+    font-weight: 600;
+  }
+}
+.checkIcon {
+  color: #c25e1c;
+  min-width: 20px;
+  margin-right: 0.75rem;
+  margin-top: 2px;
+}
+
+.annualCheck {
+  color: #c25e1c;
+}
