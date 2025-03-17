@@ -11,4 +11,5 @@
   min-height: calc(100vh - variables.$header-height - variables.$footer-height);
   padding-top: 0.1px;
   outline: none;
+  padding-top: variables.$header-height;
 }

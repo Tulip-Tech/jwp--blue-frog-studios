@@ -41,7 +41,7 @@ const Home = () => {
                 </li>
               </ul>
               <div className={styles.signupForm}>
-                <Button label="Sign Up Now" color="primary" to="/pricing" />
+                <Button label="Get Started" color="primary" to="/pricing" />
               </div>
               <div style={{ marginTop: '2rem' }}>
                 <span style={{ marginRight: '-.7rem' }}>Already a member? </span>

@@ -80,6 +80,10 @@
   align-items: center;
   padding: calc(variables.$base-spacing / 2) 0;
   overflow: hidden;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 
   > ul {
     margin: 0;
@@ -90,6 +94,9 @@
     li {
       display: inline-block;
     }
+  }
+  .nav::-webkit-scrollbar {
+    display: none; // Hide scrollbar in WebKit browsers
   }
 
   a {
@@ -195,7 +202,8 @@
   .searchActive {
     .menu,
     .brand,
-    .actions > *:not(:first-child) { // all action buttons except the search bar
+    .actions > *:not(:first-child) {
+      // all action buttons except the search bar
       display: none;
     }
   }

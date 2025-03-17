@@ -72,7 +72,13 @@ const Button: React.FC<ButtonProps> = ({
   );
 
   if (to) {
-    return (
+    const isExternal = to.startsWith('http');
+
+    return isExternal ? (
+      <NavLink className={({ isActive }) => buttonClassName(isActive)} to={to} {...rest} end target="_blank" rel="noopener noreferrer">
+        {content}
+      </NavLink>
+    ) : (
       <NavLink className={({ isActive }) => buttonClassName(isActive)} to={to} {...rest} end>
         {content}
       </NavLink>

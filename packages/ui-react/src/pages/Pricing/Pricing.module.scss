@@ -18,8 +18,15 @@
   text-align: center;
   font-size: 3rem;
   font-weight: 600;
-  margin-bottom: 2.5rem;
   margin-top: 5rem;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.subHeading {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 3.5rem;
   line-height: 1.2;
 }
 
@@ -51,10 +58,6 @@
 .annualPlan {
   background-color: #062336;
   color: white;
-}
-
-.selectedPlan {
-  box-shadow: 0 0 0 2px #00a2ff;
 }
 
 .saveBadge {
@@ -91,14 +94,14 @@
 }
 
 .checkIcon {
-  color: #c25e1c;
+  color: #0c4670;
   min-width: 20px;
   margin-right: 0.75rem;
   margin-top: 2px;
 }
 
 .annualCheck {
-  color: #c25e1c;
+  color: #0c4670;
 }
 
 .priceContainer {
@@ -116,7 +119,7 @@
 }
 
 .monthlyButton {
-  background-color: #c25e1c;
+  background-color: #0c4670;
   color: white;
   border: none;
   border-radius: 8px;
@@ -129,7 +132,7 @@
   text-decoration: none;
 
   &:hover {
-    background-color: #f7751a;
+    background-color: #145b8f;
   }
 }
 
@@ -147,7 +150,7 @@
   text-decoration: none;
 
   &:hover {
-    background-color: #1a3649;
+    background-color: #0c4670;
   }
 }
 
@@ -155,7 +158,14 @@
   .heading {
     font-size: 2rem;
     padding: 0 1.5rem;
+    margin-top: 20px;
+  }
+
+  .subHeading {
+    font-size: 1.4rem;
+    padding: 0 1.5rem;
     margin-top: 2rem !important;
+    margin-bottom: 20px;
   }
 
   .plansContainer {
@@ -180,8 +190,8 @@
 .textBlock {
   margin-top: 10rem;
   // margin-bottom: 8rem;
-  padding-left: 400px;
-  padding-right: 400px;
+  padding-left: 360px;
+  padding-right: 360px;
   padding-bottom: 8rem;
   width: 100%;
   // margin: 0 auto;
@@ -192,6 +202,10 @@
 @media (max-width: 1024px) {
   .heading {
     font-size: clamp(1.8rem, 4vw, 2.5rem);
+  }
+
+  .subHeading {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
   }
 
   .plansContainer {

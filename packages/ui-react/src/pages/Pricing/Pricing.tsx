@@ -1,11 +1,14 @@
-'use client';
-
 import { Check } from 'lucide-react';
+import { useState } from 'react';
 import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import useOffers from '@jwp/ott-hooks-react/src/useOffers';
+import usePlaylist from '@jwp/ott-hooks-react/src/usePlaylist';
+import { useTranslation } from 'react-i18next';
 
 import Button from '../../components/Button/Button';
+import Loading from '../Loading/Loading';
+import ErrorPage from '../../components/ErrorPage/ErrorPage';
 
 import styles from './Pricing.module.scss';
 
@@ -14,35 +17,50 @@ const PricingComponent = () => {
   const pathname = location.pathname;
 
   const { subscriptionOffers } = useOffers();
+  const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'annual'>('monthly');
+
+  const { isFetching, error, data } = usePlaylist('BYkbUKPm', {}, true, true, 'playlist');
+
+  const { t } = useTranslation('error');
+
+  if (isFetching) {
+    return <Loading />;
+  }
+
+  if (error || !data) {
+    return <ErrorPage title={t('playlist_not_found')} />;
+  }
+
+  if (data.playlist.length === 0) {
+    return <ErrorPage title={t('empty_shelves_heading')} message={t('empty_shelves_description')} />;
+  }
 
   return (
     <div className={styles.container}>
       <h1 className={styles.heading}>
-        Choose a plan to begin your <span className={styles.italic}>free trial</span>
-        <br />
-        and start watching.
+        Start your 7-day <span className={styles.italic}>free trial</span> today!
       </h1>
+      <h1 className={styles.subHeading}>Watch your favorite concerts anytime, anywhere.</h1>
 
       <div className={styles.plansContainer}>
-        <div className={`${styles.planCard}`}>
+        <div
+          className={`${styles.planCard} ${selectedPlan === 'monthly' ? styles.selectedPlan : styles.annualPlan}`}
+          onClick={() => setSelectedPlan('monthly')}
+        >
           <h2 className={styles.planTitle}>Monthly</h2>
 
           <ul className={styles.featuresList}>
             <li>
               <Check className={styles.checkIcon} />
-              <span>Stream exclusive concerts from the comfort of your home. Watch on your favorite device.</span>
+              <span>Stream on-demand, on any device.</span>
             </li>
             <li>
               <Check className={styles.checkIcon} />
-              <span>Start your 7 day free trial</span>
+              <span>Cancel anytime during your trial - no charges, no hassle.</span>
             </li>
             <li>
               <Check className={styles.checkIcon} />
-              <span>If you cancel during your trial, there will be no charge!</span>
-            </li>
-            <li>
-              <Check className={styles.checkIcon} />
-              <span>After your free trial:</span>
+              <span>Love it? Keep watching after your free trial for just:</span>
             </li>
           </ul>
 
@@ -51,46 +69,43 @@ const PricingComponent = () => {
             <span className={styles.period}>/{subscriptionOffers?.[0]?.period}</span>
           </div>
 
-          <Link className={styles.monthlyButton} to={`${pathname}/?u=create-account`}>
-            Start watching for free
+          <Link className={selectedPlan === 'monthly' ? styles.monthlyButton : styles.annualButton} to={`${pathname}/?u=create-account`}>
+            Get Started
           </Link>
         </div>
 
-        <div className={`${styles.planCard} ${styles.annualPlan}`}>
+        <div className={`${styles.planCard} ${selectedPlan === 'annual' ? styles.selectedPlan : styles.annualPlan}`} onClick={() => setSelectedPlan('annual')}>
           <div className={styles.saveBadge}>Save 16%</div>
           <h2 className={styles.planTitle}>Annual</h2>
-
           <ul className={styles.featuresList}>
             <li>
               <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
-              <span>Stream exclusive concerts from the comfort of your home. Watch on your favorite device.</span>
+              <span>Stream on-demand, on any device.</span>
             </li>
             <li>
               <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
-              <span>Start your 7 day free trial</span>
+              <span>Cancel anytime during your trial - no charges, no hassle.</span>
             </li>
             <li>
               <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
-              <span>If you cancel during your trial, there will be no charge!</span>
-            </li>
-            <li>
-              <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
-              <span>After your free trial (yearly payment):</span>
+              <span>Love it? Keep watching after your free trial for just:</span>
             </li>
           </ul>
-
           <div className={styles.priceContainer}>
             <span className={styles.price}>{subscriptionOffers?.[1]?.customerPriceInclTax}</span>
             <span className={styles.period}>/{subscriptionOffers?.[1]?.period}</span>
           </div>
-
-          <Link className={styles.annualButton} to={`${pathname}/?u=create-account`}>
-            Start watching for free
+          <Link className={selectedPlan === 'annual' ? styles.monthlyButton : styles.annualButton} to={`${pathname}/?u=create-account`}>
+            Get Started
           </Link>
         </div>
       </div>
       <div className={styles.textBlock}>
-        <h1 className={styles.heading}>Take your concert viewing experience to the next level</h1>
+        <h1 className={styles.heading} style={{ marginBottom: '3rem' }}>
+          Take your concert viewing experience to the next level
+        </h1>
+        {/* <PlaylistGrid data={data as Playlist} isLoading={isFetching} /> */}
+
         <ul className={styles.featuresList}>
           <li>
             <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
@@ -115,7 +130,7 @@ const PricingComponent = () => {
             </span>
           </li>
         </ul>
-        <Button label="Sign Up Now" color="primary" to={`${pathname}/?u=create-account`} />
+        <Button label="Get Started" color="primary" to={`${pathname}/?u=create-account`} />
       </div>
     </div>
   );

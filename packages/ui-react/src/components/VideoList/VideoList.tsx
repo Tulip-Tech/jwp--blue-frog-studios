@@ -59,7 +59,7 @@ function VideoList({
           hasMore={hasMore ?? false}
           className={styles.list}
           loader={<InfiniteScrollLoader key="loader" />}
-          getScrollParent={getScrollParent}
+          // getScrollParent={getScrollParent}
           useWindow={false}
         >
           {playlist?.playlist?.map((playlistItem: PlaylistItem) => (

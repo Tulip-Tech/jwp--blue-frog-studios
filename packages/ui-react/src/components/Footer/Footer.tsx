@@ -197,9 +197,9 @@ const Footer: React.FC<Props> = () => {
           </div>
 
           <div className={styles.logoSection}>
-            <div className={styles.logo}>
-              <img src={banner || ''} alt="BLUEFROG+ Logo" width={'250px'} height={'auto'} />
-            </div>
+            <a className={styles.logo} href="https://bluefrogstudios.ca" target="_blank" rel="noreferrer">
+              <img src={'/images/bfs-logo.png'} alt="BLUEFROG+ Logo" width={'auto'} height={'auto'} />
+            </a>
           </div>
         </div>
 
@@ -367,7 +367,7 @@ const Footer: React.FC<Props> = () => {
               ></path>
             </svg>
           </div> */}
-          <div className={styles.text}>© {new Date().getFullYear()}, BLUEFROG+</div>
+          <div className={styles.text}>© {new Date().getFullYear()}, BlueFrog+ and Blue Frog Studios</div>
         </div>
       </footer>
       {isPopoverOpen && <CustomPopover message={message} isSuccess={isSuccess} onClose={() => setIsPopoverOpen(false)} />}

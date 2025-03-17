@@ -30,15 +30,24 @@ const HeaderNavigation = ({ className, navItems }: { className?: string; navItem
     navRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
   };
 
+  const updatedNavItems = [...navItems];
+  const freeClipsIndex = updatedNavItems.findIndex((item) => item.label === 'Free Clips');
+
+  if (freeClipsIndex !== -1) {
+    updatedNavItems.splice(freeClipsIndex, 0, { label: 'Pricing', to: '/pricing' });
+  } else {
+    updatedNavItems.push({ label: 'Pricing', to: '/pricing' });
+  }
+
   return (
     <nav className={classNames(styles.nav, className)} ref={navRef}>
       <ul onFocus={focusHandler}>
-        {navItems.map((item, index) => (
+        {updatedNavItems.map((item, index) => (
           <li key={index}>
             <Button activeClassname={styles.navButton} label={item.label} to={item.to} variant="text" />
           </li>
         ))}
-        <Button activeClassname={styles.navButton} label={'Pricing'} to={'/pricing'} variant="text" />
+        {/* <Button activeClassname={styles.navButton} label={'Pricing'} to={'/pricing'} variant="text" /> */}
         <Button activeClassname={styles.navButton} label={'Blue Frog Studios'} to={'https://bluefrogstudios.ca/'} variant="text" />
       </ul>
     </nav>

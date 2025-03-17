@@ -119,7 +119,7 @@ function CardGrid({
       loadMore={loadMore ?? defaultLoadMore}
       hasMore={hasMore ?? defaultHasMore}
       loader={<InfiniteScrollLoader key="loader" />}
-      getScrollParent={getScrollParent}
+      // getScrollParent={getScrollParent}
       useWindow={false}
     >
       <LayoutGrid
