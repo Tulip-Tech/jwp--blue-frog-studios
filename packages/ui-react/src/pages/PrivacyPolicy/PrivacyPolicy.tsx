@@ -6,9 +6,14 @@ const PrivacyPolicyComponent = () => {
   return (
     <>
       <Helmet>
-        <script id="CookieDeclaration" src="https://consent.cookiebot.com/603d6ef7-9d8b-408a-81cb-0af069643a8e/cd.js" type="text/javascript" async></script>
+        <script
+          id="Cookiebot"
+          src="https://consent.cookiebot.com/uc.js"
+          data-cbid="603d6ef7-9d8b-408a-81cb-0af069643a8e"
+          data-blockingmode="auto"
+          type="text/javascript"
+        ></script>{' '}
       </Helmet>
-      <script id="CookieDeclaration" src="https://consent.cookiebot.com/603d6ef7-9d8b-408a-81cb-0af069643a8e/cd.js" type="text/javascript" async></script>
 
       <div className={styles.policyContainer}>
         <h1 className={styles.mainTitle}>BlueFrogPlus.com</h1>
