@@ -177,7 +177,12 @@ const AccountModal = () => {
 
   const dialogSize = getDialogSize();
   return (
-    <Dialog size={dialogSize} open={!!viewParam} onClose={closeHandler} hideCloseButton={view === 'create-account' || view === 'checkout'}>
+    <Dialog
+      size={dialogSize}
+      open={!!viewParam}
+      onClose={closeHandler}
+      hideCloseButton={view === 'create-account' || view === 'checkout' || view === 'choose-offer'}
+    >
       {shouldShowBanner && banner && (
         <div className={styles.banner}>
           <img src={banner} alt="" />

@@ -115,17 +115,7 @@ const CheckoutForm: React.FC<Props> = ({
           <span>Your free trial gives you full access to everything on BlueFrog+</span>
         </li>
       </ul>
-      <div className={styles.order}>
-        <div className={styles.orderInfo}>
-          <p className={classNames(styles.orderTitle, { [styles.orderTitleMargin]: offerType === 'svod' })}>{orderTitle}</p>
-          {order.discount?.type === 'trial' ? <p className={styles.orderBillingDate}>{getFreeTrialText(offer)}</p> : null}
-        </div>
-        <div className={styles.orderPrice}>
-          <span>{formatPrice(offer.customerPriceInclTax, order.currency, offer.customerCountry)}</span>
-          {offerType === 'svod' && <small>/{getOfferPeriod()}</small>}
-        </div>
-      </div>
-      <div className={styles.orderTitle} style={{ justifyContent: 'end', display: 'flex', gap: '4px', margin: '8px 0' }}>
+      <div className={styles.orderTitle} style={{ justifyContent: 'end', display: 'flex', gap: '4px', margin: '0px  0px 20px  0px' }}>
         <span>Due Today: </span>
         <span>$0</span>
       </div>
@@ -252,6 +242,16 @@ const CheckoutForm: React.FC<Props> = ({
           <LockKeyhole size={16} />
           Secured checkout
         </p>
+      </div>
+      <div className={styles.order}>
+        <div className={styles.orderInfo}>
+          <p className={classNames(styles.orderTitle, { [styles.orderTitleMargin]: offerType === 'svod' })}>{orderTitle}</p>
+          {order.discount?.type === 'trial' ? <p className={styles.orderBillingDate}>{getFreeTrialText(offer)}</p> : null}
+        </div>
+        <div className={styles.orderPrice}>
+          <span>{formatPrice(offer.customerPriceInclTax, order.currency, offer.customerCountry)}</span>
+          {offerType === 'svod' && <small>/{getOfferPeriod()}</small>}
+        </div>
       </div>
     </div>
   );
