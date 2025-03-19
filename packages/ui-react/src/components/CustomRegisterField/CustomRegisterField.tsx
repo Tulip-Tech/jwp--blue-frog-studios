@@ -2,6 +2,7 @@ import { type ChangeEventHandler, type FC, type ReactNode, useMemo } from 'react
 import { useTranslation } from 'react-i18next';
 import type { CustomRegisterFieldVariant } from '@jwp/ott-common/types/account';
 import { isTruthyCustomParamValue, testId } from '@jwp/ott-common/src/utils/common';
+import { Link } from 'react-router-dom';
 
 import Checkbox from '../form-fields/Checkbox/Checkbox';
 import TextField from '../form-fields/TextField/TextField';
@@ -68,7 +69,21 @@ const CustomRegisterField: FC<CustomRegisterFieldCommonProps> = ({ type, value =
     case 'datepicker':
       return <DateField {...props} value={String(value)} label={label} testId={testId(`crf-${type}`)} />;
     default:
-      return <Checkbox {...props} checkboxLabel={label} checked={isTruthyCustomParamValue(value)} data-testid={testId(`crf-${type}`)} lang={lang} />;
+      return (
+        <Checkbox
+          {...props}
+          checkboxLabel={
+            <div style={{ fontSize: '12px' }}>
+              I accept the <Link to="/terms-of-use">Terms and Conditions</Link> and <Link to="/privacy-policy"> Privacy Policy / Cookie Information</Link> of
+              Blue Frog Studios / BlueFrog+
+            </div>
+          }
+          checked={isTruthyCustomParamValue(value)}
+          data-testid={testId(`crf-${type}`)}
+          lang={lang}
+          required={false}
+        />
+      );
   }
 };
 
