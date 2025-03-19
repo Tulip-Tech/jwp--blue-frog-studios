@@ -4,7 +4,7 @@
 @use '@jwp/ott-ui-react/src/styles/mixins/responsive';
 
 .title {
-  margin-bottom: 8px;
+  margin-bottom: 0px;
   font-weight: var(--body-font-weight-bold);
   font-size: 24px;
 }
@@ -57,11 +57,11 @@
     color: variables.$white;
     // background-color: variables.$white;
     // border-color: #f7751a;
-    border: 2px solid #f7751a;
+    border: 2px solid #0c4670;
   }
 }
 .selectedIndicator {
-  background-color: #f7751a !important;
+  background-color: #0c4670 !important;
   color: white;
   text-align: center;
   padding: 5px 0;
@@ -167,7 +167,7 @@
 .featuresList {
   list-style: none;
   padding: 0;
-  margin: 2rem 0 2rem 0;
+  margin: 1rem 0 rem 0;
 
   li {
     display: flex;
@@ -179,12 +179,12 @@
   }
 }
 .checkIcon {
-  color: #c25e1c;
+  color: #0c4670;
   min-width: 20px;
   margin-right: 0.75rem;
   margin-top: 2px;
 }
 
 .annualCheck {
-  color: #c25e1c;
+  color: #0c4670;
 }

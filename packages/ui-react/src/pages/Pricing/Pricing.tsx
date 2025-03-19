@@ -6,6 +6,7 @@ import useOffers from '@jwp/ott-hooks-react/src/useOffers';
 import usePlaylist from '@jwp/ott-hooks-react/src/usePlaylist';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet';
+import { getOfferPrice } from '@jwp/ott-common/src/utils/offers';
 
 import Button from '../../components/Button/Button';
 import Loading from '../Loading/Loading';
@@ -83,7 +84,10 @@ const PricingComponent = () => {
             </ul>
 
             <div className={styles.priceContainer}>
-              <span className={styles.price}>{subscriptionOffers?.[0]?.customerPriceInclTax || '0.00'}</span>
+              <span className={styles.price}>
+                {subscriptionOffers?.[0]?.offerCurrency || ''}
+                {getOfferPrice(subscriptionOffers?.[0]) || '0.00'}
+              </span>
               <span className={styles.period}>/{subscriptionOffers?.[0]?.period || 'month'}</span>
             </div>
 
@@ -113,7 +117,9 @@ const PricingComponent = () => {
               </li>
             </ul>
             <div className={styles.priceContainer}>
-              <span className={styles.price}>{subscriptionOffers?.[1]?.customerPriceInclTax || '0.00'}</span>
+              <span className={styles.price}>
+                {subscriptionOffers?.[1]?.offerCurrency || ''} {getOfferPrice(subscriptionOffers?.[1]) || '0.00'}
+              </span>
               <span className={styles.period}>/{subscriptionOffers?.[1]?.period || 'year'}</span>
             </div>
             <Link className={selectedPlan === 'annual' ? styles.monthlyButton : styles.annualButton} to={`${pathname}/?u=create-account`}>

@@ -103,15 +103,16 @@ const CheckoutForm: React.FC<Props> = ({
       <h1 className={styles.title}>Start your free trial</h1>
       <ul className={styles.featuresList}>
         <li>
-          <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
-          <span>
-            To start your free trial, our system requires that we verify your payment details. If you decide to cancel during your free trial, there will be no
-            charge.
-          </span>
+          <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />{' '}
+          <span>To start your free trial, our system requires that we verify your payment details.</span>
         </li>
         <li>
           <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
-          <span> Your free trial gives you full access to everything on Blue Frog Plus</span>
+          <span>If you decide to cancel during your free trial, there will be no charge.</span>
+        </li>
+        <li>
+          <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
+          <span>Your free trial gives you full access to everything on BlueFrog+</span>
         </li>
       </ul>
       <div className={styles.order}>
@@ -124,19 +125,11 @@ const CheckoutForm: React.FC<Props> = ({
           {offerType === 'svod' && <small>/{getOfferPeriod()}</small>}
         </div>
       </div>
-      <div className={styles.dueToday}>
+      <div className={styles.orderTitle} style={{ justifyContent: 'end', display: 'flex', gap: '4px', margin: '8px 0' }}>
         <span>Due Today: </span>
         <span>$0</span>
       </div>
-      <div className={styles.poweredBy}>
-        <p>
-          Powered by: <strong>InPlayer</strong>
-        </p>
-        <p style={{ display: 'flex', alignItems: 'center', gap: '4px', justifyContent: 'center' }}>
-          <LockKeyhole size={16} />
-          Secured checkout
-        </p>
-      </div>
+
       <div className={styles.couponForm}>
         {couponFormOpen ? (
           <form onSubmit={onCouponFormSubmit} noValidate>
@@ -250,6 +243,16 @@ const CheckoutForm: React.FC<Props> = ({
       {children ? <div>{children}</div> : null}
       {submitting && <LoadingOverlay transparentBackground inline />}
       <DialogBackButton onClick={onBackButtonClick} />
+
+      <div className={styles.poweredBy}>
+        <p>
+          Powered by: <strong>InPlayer</strong>
+        </p>
+        <p style={{ display: 'flex', alignItems: 'center', gap: '4px', justifyContent: 'center' }}>
+          <LockKeyhole size={16} />
+          Secured checkout
+        </p>
+      </div>
     </div>
   );
 };

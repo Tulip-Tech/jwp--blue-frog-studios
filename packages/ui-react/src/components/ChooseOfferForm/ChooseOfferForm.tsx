@@ -67,7 +67,7 @@ const OfferBox: React.FC<OfferBoxProps> = ({ offer, selected, onChange }: OfferB
 
         <label htmlFor={offer.offerId} style={{ padding: '16px' }}>
           <h2 className={styles.offerTitle} id={`title-${offer.offerId}`}>
-            {title}
+            {title === 'Yearly' ? 'Annual' : title}
           </h2>
           <span className="hidden">.</span>
           <hr className={styles.offerDivider} aria-hidden={true} />
@@ -125,22 +125,22 @@ const ChooseOfferForm: React.FC<Props> = ({ values, errors, submitting, offers, 
     <form onSubmit={onSubmit} data-testid={testId('choose-offer-form')} noValidate>
       {onBackButtonClickHandler ? <DialogBackButton onClick={onBackButtonClickHandler} /> : null}
       <h1 className={styles.title}>
-        <span style={{ fontStyle: 'italic' }}>Your</span> plan after the free trial
+        <span style={{ fontStyle: 'italic' }}>Choose</span> your plan after the free trial
       </h1>
       {/* <p className={styles.subtitle}>{t('choose_offer.watch_this_on_platform', { siteName })}</p> */}
 
       <ul className={styles.featuresList}>
         <li>
           <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
-          <span>Your free trial gives full access to Blue Frog Plus. Watch on any device.</span>
+          <span>Stream BlueFrog+ on-demand, on any device.</span>
         </li>
         <li>
           <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
-          <span> If you enjoy your free trial and decide to sign up, what would be your preferred plan?</span>
+          <span>Cancel anytime during your free trial - no charges, no hassle.</span>
         </li>
         <li>
           <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
-          <span>Cancel your trial at any time, no string attached.</span>
+          <span>Love it? Keep watching after your free trial for just:</span>
         </li>
       </ul>
       {errors.form ? <FormFeedback variant="error">{errors.form}</FormFeedback> : null}
