@@ -17,44 +17,32 @@ import styles from './Pricing.module.scss';
 const PricingComponent = () => {
   const location = useLocation();
   const pathname = location.pathname;
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.id = 'CookieDeclaration';
-    script.src = 'https://consent.cookiebot.com/603d6ef7-9d8b-408a-81cb-0af069643a8e/cd.js';
-    script.type = 'text/javascript';
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
 
   const { subscriptionOffers } = useOffers();
   const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'annual'>('monthly');
 
-  const { isFetching, error, data } = usePlaylist('BYkbUKPm', {}, true, true, 'playlist');
+  // const { isFetching, error, data } = usePlaylist('BYkbUKPm', {}, true, true, 'playlist');
 
-  const { t } = useTranslation('error');
+  // const { t } = useTranslation('error');
 
-  if (isFetching) {
-    return <Loading />;
-  }
+  // if (isFetching) {
+  //   return <Loading />;
+  // }
 
-  if (error || !data) {
-    return <ErrorPage title={t('playlist_not_found')} />;
-  }
+  // if (error || !data) {
+  //   return <ErrorPage title={t('playlist_not_found')} />;
+  // }
 
-  if (data.playlist.length === 0) {
-    return <ErrorPage title={t('empty_shelves_heading')} message={t('empty_shelves_description')} />;
-  }
+  // if (data.playlist.length === 0) {
+  //   return <ErrorPage title={t('empty_shelves_heading')} message={t('empty_shelves_description')} />;
+  // }
 
   return (
     <>
       {' '}
-      <Helmet>
+      {/* <Helmet>
         <script id="CookieDeclaration" src="https://consent.cookiebot.com/603d6ef7-9d8b-408a-81cb-0af069643a8e/cd.js" type="text/javascript" async></script>
-      </Helmet>
+      </Helmet> */}
       <div className={styles.container}>
         <h1 className={styles.heading}>
           Start your 7-day <span className={styles.italic}>free trial</span> today!
@@ -85,8 +73,8 @@ const PricingComponent = () => {
 
             <div className={styles.priceContainer}>
               <span className={styles.price}>
-                {subscriptionOffers?.[0]?.offerCurrency || ''}
-                {getOfferPrice(subscriptionOffers?.[0]) || '0.00'}
+                {(subscriptionOffers && subscriptionOffers?.[0]?.offerCurrency) || ''}
+                {subscriptionOffers?.[0]?.customerPriceInclTax || '0.00'}
               </span>
               <span className={styles.period}>/{subscriptionOffers?.[0]?.period || 'month'}</span>
             </div>
@@ -118,9 +106,9 @@ const PricingComponent = () => {
             </ul>
             <div className={styles.priceContainer}>
               <span className={styles.price}>
-                {subscriptionOffers?.[1]?.offerCurrency || ''} {getOfferPrice(subscriptionOffers?.[1]) || '0.00'}
+                {(subscriptionOffers && subscriptionOffers?.[1]?.offerCurrency) || ''} {subscriptionOffers?.[1]?.customerPriceInclTax || '0.00'}
               </span>
-              <span className={styles.period}>/{subscriptionOffers?.[1]?.period || 'year'}</span>
+              <span className={styles.period}>/{(subscriptionOffers && subscriptionOffers?.[1]?.period) || 'year'}</span>
             </div>
             <Link className={selectedPlan === 'annual' ? styles.monthlyButton : styles.annualButton} to={`${pathname}/?u=create-account`}>
               Get Started
