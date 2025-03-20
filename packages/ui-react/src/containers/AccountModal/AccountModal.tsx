@@ -176,11 +176,13 @@ const AccountModal = () => {
   };
 
   const dialogSize = getDialogSize();
+  const disableBackdropClick = view === 'choose-offer';
+
   return (
     <Dialog
       size={dialogSize}
       open={!!viewParam}
-      onClose={closeHandler}
+      onClose={disableBackdropClick ? () => {} : closeHandler}
       hideCloseButton={view === 'create-account' || view === 'checkout' || view === 'choose-offer'}
     >
       {shouldShowBanner && banner && (

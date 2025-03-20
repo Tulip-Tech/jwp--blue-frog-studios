@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import classNames from 'classnames';
+import useBreakpoint, { Breakpoint } from '@jwp/ott-ui-react/src/hooks/useBreakpoint';
 
 import Button from '../Button/Button';
 
@@ -14,6 +15,7 @@ const scrollOffset = 100;
 
 const HeaderNavigation = ({ className, navItems }: { className?: string; navItems: NavItem[] }) => {
   const navRef = useRef<HTMLElement>(null);
+  const breakpoint: Breakpoint = useBreakpoint();
 
   const focusHandler = (event: React.FocusEvent) => {
     if (!navRef.current) return;
@@ -39,15 +41,16 @@ const HeaderNavigation = ({ className, navItems }: { className?: string; navItem
     updatedNavItems.push({ label: 'Pricing', to: '/pricing' });
   }
 
+  const isSmallScreen = breakpoint === Breakpoint.lg;
+
   return (
-    <nav className={classNames(styles.nav, className)} ref={navRef}>
+    <nav className={classNames(styles.nav + (isSmallScreen ? ' ' + styles.navMediumScreen : ''), className)} ref={navRef}>
       <ul onFocus={focusHandler}>
         {updatedNavItems.map((item, index) => (
           <li key={index}>
             <Button activeClassname={styles.navButton} label={item.label} to={item.to} variant="text" />
           </li>
         ))}
-        {/* <Button activeClassname={styles.navButton} label={'Pricing'} to={'/pricing'} variant="text" /> */}
         <Button activeClassname={styles.navButton} label={'Blue Frog Studios'} to={'https://bluefrogstudios.ca/'} variant="text" />
       </ul>
     </nav>

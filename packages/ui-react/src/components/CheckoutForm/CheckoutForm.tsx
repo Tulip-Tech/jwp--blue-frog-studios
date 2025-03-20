@@ -115,7 +115,7 @@ const CheckoutForm: React.FC<Props> = ({
           <span>Your free trial gives you full access to everything on BlueFrog+</span>
         </li>
       </ul>
-      <div className={styles.orderTitle} style={{ justifyContent: 'end', display: 'flex', gap: '4px', margin: '0px  0px 20px  0px' }}>
+      <div style={{ justifyContent: 'end', display: 'flex', gap: '4px', margin: '0px  0px 20px  0px', fontSize: '24px', fontWeight: 'bold' }}>
         <span>Due Today: </span>
         <span>$0</span>
       </div>
@@ -180,7 +180,7 @@ const CheckoutForm: React.FC<Props> = ({
           </tbody>
           <tfoot>
             <tr>
-              <td>{t('checkout.total_price')}</td>
+              <td>Total after the free trial period</td>
               <td>{formatPrice(order.totalPrice, order.currency, offer.customerCountry)}</td>
             </tr>
             {order.priceBreakdown.taxValue > 0 && (
@@ -243,7 +243,7 @@ const CheckoutForm: React.FC<Props> = ({
           Secured checkout
         </p>
       </div>
-      <div className={styles.order}>
+      {/* <div className={styles.order}>
         <div className={styles.orderInfo}>
           <p className={classNames(styles.orderTitle, { [styles.orderTitleMargin]: offerType === 'svod' })}>{orderTitle}</p>
           {order.discount?.type === 'trial' ? <p className={styles.orderBillingDate}>{getFreeTrialText(offer)}</p> : null}
@@ -252,7 +252,7 @@ const CheckoutForm: React.FC<Props> = ({
           <span>{formatPrice(offer.customerPriceInclTax, order.currency, offer.customerCountry)}</span>
           {offerType === 'svod' && <small>/{getOfferPeriod()}</small>}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
