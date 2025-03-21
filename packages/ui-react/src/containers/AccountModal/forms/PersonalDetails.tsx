@@ -14,6 +14,7 @@ import useOffers from '@jwp/ott-hooks-react/src/useOffers';
 
 import PersonalDetailsForm from '../../../components/PersonalDetailsForm/PersonalDetailsForm';
 import LoadingOverlay from '../../../components/LoadingOverlay/LoadingOverlay';
+import StepIndicator from '../StepIndicator/StepIndicator';
 
 const yupConditional = (required: boolean, message: string) => {
   return required ? string().required(message) : mixed().notRequired();
@@ -161,15 +162,25 @@ const PersonalDetails = () => {
   }
 
   return (
-    <PersonalDetailsForm
-      initialValues={initialValues}
-      fields={fields}
-      questions={questions}
-      onQuestionChange={questionChangeHandler}
-      questionValues={questionValues}
-      questionErrors={questionErrors}
-      onSubmit={submitHandler}
-    />
+    <>
+      <StepIndicator
+        currentStep={1}
+        steps={[
+          { id: 'registration', label: ' Account Info' },
+          { id: 'choose-offer', label: 'Plan' },
+          { id: 'checkout', label: 'Verification' },
+        ]}
+      />
+      <PersonalDetailsForm
+        initialValues={initialValues}
+        fields={fields}
+        questions={questions}
+        onQuestionChange={questionChangeHandler}
+        questionValues={questionValues}
+        questionErrors={questionErrors}
+        onSubmit={submitHandler}
+      />
+    </>
   );
 };
 

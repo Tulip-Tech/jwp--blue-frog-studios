@@ -7,6 +7,7 @@ import { useConfigStore } from '@jwp/ott-common/src/stores/ConfigStore';
 import { getOfferPrice, isSVODOffer } from '@jwp/ott-common/src/utils/offers';
 import { testId } from '@jwp/ott-common/src/utils/common';
 import CheckCircle from '@jwp/ott-theme/assets/icons/check_circle.svg?react';
+import { Check } from 'lucide-react';
 
 import Button from '../Button/Button';
 import FormFeedback from '../FormFeedback/FormFeedback';
@@ -15,7 +16,6 @@ import LoadingOverlay from '../LoadingOverlay/LoadingOverlay';
 import Icon from '../Icon/Icon';
 
 import styles from './ChooseOfferForm.module.scss';
-import { Check } from 'lucide-react';
 
 type OfferBoxProps = {
   offer: Offer;
@@ -79,7 +79,7 @@ const OfferBox: React.FC<OfferBoxProps> = ({ offer, selected, onChange }: OfferB
           <div className={styles.fill} />
           <div className={styles.offerPrice}>
             {/* {getOfferPrice(offer)} {!!periodString && <small>/{periodString}</small>} */}
-            {(offer && offer?.offerCurrency) || ''} {offer.customerPriceInclTax || '0.00'} {!!periodString && <small>/{periodString}</small>}
+            {(offer && offer?.offerCurrency) || ''} {getOfferPrice(offer)} {!!periodString && <small>/{periodString}</small>}
           </div>
         </label>
         {selected && <div className={styles.selectedIndicator}>Selected</div>}

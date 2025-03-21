@@ -67,7 +67,7 @@ const Footer: React.FC<Props> = () => {
   const banner = assets.banner || '';
 
   return (
-    <div>
+    <div style={{ position: 'relative' }}>
       <section className={styles.newsletterSection}>
         <div className={styles.container}>
           <h2 className={styles.heading}>GET ON THE VIP LIST!</h2>

@@ -149,8 +149,16 @@ const RegistrationForm: React.FC<Props> = ({
           <Checkbox name={'privacyConsent'} style={{ marginTop: '1px', fontSize: '12px' }} />
         </div>
         <div style={{ fontSize: '12px' }}>
-          I accept the <Link to="/terms-of-use">Terms and Conditions</Link> and <Link to="/privacy-policy"> Privacy Policy / Cookie Information</Link> of Blue
-          Frog Studios / BlueFrog+
+          I accept the{' '}
+          <a href="/terms-of-use" target="_blank" rel="noreferrer noopener" style={{ color: 'inherit' }}>
+            Terms and Conditions
+          </a>{' '}
+          and{' '}
+          <a href="/privacy-policy" target="_blank" rel="noreferrer noopener" style={{ color: 'inherit' }}>
+            {' '}
+            Privacy Policy / Cookie Information
+          </a>{' '}
+          of Blue Frog Studios / BlueFrog+
         </div>
       </div>
 

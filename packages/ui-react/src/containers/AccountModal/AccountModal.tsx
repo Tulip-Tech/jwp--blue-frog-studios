@@ -168,7 +168,7 @@ const AccountModal = () => {
       return 'large';
     }
 
-    if (['create-account', 'choose-offer', 'checkout', 'login', 'forgot-password'].includes(view ?? '')) {
+    if (['create-account', 'choose-offer', 'checkout', 'login', 'forgot-password', 'personal-details'].includes(view ?? '')) {
       return 'medium';
     }
 
@@ -176,14 +176,14 @@ const AccountModal = () => {
   };
 
   const dialogSize = getDialogSize();
-  const disableBackdropClick = view === 'choose-offer';
+  const disableBackdropClick = view === 'choose-offer' || view === 'personal-details';
 
   return (
     <Dialog
       size={dialogSize}
       open={!!viewParam}
       onClose={disableBackdropClick ? () => {} : closeHandler}
-      hideCloseButton={view === 'create-account' || view === 'checkout' || view === 'choose-offer'}
+      hideCloseButton={view === 'create-account' || view === 'checkout' || view === 'choose-offer' || view === 'personal-details'}
     >
       {shouldShowBanner && banner && (
         <div className={styles.banner}>

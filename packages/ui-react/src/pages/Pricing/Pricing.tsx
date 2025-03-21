@@ -1,16 +1,17 @@
 import { Check } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import useOffers from '@jwp/ott-hooks-react/src/useOffers';
 import usePlaylist from '@jwp/ott-hooks-react/src/usePlaylist';
 import { useTranslation } from 'react-i18next';
-import { Helmet } from 'react-helmet';
+import type { Playlist } from 'packages/common/types/playlist';
 import { getOfferPrice } from '@jwp/ott-common/src/utils/offers';
 
 import Button from '../../components/Button/Button';
 import Loading from '../Loading/Loading';
 import ErrorPage from '../../components/ErrorPage/ErrorPage';
+import PlaylistGrid from '../ScreenRouting/playlistScreens/PlaylistGrid/PlaylistGrid';
 
 import styles from './Pricing.module.scss';
 
@@ -21,21 +22,21 @@ const PricingComponent = () => {
   const { subscriptionOffers } = useOffers();
   const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'annual'>('monthly');
 
-  // const { isFetching, error, data } = usePlaylist('BYkbUKPm', {}, true, true, 'playlist');
+  const { isFetching, error, data } = usePlaylist('zXN6g4vD', {}, true, true, 'playlist');
 
-  // const { t } = useTranslation('error');
+  const { t } = useTranslation('error');
 
-  // if (isFetching) {
-  //   return <Loading />;
-  // }
+  if (isFetching) {
+    return <Loading />;
+  }
 
-  // if (error || !data) {
-  //   return <ErrorPage title={t('playlist_not_found')} />;
-  // }
+  if (error || !data) {
+    return <ErrorPage title={t('playlist_not_found')} />;
+  }
 
-  // if (data.playlist.length === 0) {
-  //   return <ErrorPage title={t('empty_shelves_heading')} message={t('empty_shelves_description')} />;
-  // }
+  if (data.playlist.length === 0) {
+    return <ErrorPage title={t('empty_shelves_heading')} message={t('empty_shelves_description')} />;
+  }
 
   return (
     <>
@@ -73,8 +74,7 @@ const PricingComponent = () => {
 
             <div className={styles.priceContainer}>
               <span className={styles.price}>
-                {(subscriptionOffers && subscriptionOffers?.[0]?.offerCurrency) || ''}
-                {subscriptionOffers?.[0]?.customerPriceInclTax || '0.00'}
+                {(subscriptionOffers && subscriptionOffers?.[0]?.offerCurrency) || ''} {getOfferPrice(subscriptionOffers?.[0])}
               </span>
               <span className={styles.period}>/{subscriptionOffers?.[0]?.period || 'month'}</span>
             </div>
@@ -106,7 +106,7 @@ const PricingComponent = () => {
             </ul>
             <div className={styles.priceContainer}>
               <span className={styles.price}>
-                {(subscriptionOffers && subscriptionOffers?.[1]?.offerCurrency) || ''} {subscriptionOffers?.[1]?.customerPriceInclTax || '0.00'}
+                {(subscriptionOffers && subscriptionOffers?.[1]?.offerCurrency) || ''} {getOfferPrice(subscriptionOffers?.[1])}
               </span>
               <span className={styles.period}>/{(subscriptionOffers && subscriptionOffers?.[1]?.period) || 'year'}</span>
             </div>
@@ -116,36 +116,42 @@ const PricingComponent = () => {
           </div>
         </div>
         <div className={styles.textBlock}>
-          <h1 className={styles.heading} style={{ marginBottom: '3rem' }}>
-            Take your concert viewing experience to the next level
-          </h1>
-          {/* <PlaylistGrid data={data as Playlist} isLoading={isFetching} /> */}
+          <div className={styles.content}>
+            <h1 className={styles.heading} style={{ marginBottom: '3rem', marginTop: '3rem', fontSize: '2.7rem' }}>
+              Take your concert viewing experience to the next level
+            </h1>
+            <div style={{ marginBottom: '3rem' }}>
+              <PlaylistGrid data={data as Playlist} isLoading={isFetching} />
+            </div>
 
-          <ul className={styles.featuresList}>
-            <li>
-              <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
-              <span>BlueFrog+ makes watching your favorite concerts on demand easier than ever.</span>
-            </li>
-            <li>
-              <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
-              <span>Enjoy a sleek interface filled with features like pre-built genre playlists and advanced search options.</span>
-            </li>
-            <li>
-              <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
-              <span>With over 100 concerts available and new premieres or live streams added weekly, there&apos;s always something new to explore.</span>
-            </li>
-            <li>
-              <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
-              <span>
-                Each concert is filmed in stunning 4K resolution with multi-tracked sound, performed before an intimate audience of just 100 people, in the
-                state-of-the-art{' '}
-                <a href="https://bluefrogstudios.ca/" target="_blank" rel="noreferrer" style={{ color: '#36C5F2' }}>
-                  Blue Frog Studios.
-                </a>
-              </span>
-            </li>
-          </ul>
-          <Button label="Get Started" color="primary" to={`${pathname}/?u=create-account`} />
+            <ul className={styles.featuresList}>
+              <li>
+                <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
+                <span>BlueFrog+ makes watching your favorite concerts on demand easier than ever.</span>
+              </li>
+              <li>
+                <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
+                <span>Enjoy a sleek interface filled with features like pre-built genre playlists and advanced search options.</span>
+              </li>
+              <li>
+                <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
+                <span>With over 100 concerts available and new premieres or live streams added weekly, there&apos;s always something new to explore.</span>
+              </li>
+              <li>
+                <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
+                <span>
+                  Each concert is filmed in stunning 4K resolution with multi-tracked sound, performed before an intimate audience of just 100 people, in the
+                  state-of-the-art{' '}
+                  <a href="https://bluefrogstudios.ca/" target="_blank" rel="noreferrer" style={{ color: '#36C5F2' }}>
+                    Blue Frog Studios.
+                  </a>
+                </span>
+              </li>
+            </ul>
+            <div style={{ display: 'flex', justifyContent: 'start', padding: '0 35px' }}>
+              <Button label="Get Started" color="primary" to={`${pathname}/?u=create-account`} />
+            </div>
+          </div>
         </div>
       </div>
     </>

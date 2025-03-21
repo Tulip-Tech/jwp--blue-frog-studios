@@ -86,7 +86,7 @@ const ChooseOffer = () => {
       <StepIndicator
         currentStep={2}
         steps={[
-          { id: 'registration', label: 'Email & password' },
+          { id: 'registration', label: ' Account Info' },
           { id: 'choose-offer', label: 'Plan' },
           { id: 'checkout', label: 'Verification' },
         ]}

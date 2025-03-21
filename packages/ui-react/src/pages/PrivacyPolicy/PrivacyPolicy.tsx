@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Helmet } from 'react-helmet';
+
 import styles from './PrivacyPolicy.module.scss';
 
 const PrivacyPolicyComponent = () => {
@@ -16,25 +17,28 @@ const PrivacyPolicyComponent = () => {
       </Helmet>
 
       <div className={styles.policyContainer}>
-        <h1 className={styles.mainTitle}>BlueFrogPlus.com</h1>
+        {/* <h1 className={styles.mainTitle}>BlueFrogPlus.com</h1> */}
         {/* <div className={styles.underline}></div> */}
 
         <h2 className={styles.sectionTitle}>Privacy Policy</h2>
 
         <div className={styles.termsContent}>
           <p>
-            BlueFrogPlus.com is committed to maintaining the accuracy, confidentiality, and security of your personally identifiable information ("Personal
-            Information"). As part of this commitment, our privacy policy governs our actions as they relate to the collection, use and disclosure of Personal
-            Information. Our privacy policy is based upon the values set by the Canadian Standards Association's Model Code for the Protection of Personal
-            Information and <span style={{ fontStyle: 'italic' }}>Canada's Personal Information Protection and Electronic Documents Act.</span>
-          </p>
-          <p>
-            <strong>1. Introduction:</strong> We are responsible for maintaining and protecting the Personal Information under our control. We have designated
-            an individual or individuals who is/are responsible for compliance with our privacy policy.
+            <strong>1. Introduction:</strong> This website, bluefrogplus.com, is operated by Blue Frog Studios. The terms “we”, “us”, and “our” refer to Blue
+            Frog Studios. We are responsible for maintaining and protecting the Personal Information under our control. We have designated an individual or
+            individuals who is/are responsible for compliance with our privacy policy.
           </p>
 
           <p>
-            <strong>2. Identifying Purposes:</strong> We collect, use and disclose Personal Information to provide you with the product or service you have
+            <strong>2. Our Commitment:</strong> We are committed to maintaining the accuracy, confidentiality, and security of your personally identifiable
+            information ("Personal Information"). As part of this commitment, our privacy policy governs our actions as they relate to the collection, use and
+            disclosure of Personal Information. Our privacy policy is based upon the values set by the Canadian Standards Association's Model Code for the
+            Protection of Personal Information and{' '}
+            <span style={{ fontStyle: 'italic' }}>Canada's Personal Information Protection and Electronic Documents Act.</span>
+          </p>
+
+          <p>
+            <strong>3. Identifying Purposes:</strong> We collect, use and disclose Personal Information to provide you with the product or service you have
             requested and to offer you additional products and services we believe you might be interested in. The purposes for which we collect Personal
             Information will be identified before or at the time we collect the information. In certain circumstances, the purposes for which information is
             collected may be clear, and consent may be implied, such as where your name, address and payment information is provided as part of the order
@@ -42,58 +46,100 @@ const PrivacyPolicyComponent = () => {
           </p>
 
           <p>
-            <strong>3. Consent:</strong> Knowledge and consent are required for the collection, use or disclosure of Personal Information except where required
+            <strong>4. Consent:</strong> Knowledge and consent are required for the collection, use or disclosure of Personal Information except where required
             or permitted by law. Providing us with your Personal Information is always your choice. However, your decision not to provide certain information
             may limit our ability to provide you with our products or services. We will not require you to consent to the collection, use, or disclosure of
             information as a condition to the supply of a product or service, except as required to be able to supply the product or service.
           </p>
 
           <p>
-            <strong>4. Limiting Collection:</strong> The Personal Information collected will be limited to those details necessary for the purposes identified
+            <strong>5. Collection of Video Viewing Information:</strong> We may collect information related to your interactions with video content, including
+            but not limited to:
+            <ol style={{ listStyleType: 'lower-alpha', listStylePosition: 'inside' }}>
+              <li>Video titles viewed</li>
+              <li>Watch history</li>
+              <li>Engagement metrics (e.g., likes, shares, duration of views)</li>
+            </ol>
+            This information is collected for personalized recommendations, analytics, and service improvements.
+          </p>
+
+          <p>
+            <strong>6. Use of Video Viewing Data:</strong> Your data is used for:
+            <ol style={{ listStyleType: 'lower-alpha', listStylePosition: 'inside' }}>
+              <li>Personalizing recommendations</li>
+              <li>Analyzing viewership trends</li>
+              <li>Improving platform functionality</li>
+              <li>Delivering targeted advertisements (subject to consent)</li>
+            </ol>
+          </p>
+
+          <p>
+            <strong>7. Consent for Data Sharing:</strong>We do not share your personally identifiable video consumption data without your explicit opt-in
+            consent. Consent can be withdrawn at any time.
+          </p>
+          <p>
+            <strong>8. Data Retention & Deletion:</strong>We retain video data only as necessary for outlined purposes or as required by law. You may request
+            data deletion by contacting <a href="mailto:info@bluefrogstudios.ca">info@bluefrogstudios.ca</a>
+          </p>
+
+          <p>
+            <strong>9. Third-Party Data Sharing & Compliance:</strong> We work with third-party analytics and advertising providers, ensuring compliance with
+            VPPA and restricting unauthorized use of your video data.
+          </p>
+
+          <p>
+            <strong>10. Private Right of Action:</strong> Under VPPA, you have the right to take legal action if your video privacy rights are violated. Contact{' '}
+            <a href="mailto:info@bluefrogstudios.ca">info@bluefrogstudios.ca</a> for concerns.
+          </p>
+
+          <p>
+            <strong>11. Compliance with State & Federal Laws:</strong> Residents of jurisdictions such as California (CCPA) or the European Union (GDPR) may
+            have additional data rights, including access, correction, and deletion of personal data.
+          </p>
+          <p>
+            <strong>12. Limiting Collection:</strong> The Personal Information collected will be limited to those details necessary for the purposes identified
             by us. With your consent, we may collect Personal Information from you in person, over the telephone or by corresponding with you via mail,
             facsimile, or the Internet.
           </p>
-
           <p>
-            <strong>5. Limiting Use, Disclosure and Retention:</strong> Retention: Personal Information may only be used or disclosed for the purpose for which
-            it was collected unless you have otherwise consented, or when it is required or permitted by law. Personal Information will only be retained for the
-            period of time required to fulfill the purpose for which we collected it or as may be required by law. [If applicable, include a description of any
-            parties with whom you may share Personal Information.]
+            <strong>13. Limiting Use, Disclosure and Retention:</strong> Personal Information may only be used or disclosed for the purpose for which it was
+            collected unless you have otherwise consented, or when it is required or permitted by law. Personal Information will only be retained for the period
+            of time required to fulfill the purpose for which we collected it or as may be required by law.
           </p>
 
           <p>
-            <strong>6. Accuracy:</strong> Personal Information will be maintained in as accurate, complete and up-to-date form as is necessary to fulfill the
+            <strong>14. Accuracy:</strong> Personal Information will be maintained in as accurate, complete, and up-to-date form as is necessary to fulfill the
             purposes for which it is to be used.
           </p>
 
           <p>
-            <strong>7. Safeguarding Customer Information:</strong> Personal Information will be protected by security safeguards that are appropriate to the
+            <strong>15. Safeguarding Customer Information:</strong> Personal Information will be protected by security safeguards that are appropriate to the
             sensitivity level of the information. We take all reasonable precautions to protect your Personal Information from any loss or unauthorized use,
-            access or disclosure.
+            access, or disclosure.
           </p>
 
           <p>
-            <strong>8. Openness:</strong> We will make information available to you about our policies and practices with respect to the management of your
+            <strong>16. Openness:</strong> We will make information available to you about our policies and practices with respect to the management of your
             Personal Information.
           </p>
 
           <p>
-            <strong>9. Customer Access:</strong> Upon request, you will be informed of the existence, use and disclosure of your Personal Information, and will
-            be given access to it. You may verify the accuracy and completeness of your Personal Information, and may request that it be amended, if
+            <strong>17. Customer Access:</strong> Upon request, you will be informed of the existence, use, and disclosure of your Personal Information, and
+            will be given access to it. You may verify the accuracy and completeness of your Personal Information and may request that it be amended, if
             appropriate. However, in certain circumstances permitted by law, we will not disclose certain information to you. For example, we may not disclose
-            information relating to you if other individuals are referenced or if there are legal, security or commercial proprietary restrictions.
+            information relating to you if other individuals are referenced or if there are legal, security, or commercial proprietary restrictions.
           </p>
 
           <p>
-            <strong>10. Handling Customer Complaints and Suggestions:</strong> You may direct any questions or inquiries with respect to our privacy policy or
-            our practices by contacting Blue Frog Studios via email at <a href="mailto:info@bluefrogstudios.ca">info@bluefrogstudios.ca</a>
+            <strong>18. Handling Customer Complaints and Suggestions:</strong> You may direct any questions or inquiries with respect to our privacy policy or
+            our practices by contacting Blue Frog Studios via email at <a href="mailto:info@bluefrogstudios.ca">info@bluefrogstudios.ca</a>.
           </p>
 
           <p>
-            <strong>11. Other Websites:</strong> Our website may contain links to other third party sites that are not governed by this privacy policy. Although
-            we endeavour to only link to sites with high privacy standards, our privacy policy will no longer apply once you leave our website. Additionally, we
-            are not responsible for the privacy practices employed by third party websites. Therefore, we suggest that you examine the privacy statements of
-            those sites to learn how your information may be collected, used, shared and disclosed.
+            <strong>19. Other Websites:</strong> Our website may contain links to other third-party sites that are not governed by this privacy policy. Although
+            we endeavor to only link to sites with high privacy standards, our privacy policy will no longer apply once you leave our website. Additionally, we
+            are not responsible for the privacy practices employed by third-party websites. Therefore, we suggest that you examine the privacy statements of
+            those sites to learn how your information may be collected, used, shared, and disclosed.
           </p>
         </div>
 
@@ -108,12 +154,6 @@ const PrivacyPolicyComponent = () => {
             to completely disable cookies through your browser settings. Please note that if you disable cookies, many features on this platform may not
             function properly, which could affect your experience. Some of our services might also be unavailable. For more details on how to manage or disable
             cookies, refer to the last section below.
-            <br />
-            <br /> <strong>Bluefrogplus.com</strong> uses various types of cookies, each serving a specific purpose. For further information about cookies and
-            how they work, you can visit{' '}
-            <a href="https://allaboutcookies.org/" target="_blank" rel="noopener noreferrer">
-              allaboutcookies.org.
-            </a>
           </p>{' '}
           <br />
           <br />
@@ -123,35 +163,42 @@ const PrivacyPolicyComponent = () => {
             The cookies on this website are categorized into the following four types. These descriptions are meant to help you understand how you might want to
             interact with our website and services.
           </p>
+          <Helmet>
+            <script id="CookieDeclaration" src="https://consent.cookiebot.com/603d6ef7-9d8b-408a-81cb-0af069643a8e/cd.js" type="text/javascript" async></script>
+          </Helmet>
           <p>
             {' '}
             <br />
             <strong>1. Strictly Necessary Cookies</strong> <br />
-            <br /> These cookies are essential for navigating the website and using certain features. Without them, we cannot provide basic services, such as
-            creating your account or processing your checkout.
+            <br />
+            These cookies are essential for navigating the website and using certain features. Without them, we cannot provide basic services, such as creating
+            your account or processing your checkout.
           </p>
           <p>
             {' '}
             <br />
             <strong>1. Performance Cookies</strong> <br />
-            <br /> Bluefrogplus.com (or our service providers) may place performance cookies on your device. These cookies gather information used by us to
-            enhance your website experience and for statistical purposes. Performance cookies collect anonymous data about how users interact with the site.
-            This includes information like which pages are visited most frequently, whether communications we send are opened, which ads are viewed or
-            interacted with, and whether error messages are encountered. The data collected helps us improve the user experience, track statistics, or offer
-            personalized content based on what we believe you might be interested in. These cookies do not collect personal information unless you are a
-            registered user, in which case the information may be linked to your account. <br />
+            <br />
+            We (or our service providers) may place performance cookies on your device. These cookies gather information used by us to enhance your website
+            experience and for statistical purposes.
+            <br /> Performance cookies collect anonymous data about how users interact with the site. This includes information like which pages are visited
+            most frequently, whether communications we send are opened, which ads are viewed or interacted with, and whether error messages are encountered. The
+            data collected helps us improve the user experience, track statistics, or offer personalized content based on what we believe you might be
+            interested in. These cookies do not collect personal information unless you are a registered user, in which case the information may be linked to
+            your account. <br />
             <br /> We may also allow third-party advertisers to place performance cookies on your device through their ads. These cookies collect information on
             how users interact with third-party ads, helping to determine the most effective ad placements. Like our performance cookies, these third-party
-            cookies don’t identify you personally. <br /> <br /> You can manage or delete these cookies as outlined in the last section of this Cookie Policy.
+            cookies don’t identify you personally.
+            <br /> <br /> You can manage or delete these cookies as outlined in the last section of this Cookie Policy.
           </p>
           <p>
             {' '}
             <br />
             <strong>1. Functionality Cookies</strong> <br />
-            <br /> Bluefrogplus.com (or our service providers) may use functionality cookies to remember choices you make (like language or country preferences)
-            and provide personalized or enhanced features. These cookies help us offer services you request or prevent us from offering services you have opted
-            out of. While they collect anonymous data, if you have a registered account, the information may be associated with your account. For example,
-            functionality cookies can help us track your browsing experience across different devices or websites operated by us or our partners.
+            <br /> We (or our service providers) may use functionality cookies to remember choices you make (like language or country preferences) and provide
+            personalized or enhanced features. These cookies help us offer services you request or prevent us from offering services you have opted out of.
+            While they collect anonymous data, if you have a registered account, the information may be associated with your account. For example, functionality
+            cookies can help us track your browsing experience across different devices or websites operated by us or our partners.
             <br />
             <br /> If you delete these cookies, your preferences and settings won’t be saved for future visits.
           </p>
@@ -160,7 +207,7 @@ const PrivacyPolicyComponent = () => {
             <br />
             <strong>1. Targeting or Advertising Cookies</strong> <br />
             <br /> When you see the Ad Choices icon on advertisements, you can click on it to learn more about behaviorally targeted advertising and how to
-            manage these cookies through your browser settings. Additional information can be found at{' '}
+            manage these cookies through your browser settings. Additional information can be found at
             <a href="https://youronlinechoices.eu/" target="_blank" rel="noopener noreferrer">
               Your Online Choices.
             </a>
@@ -184,10 +231,10 @@ const PrivacyPolicyComponent = () => {
             <br />
             <strong>Bluefrogplus.com Targeted Advertising</strong> <br />
             <br />
-            Bluefrogplus.com (or service providers acting on our behalf) may place targeted advertising cookies on your device. These cookies help us recognize
-            if you have interacted with our content or ads, so we can show you more relevant advertisements. These cookies can also limit how often you see the
-            same ad. While the information collected is anonymous, if you have a registered account, we may associate it with your account to provide more
-            targeted advertising.
+            We (or service providers acting on our behalf) may place targeted advertising cookies on your device. These cookies help us recognize if you have
+            interacted with our content or ads, so we can show you more relevant advertisements. These cookies can also limit how often you see the same ad.
+            While the information collected is anonymous, if you have a registered account, we may associate it with your account to provide more targeted
+            advertising.
           </p>
           <p>
             <br />
@@ -206,11 +253,11 @@ const PrivacyPolicyComponent = () => {
           </p>
         </div>
 
-        <strong>What Types of Cookies Are Used?</strong>
+        <strong>Managing Cookies in Your Browser</strong>
         <br />
         <p>
           You can manage cookies and tracking technologies in several ways through your browser settings. You can accept or decline cookies or set your browser
-          to alert you before accepting a cookie from any website. Keep in mind that disabling cookies may prevent some features from functioning properly.{' '}
+          to alert you before accepting a cookie from any website. Keep in mind that disabling cookies may prevent some features from functioning properly.
           <br />
           <br /> If you use multiple computers, be sure to adjust your browser settings on each one. <br />
           <br /> You can delete cookies installed in your browser’s cookie folder. Each browser has its own procedure for managing settings, so check the

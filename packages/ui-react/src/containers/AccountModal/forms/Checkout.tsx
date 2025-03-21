@@ -123,7 +123,7 @@ const Checkout = () => {
       <StepIndicator
         currentStep={3}
         steps={[
-          { id: 'registration', label: 'Email & password' },
+          { id: 'registration', label: ' Account Info' },
           { id: 'choose-offer', label: 'Plan' },
           { id: 'checkout', label: 'Verification' },
         ]}

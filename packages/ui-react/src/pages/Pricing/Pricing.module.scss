@@ -154,6 +154,33 @@
   }
 }
 
+.textBlock {
+  width: 100vw;
+  margin: 0;
+  padding-bottom: 3rem;
+  background: #fff;
+  color: #1a3649;
+  text-align: center;
+  margin-top: 2rem;
+  // box-sizing: border-box;
+}
+
+.textBlock .content {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 2rem;
+  margin: 0 auto;
+}
+
+.textBlock ul {
+  list-style: none;
+  // max-width: 800px;
+  padding: 0 35px;
+}
+.textBlock li {
+  text-align: left;
+}
+
 @media (max-width: 768px) {
   .heading {
     font-size: 2rem;
@@ -176,27 +203,13 @@
   .planCard {
     max-width: 100%;
   }
-  .textBlock {
-    text-align: center;
-  }
 
-  .textBlock li {
-    text-align: center;
+  .textBlock ul {
+    padding: 0 0px;
   }
-  .textBlock {
-    margin-top: 5rem !important;
+  .textBlock .content {
+    padding: 0 1rem;
   }
-}
-.textBlock {
-  margin-top: 10rem;
-  // margin-bottom: 8rem;
-  padding-left: 360px;
-  padding-right: 360px;
-  padding-bottom: 8rem;
-  width: 100%;
-  // margin: 0 auto;
-  background: #fff;
-  color: #1a3649;
 }
 
 @media (max-width: 1024px) {
@@ -216,8 +229,10 @@
   .planCard {
     max-width: 90%;
   }
-
-  .textBlock {
-    padding: 1.5rem;
+  .textBlock ul {
+    padding: 0 0px;
+  }
+  .textBlock .content {
+    padding: 0 1rem;
   }
 }

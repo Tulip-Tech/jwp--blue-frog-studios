@@ -67,12 +67,6 @@ const Registration = () => {
 
   const socialLoginURLs = useSocialLoginUrls(modalURLFromWindowLocation('personal-details'));
 
-  const nextStep = useCallback(() => {
-    const hasOffers = accessModel === ACCESS_MODEL.SVOD || (accessModel === ACCESS_MODEL.AUTHVOD && hasMediaOffers);
-
-    navigate(modalURLFromLocation(location, hasOffers ? 'choose-offer' : 'welcome'), { replace: true });
-  }, [navigate, location, accessModel, hasMediaOffers]);
-
   const { handleSubmit, handleChange, handleBlur, values, errors, validationSchemaError, submitting } = useForm<RegistrationFormData>({
     initialValues: { email: '', password: '' },
     validationSchema: object().shape({
@@ -99,7 +93,7 @@ const Registration = () => {
     },
     onSubmitSuccess: () => {
       announce(t('registration.success'), 'success');
-      nextStep();
+      navigate(modalURLFromLocation(location, 'personal-details'));
     },
   });
 
@@ -108,7 +102,7 @@ const Registration = () => {
       <StepIndicator
         currentStep={1}
         steps={[
-          { id: 'registration', label: 'Email & password' },
+          { id: 'registration', label: ' Account Info' },
           { id: 'choose-offer', label: 'Plan' },
           { id: 'checkout', label: 'Verification' },
         ]}
