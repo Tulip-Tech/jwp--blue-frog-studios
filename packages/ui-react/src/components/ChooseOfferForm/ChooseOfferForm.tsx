@@ -78,7 +78,8 @@ const OfferBox: React.FC<OfferBoxProps> = ({ offer, selected, onChange }: OfferB
           </ul> */}
           <div className={styles.fill} />
           <div className={styles.offerPrice}>
-            {getOfferPrice(offer)} {!!periodString && <small>/{periodString}</small>}
+            {/* {getOfferPrice(offer)} {!!periodString && <small>/{periodString}</small>} */}
+            {(offer && offer?.offerCurrency) || ''} {offer.customerPriceInclTax || '0.00'} {!!periodString && <small>/{periodString}</small>}
           </div>
         </label>
         {selected && <div className={styles.selectedIndicator}>Selected</div>}

@@ -371,6 +371,7 @@ const Footer: React.FC<Props> = () => {
             </svg>
           </div> */}
           <div className={styles.text}>© {new Date().getFullYear()}, Blue Frog Studios / BlueFrog+</div>
+          <img src={'/images/Canada.png'} alt="BLUEFROG+ Logo" width={'120px'} height={'auto'} />
         </div>
       </footer>
       {isPopoverOpen && <CustomPopover message={message} isSuccess={isSuccess} onClose={() => setIsPopoverOpen(false)} />}
