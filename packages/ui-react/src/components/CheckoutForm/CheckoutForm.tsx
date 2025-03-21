@@ -16,6 +16,7 @@ import DialogBackButton from '../DialogBackButton/DialogBackButton';
 import LoadingOverlay from '../LoadingOverlay/LoadingOverlay';
 import Icon from '../Icon/Icon';
 import RecaptchaField from '../RecaptchaField/RecaptchaField';
+import { getCurrencySign } from '../../pages/Pricing/Pricing';
 
 import styles from './CheckoutForm.module.scss';
 
@@ -117,7 +118,7 @@ const CheckoutForm: React.FC<Props> = ({
       </ul>
       <div style={{ justifyContent: 'end', display: 'flex', gap: '4px', margin: '0px  0px 20px  0px', fontSize: '24px', fontWeight: 'bold' }}>
         <span>Due Today: </span>
-        <span>$0</span>
+        <span>{getCurrencySign(order.currency)}0</span>
       </div>
 
       <div className={styles.couponForm}>

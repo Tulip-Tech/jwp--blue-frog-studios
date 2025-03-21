@@ -15,6 +15,17 @@ import PlaylistGrid from '../ScreenRouting/playlistScreens/PlaylistGrid/Playlist
 
 import styles from './Pricing.module.scss';
 
+export const getCurrencySign = (offerCurrency: string): string => {
+  switch (offerCurrency.trim().toUpperCase()) {
+    case 'USD':
+      return '$';
+    case 'EUR':
+      return '€';
+    default:
+      return '';
+  }
+};
+
 const PricingComponent = () => {
   const location = useLocation();
   const pathname = location.pathname;
@@ -74,9 +85,11 @@ const PricingComponent = () => {
 
             <div className={styles.priceContainer}>
               <span className={styles.price}>
-                {(subscriptionOffers && subscriptionOffers?.[0]?.offerCurrency) || ''} {getOfferPrice(subscriptionOffers?.[0])}
+                <span className={styles.price}></span>
+                {(subscriptionOffers && subscriptionOffers?.[0]?.offerCurrency) || ''} {getCurrencySign(subscriptionOffers?.[0]?.offerCurrency || '')}
+                {subscriptionOffers?.[0]?.customerPriceInclTax || '0.00'}
               </span>
-              <span className={styles.period}>/{subscriptionOffers?.[0]?.period || 'month'}</span>
+              <span className={styles.period}>/{(subscriptionOffers && subscriptionOffers?.[0]?.period) || 'month'}</span>
             </div>
 
             <Link className={selectedPlan === 'monthly' ? styles.monthlyButton : styles.annualButton} to={`${pathname}/?u=create-account`}>
@@ -106,7 +119,8 @@ const PricingComponent = () => {
             </ul>
             <div className={styles.priceContainer}>
               <span className={styles.price}>
-                {(subscriptionOffers && subscriptionOffers?.[1]?.offerCurrency) || ''} {getOfferPrice(subscriptionOffers?.[1])}
+                {(subscriptionOffers && subscriptionOffers?.[1]?.offerCurrency) || ''} {getCurrencySign(subscriptionOffers?.[1]?.offerCurrency || '')}
+                {subscriptionOffers?.[0]?.customerPriceInclTax || '0.00'}
               </span>
               <span className={styles.period}>/{(subscriptionOffers && subscriptionOffers?.[1]?.period) || 'year'}</span>
             </div>
