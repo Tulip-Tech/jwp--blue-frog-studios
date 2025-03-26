@@ -63,7 +63,7 @@ $light-gray: #ccc;
 }
 
 .tagline {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   margin-bottom: 30px;
 }
 
@@ -81,7 +81,7 @@ $light-gray: #ccc;
 }
 
 .checkIcon {
-  color: #0c4670;
+  color: var(--highlight-color);
   margin-right: 10px;
   font-weight: bold;
 }

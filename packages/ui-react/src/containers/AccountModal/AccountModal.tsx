@@ -167,16 +167,14 @@ const AccountModal = () => {
     if (['delete-account-confirmation'].includes(view ?? '')) {
       return 'large';
     }
-
     if (['create-account', 'choose-offer', 'checkout', 'login', 'forgot-password', 'personal-details'].includes(view ?? '')) {
       return 'medium';
     }
-
     return 'small';
   };
 
   const dialogSize = getDialogSize();
-  const disableBackdropClick = view === 'choose-offer' || view === 'personal-details';
+  const disableBackdropClick = view === 'choose-offer' || view === 'checkout' || view === 'personal-details';
 
   return (
     <Dialog

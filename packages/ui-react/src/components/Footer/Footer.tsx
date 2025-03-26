@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Facebook, Heart, Instagram, Twitter, Youtube, Loader } from 'lucide-react';
+import { Facebook, Instagram, Twitter, Youtube, Loader } from 'lucide-react';
 import { useConfigStore } from '@jwp/ott-common/src/stores/ConfigStore';
 import { shallow } from '@jwp/ott-common/src/utils/compare';
 
@@ -197,7 +197,7 @@ const Footer: React.FC<Props> = () => {
           </div>
 
           <div className={styles.logoSection}>
-            <a className={styles.logo} href="https://bluefrogstudios.ca" target="_blank" rel="noreferrer">
+            <a className={styles.logo} href="/" rel="noreferrer">
               <img src={banner} alt="BLUEFROG+ Logo" width={'280px'} height={'auto'} />
             </a>
             <a href="https://bluefrogstudios.ca" target="_blank" rel="noreferrer">
@@ -371,7 +371,7 @@ const Footer: React.FC<Props> = () => {
             </svg>
           </div> */}
           <div className={styles.text}>© {new Date().getFullYear()}, Blue Frog Studios / BlueFrog+</div>
-          <img src={'/images/Canada.png'} alt="BLUEFROG+ Logo" width={'120px'} height={'auto'} />
+          <img src={'/images/Canada_White.png'} alt="BLUEFROG+ Logo" width={'120px'} height={'auto'} />
         </div>
       </footer>
       {isPopoverOpen && <CustomPopover message={message} isSuccess={isSuccess} onClose={() => setIsPopoverOpen(false)} />}

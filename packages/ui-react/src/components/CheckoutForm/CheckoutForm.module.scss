@@ -211,14 +211,14 @@
   }
 }
 .checkIcon {
-  color: #0c4670;
+  color: var(--highlight-color);
   min-width: 20px;
   margin-right: 0.75rem;
   margin-top: 2px;
 }
 
 .annualCheck {
-  color: #0c4670;
+  color: var(--highlight-color);
 }
 
 .dueToday {

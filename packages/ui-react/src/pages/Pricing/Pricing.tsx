@@ -6,7 +6,6 @@ import useOffers from '@jwp/ott-hooks-react/src/useOffers';
 import usePlaylist from '@jwp/ott-hooks-react/src/usePlaylist';
 import { useTranslation } from 'react-i18next';
 import type { Playlist } from 'packages/common/types/playlist';
-import { getOfferPrice } from '@jwp/ott-common/src/utils/offers';
 
 import Button from '../../components/Button/Button';
 import Loading from '../Loading/Loading';
@@ -120,7 +119,7 @@ const PricingComponent = () => {
             <div className={styles.priceContainer}>
               <span className={styles.price}>
                 {(subscriptionOffers && subscriptionOffers?.[1]?.offerCurrency) || ''} {getCurrencySign(subscriptionOffers?.[1]?.offerCurrency || '')}
-                {subscriptionOffers?.[0]?.customerPriceInclTax || '0.00'}
+                {subscriptionOffers?.[1]?.customerPriceInclTax || '0.00'}
               </span>
               <span className={styles.period}>/{(subscriptionOffers && subscriptionOffers?.[1]?.period) || 'year'}</span>
             </div>
@@ -134,31 +133,35 @@ const PricingComponent = () => {
             <h1 className={styles.heading} style={{ marginBottom: '3rem', marginTop: '3rem', fontSize: '2.7rem' }}>
               Take your concert viewing experience to the next level
             </h1>
-            <div style={{ marginBottom: '3rem' }}>
+            <div style={{ marginBottom: '0.5rem' }}>
               <PlaylistGrid data={data as Playlist} isLoading={isFetching} />
             </div>
 
             <ul className={styles.featuresList}>
               <li>
                 <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
-                <span>BlueFrog+ makes watching your favorite concerts on demand easier than ever.</span>
+                <span><strong>Filmed in stunning 4K video</strong> with our award-winning recording studio sound.</span>
               </li>
               <li>
                 <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
-                <span>Enjoy a sleek interface filled with features like pre-built genre playlists and advanced search options.</span>
+                <span><strong>Recorded live at {' '}<a href="https://bluefrogstudios.ca/?utm_source=bluefrogplus&utm_medium=referral&utm_campaign=pricing-page" target="_blank" rel="noopener noreferrer">
+                  Blue Frog Studios
+                </a>{' '}</strong> in front of an intimate 100-person audience.</span>
               </li>
               <li>
                 <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
-                <span>With over 100 concerts available and new premieres or live streams added weekly, there&apos;s always something new to explore.</span>
+                <span><strong>Stream on demand anytime</strong> with a clean, easy-to-use interface.</span>
               </li>
               <li>
                 <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
                 <span>
-                  Each concert is filmed in stunning 4K resolution with multi-tracked sound, performed before an intimate audience of just 100 people, in the
-                  state-of-the-art{' '}
-                  <a href="https://bluefrogstudios.ca/" target="_blank" rel="noreferrer" style={{ color: '#36C5F2' }}>
-                    Blue Frog Studios.
-                  </a>
+                  <strong>Browse by genre</strong> with curated playlists and advanced searching.
+                </span>
+              </li>
+              <li>
+                <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
+                <span>
+                 <strong>100+ concerts available</strong> with new live streams and premieres added every week.
                 </span>
               </li>
             </ul>

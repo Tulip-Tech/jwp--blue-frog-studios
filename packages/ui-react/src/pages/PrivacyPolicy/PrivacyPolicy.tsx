@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import { Helmet } from 'react-helmet';
 
 import styles from './PrivacyPolicy.module.scss';
@@ -31,10 +30,10 @@ const PrivacyPolicyComponent = () => {
 
           <p>
             <strong>2. Our Commitment:</strong> We are committed to maintaining the accuracy, confidentiality, and security of your personally identifiable
-            information ("Personal Information"). As part of this commitment, our privacy policy governs our actions as they relate to the collection, use and
-            disclosure of Personal Information. Our privacy policy is based upon the values set by the Canadian Standards Association's Model Code for the
-            Protection of Personal Information and{' '}
-            <span style={{ fontStyle: 'italic' }}>Canada's Personal Information Protection and Electronic Documents Act.</span>
+            information (&#34;Personal Information&#34;). As part of this commitment, our privacy policy governs our actions as they relate to the collection,
+            use and disclosure of Personal Information. Our privacy policy is based upon the values set by the Canadian Standards Association&#39;s Model Code
+            for the Protection of Personal Information and{' '}
+            <span style={{ fontStyle: 'italic' }}>Canada&#39;s Personal Information Protection and Electronic Documents Act.</span>
           </p>
 
           <p>
@@ -154,12 +153,11 @@ const PrivacyPolicyComponent = () => {
             to completely disable cookies through your browser settings. Please note that if you disable cookies, many features on this platform may not
             function properly, which could affect your experience. Some of our services might also be unavailable. For more details on how to manage or disable
             cookies, refer to the last section below.
-          </p>{' '}
-          <br />
-          <br />
-          <strong>What Types of Cookies Are Used?</strong>
-          <br />
+          </p>
           <p>
+            <br />
+            <strong>What Types of Cookies Are Used?</strong>
+            <br />
             The cookies on this website are categorized into the following four types. These descriptions are meant to help you understand how you might want to
             interact with our website and services.
           </p>
@@ -167,18 +165,12 @@ const PrivacyPolicyComponent = () => {
             <script id="CookieDeclaration" src="https://consent.cookiebot.com/603d6ef7-9d8b-408a-81cb-0af069643a8e/cd.js" type="text/javascript" async></script>
           </Helmet>
           <p>
-            {' '}
-            <br />
             <strong>1. Strictly Necessary Cookies</strong> <br />
-            <br />
             These cookies are essential for navigating the website and using certain features. Without them, we cannot provide basic services, such as creating
             your account or processing your checkout.
           </p>
           <p>
-            {' '}
-            <br />
-            <strong>1. Performance Cookies</strong> <br />
-            <br />
+            <strong>2. Performance Cookies</strong> <br />
             We (or our service providers) may place performance cookies on your device. These cookies gather information used by us to enhance your website
             experience and for statistical purposes.
             <br /> Performance cookies collect anonymous data about how users interact with the site. This includes information like which pages are visited
@@ -186,37 +178,32 @@ const PrivacyPolicyComponent = () => {
             data collected helps us improve the user experience, track statistics, or offer personalized content based on what we believe you might be
             interested in. These cookies do not collect personal information unless you are a registered user, in which case the information may be linked to
             your account. <br />
-            <br /> We may also allow third-party advertisers to place performance cookies on your device through their ads. These cookies collect information on
-            how users interact with third-party ads, helping to determine the most effective ad placements. Like our performance cookies, these third-party
-            cookies don’t identify you personally.
-            <br /> <br /> You can manage or delete these cookies as outlined in the last section of this Cookie Policy.
+            We may also allow third-party advertisers to place performance cookies on your device through their ads. These cookies collect information on how
+            users interact with third-party ads, helping to determine the most effective ad placements. Like our performance cookies, these third-party cookies
+            don’t identify you personally.
+            <br /> You can manage or delete these cookies as outlined in the last section of this Cookie Policy.
           </p>
           <p>
-            {' '}
-            <br />
-            <strong>1. Functionality Cookies</strong> <br />
-            <br /> We (or our service providers) may use functionality cookies to remember choices you make (like language or country preferences) and provide
+            <strong>3. Functionality Cookies</strong> <br />
+            We (or our service providers) may use functionality cookies to remember choices you make (like language or country preferences) and provide
             personalized or enhanced features. These cookies help us offer services you request or prevent us from offering services you have opted out of.
             While they collect anonymous data, if you have a registered account, the information may be associated with your account. For example, functionality
             cookies can help us track your browsing experience across different devices or websites operated by us or our partners.
             <br />
-            <br /> If you delete these cookies, your preferences and settings won’t be saved for future visits.
+            If you delete these cookies, your preferences and settings won’t be saved for future visits.
           </p>
           <p>
-            {' '}
-            <br />
-            <strong>1. Targeting or Advertising Cookies</strong> <br />
-            <br /> When you see the Ad Choices icon on advertisements, you can click on it to learn more about behaviorally targeted advertising and how to
-            manage these cookies through your browser settings. Additional information can be found at
+            <strong>4. Targeting or Advertising Cookies</strong> <br />
+            When you see the Ad Choices icon on advertisements, you can click on it to learn more about behaviorally targeted advertising and how to manage
+            these cookies through your browser settings. Additional information can be found at{' '}
             <a href="https://youronlinechoices.eu/" target="_blank" rel="noopener noreferrer">
               Your Online Choices.
-            </a>
+            </a>{' '}
           </p>
           <p>
-            {' '}
             <br />
             <strong>Third-Party Targeted Advertising</strong> <br />
-            <br /> Third-party advertising cookies are placed by advertisers, ad networks, data exchanges, and other service providers. These cookies track your
+            Third-party advertising cookies are placed by advertisers, ad networks, data exchanges, and other service providers. These cookies track your
             browsing activities across multiple websites and services to serve relevant ads on our site and others. They may also be used to assess ad
             performance, such as tracking how many people interact with an ad. These cookies do not collect personal data.
             <br />
@@ -230,7 +217,6 @@ const PrivacyPolicyComponent = () => {
           <p>
             <br />
             <strong>Bluefrogplus.com Targeted Advertising</strong> <br />
-            <br />
             We (or service providers acting on our behalf) may place targeted advertising cookies on your device. These cookies help us recognize if you have
             interacted with our content or ads, so we can show you more relevant advertisements. These cookies can also limit how often you see the same ad.
             While the information collected is anonymous, if you have a registered account, we may associate it with your account to provide more targeted
@@ -239,84 +225,80 @@ const PrivacyPolicyComponent = () => {
           <p>
             <br />
             <strong>For Registered Users</strong> <br />
-            <br />
             We may analyze the online activities of registered users across our websites using cookies and other tracking technologies. If you have opted to
             receive communications from us, we may use this data to personalize future messages to your interests.
-            <br />
             <br />
             Additionally, cookies may be used within our communications to track whether they have been opened, what content you engage with, and which links
             you follow. This allows us to better tailor our future communications to your preferences.
             <br />
-            <br />
             You can opt-out of receiving targeted communications at any time by logging into your account and adjusting your marketing preferences. To opt-out
-            of behavior-based advertising across this and other websites, follow the instructions in the "Targeted Advertising" section.
+            of behavior-based advertising across this and other websites, follow the instructions in the &#34;Targeted Advertising&#34; section.
+          </p>
+          <p>
+            <br />
+            <strong>Managing Cookies in Your Browser</strong>
+            <br />
+            You can manage cookies and tracking technologies in several ways through your browser settings. You can accept or decline cookies or set your
+            browser to alert you before accepting a cookie from any website. Keep in mind that disabling cookies may prevent some features from functioning
+            properly.
+            <br />
+            <br /> If you use multiple computers, be sure to adjust your browser settings on each one. <br />
+            <br /> You can delete cookies installed in your browser’s cookie folder. Each browser has its own procedure for managing settings, so check the
+            following links for specific instructions:
+            <ol>
+              <li>
+                <a
+                  href="https://support.microsoft.com/en-us/windows/manage-cookies-in-microsoft-edge-view-allow-block-delete-and-use-168dab11-0753-043d-7c16-ede5947fc64d"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {' '}
+                  Microsoft Edge / Internet Explorer
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://support.microsoft.com/en-us/windows/manage-cookies-in-microsoft-edge-view-allow-block-delete-and-use-168dab11-0753-043d-7c16-ede5947fc64d"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Microsoft Edge / Internet Explorer
+                </a>
+              </li>
+              <li>
+                <a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">
+                  Google Chrome
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop?redirectslug=enable-and-disable-cookies-website-preferences&redirectlocale=en-US"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Mozilla Firefox
+                </a>
+              </li>
+              <li>
+                <a href="https://support.apple.com/en-us/105082" target="_blank" rel="noopener noreferrer">
+                  Apple Safari on MacOS and iOS
+                </a>
+              </li>
+            </ol>
+            <br />
+            For other browsers, use the “help” function to find instructions for managing cookie settings. <br />
+            <br />
+            Please note, while you may not be able to opt-out of all third-party advertising cookies, you can opt-out of receiving cookies from us via the icon
+            mentioned earlier. Disabling cookies does not remove other types of analytics products that collect general information about how visitors use our
+            website.
+          </p>
+          <p>
+            <strong>How to Manage Cookies</strong>
+            <br />
+            To manage cookies, you can configure your browser not to accept them, and you can delete cookies using the steps provided above. However, some
+            features of our website may not work as expected if you disable cookies.
           </p>
         </div>
-
-        <strong>Managing Cookies in Your Browser</strong>
-        <br />
-        <p>
-          You can manage cookies and tracking technologies in several ways through your browser settings. You can accept or decline cookies or set your browser
-          to alert you before accepting a cookie from any website. Keep in mind that disabling cookies may prevent some features from functioning properly.
-          <br />
-          <br /> If you use multiple computers, be sure to adjust your browser settings on each one. <br />
-          <br /> You can delete cookies installed in your browser’s cookie folder. Each browser has its own procedure for managing settings, so check the
-          following links for specific instructions:
-          <ol>
-            <li>
-              <a
-                href="https://support.microsoft.com/en-us/windows/manage-cookies-in-microsoft-edge-view-allow-block-delete-and-use-168dab11-0753-043d-7c16-ede5947fc64d"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {' '}
-                Microsoft Edge / Internet Explorer
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://support.microsoft.com/en-us/windows/manage-cookies-in-microsoft-edge-view-allow-block-delete-and-use-168dab11-0753-043d-7c16-ede5947fc64d"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Microsoft Edge / Internet Explorer
-              </a>
-            </li>
-            <li>
-              <a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">
-                Google Chrome
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop?redirectslug=enable-and-disable-cookies-website-preferences&redirectlocale=en-US"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Mozilla Firefox
-              </a>
-            </li>
-            <li>
-              <a href="https://support.apple.com/en-us/105082" target="_blank" rel="noopener noreferrer">
-                Apple Safari on MacOS and iOS
-              </a>
-            </li>
-          </ol>
-          <br />
-          For other browsers, use the “help” function to find instructions for managing cookie settings. <br />
-          <br />
-          Please note, while you may not be able to opt-out of all third-party advertising cookies, you can opt-out of receiving cookies from us via the icon
-          mentioned earlier. Disabling cookies does not remove other types of analytics products that collect general information about how visitors use our
-          website.
-        </p>
-        <br />
-
-        <strong>How to Manage Cookies</strong>
-        <br />
-        <p>
-          To manage cookies, you can configure your browser not to accept them, and you can delete cookies using the steps provided above. However, some
-          features of our website may not work as expected if you disable cookies.
-        </p>
       </div>
     </>
   );

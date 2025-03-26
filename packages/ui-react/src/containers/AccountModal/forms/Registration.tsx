@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState, type ChangeEventHandler } from 'react';
+import React, { type ChangeEventHandler, useEffect, useState } from 'react';
 import { object, string } from 'yup';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router';
@@ -10,9 +10,6 @@ import useSocialLoginUrls from '@jwp/ott-hooks-react/src/useSocialLoginUrls';
 import useForm from '@jwp/ott-hooks-react/src/useForm';
 import { modalURLFromLocation, modalURLFromWindowLocation } from '@jwp/ott-ui-react/src/utils/location';
 import { useAccountStore } from '@jwp/ott-common/src/stores/AccountStore';
-import useOffers from '@jwp/ott-hooks-react/src/useOffers';
-import { useConfigStore } from '@jwp/ott-common/src/stores/ConfigStore';
-import { ACCESS_MODEL } from '@jwp/ott-common/src/constants';
 
 import RegistrationForm from '../../../components/RegistrationForm/RegistrationForm';
 import { useAriaAnnouncer } from '../../AnnouncementProvider/AnnoucementProvider';
@@ -36,9 +33,6 @@ const Registration = () => {
   }));
 
   const { recaptchaRef, captchaSiteKey, getCaptchaValue } = useRecaptcha();
-  const accessModel = useConfigStore((s) => s.accessModel);
-  const { mediaOffers } = useOffers();
-  const hasMediaOffers = mediaOffers.length > 0;
 
   const handleChangeConsent: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = ({ currentTarget }) => {
     if (!currentTarget) return;
@@ -58,10 +52,8 @@ const Registration = () => {
   useEffect(() => {
     if (!publisherConsents) {
       accountController.getPublisherConsents();
-
       return;
     }
-
     setConsentValues(extractConsentValues(publisherConsents));
   }, [accountController, publisherConsents]);
 

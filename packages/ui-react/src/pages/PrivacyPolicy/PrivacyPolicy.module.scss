@@ -36,13 +36,8 @@
 .privacyContent,
 .additionalContent,
 .returnsContent {
-  margin-bottom: 30px;
-
   p {
-    font-size: 14px;
     text-align: justify;
-    // line-height: 1;
-    // letter-spacing: 0.8px;
   }
 
   strong {
@@ -54,10 +49,8 @@
 
     li {
       margin-bottom: 10px;
-      font-size: 14px !important;
+      font-size: 15px !important;
       text-align: justify !important;
-      // line-height: 1 !important;
-      // letter-spacing: 0.5px !important;
     }
   }
 }

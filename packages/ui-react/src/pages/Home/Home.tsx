@@ -24,16 +24,16 @@ const Home = () => {
           <div className={styles.heroContent}>
             <div className={styles.heroText}>
               <h2>Watch Your Favorite Concerts</h2>
-              <h3>On Demand</h3>
+              <h3>Free 7 Day Trial</h3>
               <p className={styles.tagline}>Great music lives here!</p>
               <ul className={styles.featuresList}>
                 <li>
                   <span className={styles.checkIcon}>✓</span>
-                  Exclusive concerts recorded live in 4K at Blue Frog Studios
+                  Exclusive concerts recorded live in 4K at Blue Frog Studios.
                 </li>
                 <li>
                   <span className={styles.checkIcon}>✓</span>
-                  Watch Live Streams and Premiers on any device.
+                  Watch Live Streams and Premiers on demand, on any device.
                 </li>
                 <li>
                   <span className={styles.checkIcon}>✓</span>
