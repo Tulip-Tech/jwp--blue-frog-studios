@@ -49,7 +49,7 @@ const OfferBox: React.FC<OfferBoxProps> = ({ offer, selected, onChange }: OfferB
             <span>{(offer && offer?.offerCurrency) || ''}</span>
             <br />
             <span>
-              {getOfferPrice(offer)} {!!periodString && <small>/{periodString}</small>}
+              {getOfferPrice(offer)}{!!periodString && <small>/{periodString}</small>}
             </span>
           </div>
         </label>
