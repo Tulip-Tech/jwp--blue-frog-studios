@@ -15,6 +15,8 @@ export const formatDurationTag = (seconds: number, { minutesAbbreviation }: Pick
  * Hours are only shown if at least 1
  * Minutes get rounded
  *
+ * @param hoursAbbreviation
+ * @param minutesAbbreviation
  * @returns string, such as '2hrs 24min' or '31min'
  */
 
@@ -34,6 +36,7 @@ export const formatPrice = (price: number, currency: string, country?: string) =
   return new Intl.NumberFormat(country || 'en-US', {
     style: 'currency',
     currency: currency,
+    currencyDisplay: 'narrowSymbol',
   }).format(price);
 };
 

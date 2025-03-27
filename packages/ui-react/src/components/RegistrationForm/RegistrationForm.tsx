@@ -19,7 +19,6 @@ import Link from '../Link/Link';
 import { modalURLFromLocation } from '../../utils/location';
 import PasswordField from '../form-fields/PasswordField/PasswordField';
 import RecaptchaField from '../RecaptchaField/RecaptchaField';
-import Checkbox from '../form-fields/Checkbox/Checkbox';
 
 import styles from './RegistrationForm.module.scss';
 
@@ -144,23 +143,6 @@ const RegistrationForm: React.FC<Props> = ({
           })}
         </div>
       )}
-      <div className={styles.termsAndConditions}>
-        <div>
-          <Checkbox name={'privacyConsent'} style={{ marginTop: '1px', fontSize: '12px' }} />
-        </div>
-        <div style={{ fontSize: '12px', marginTop: '5px' }}>
-          I accept the{' '}
-          <a href="/terms-of-use" target="_blank" rel="noreferrer noopener" style={{ color: 'inherit' }}>
-            Terms
-          </a>{' '}
-          and{' '}
-          <a href="/privacy-policy" target="_blank" rel="noreferrer noopener" style={{ color: 'inherit' }}>
-            {' '}
-            Privacy Policy
-          </a>{' '}
-          of Blue Frog Studios / BlueFrog+
-        </div>
-      </div>
 
       {loadRecaptcha && <RecaptchaField siteKey={captchaSiteKey} ref={recaptchaRef} size={cookieConsent === 'accepted' ? 'invisible' : 'normal'} />}
       <Button

@@ -50,10 +50,6 @@ const PricingComponent = () => {
 
   return (
     <>
-      {' '}
-      {/* <Helmet>
-        <script id="CookieDeclaration" src="https://consent.cookiebot.com/603d6ef7-9d8b-408a-81cb-0af069643a8e/cd.js" type="text/javascript" async></script>
-      </Helmet> */}
       <div className={styles.container}>
         <h1 className={styles.heading}>
           Start your 7-day <span className={styles.italic}>free trial</span> today!
