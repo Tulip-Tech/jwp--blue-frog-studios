@@ -22,7 +22,7 @@ type OfferBoxProps = {
 const OfferBox: React.FC<OfferBoxProps> = ({ offer, selected, onChange }: OfferBoxProps) => {
   const { t } = useTranslation('account');
 
-  const renderOption = ({ title, periodString, secondBenefit }: { title: string; periodString?: string; secondBenefit?: string }) => (
+  const renderOption = ({ title, periodString }: { title: string; periodString?: string; secondBenefit?: string }) => (
     <div className={styles.offer} aria-labelledby={`title-${offer.offerId}`}>
       <input
         className={styles.radio}
@@ -36,7 +36,7 @@ const OfferBox: React.FC<OfferBoxProps> = ({ offer, selected, onChange }: OfferB
       />
 
       <div className={styles.label}>
-        {!(offer.period === 'month') && <div className={styles.saveBadge}>Save 16%</div>}
+        {!(offer.period === 'month') && <div className={styles.saveBadge}>Best Deal</div>}
 
         <label htmlFor={offer.offerId} style={{ padding: '16px' }}>
           <h2 className={styles.offerTitle} id={`title-${offer.offerId}`}>
@@ -49,7 +49,8 @@ const OfferBox: React.FC<OfferBoxProps> = ({ offer, selected, onChange }: OfferB
             <span>{(offer && offer?.offerCurrency) || ''}</span>
             <br />
             <span>
-              {getOfferPrice(offer)}{!!periodString && <small>/{periodString}</small>}
+              {getOfferPrice(offer)}
+              {!!periodString && <small>/{periodString}</small>}
             </span>
           </div>
         </label>

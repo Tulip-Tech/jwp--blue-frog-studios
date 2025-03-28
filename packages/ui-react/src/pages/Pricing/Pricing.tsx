@@ -96,7 +96,7 @@ const PricingComponent = () => {
             className={`${styles.planCard} ${selectedPlan === 'annual' ? styles.selectedPlan : styles.annualPlan}`}
             onClick={() => setSelectedPlan('annual')}
           >
-            <div className={styles.saveBadge}>Save 16%</div>
+            <div className={styles.saveBadge}>Best Deal</div>
             <h2 className={styles.planTitle}>Annual</h2>
             <ul className={styles.featuresList}>
               <li>
@@ -136,17 +136,31 @@ const PricingComponent = () => {
             <ul className={styles.featuresList}>
               <li>
                 <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
-                <span><strong>Filmed in stunning 4K video</strong> with our award-winning recording studio sound.</span>
+                <span>
+                  <strong>Filmed in stunning 4K video</strong> with our award-winning recording studio sound.
+                </span>
               </li>
               <li>
                 <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
-                <span><strong>Recorded live at {' '}<a href="https://bluefrogstudios.ca/?utm_source=bluefrogplus&utm_medium=referral&utm_campaign=pricing-page" target="_blank" rel="noopener noreferrer">
-                  Blue Frog Studios
-                </a>{' '}</strong> in front of an intimate 100-person audience.</span>
+                <span>
+                  <strong>
+                    Recorded live at{' '}
+                    <a
+                      href="https://bluefrogstudios.ca/?utm_source=bluefrogplus&utm_medium=referral&utm_campaign=pricing-page"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Blue Frog Studios
+                    </a>{' '}
+                  </strong>{' '}
+                  in front of an intimate 100-person audience.
+                </span>
               </li>
               <li>
                 <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
-                <span><strong>Stream on demand anytime</strong> with a clean, easy-to-use interface.</span>
+                <span>
+                  <strong>Stream on demand anytime</strong> with a clean, easy-to-use interface.
+                </span>
               </li>
               <li>
                 <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
@@ -157,7 +171,7 @@ const PricingComponent = () => {
               <li>
                 <Check className={`${styles.checkIcon} ${styles.annualCheck}`} />
                 <span>
-                 <strong>100+ concerts available</strong> with new live streams and premieres added every week.
+                  <strong>100+ concerts available</strong> with new live streams and premieres added every week.
                 </span>
               </li>
             </ul>

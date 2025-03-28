@@ -152,9 +152,12 @@ $aspects: ((1, 1), (2, 1), (2, 3), (4, 3), (5, 3), (16, 9), (9, 16), (9, 13));
   line-height: variables.$base-line-height;
   text-align: left;
   text-overflow: ellipsis;
-  text-shadow: var(--body-text-shadow);
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+
+  &.titleShadow {
+    text-shadow: var(--body-text-shadow);
+  }
 
   @include responsive.mobile-only {
     font-size: 14px;

@@ -21,7 +21,7 @@ export const VideoProgressMinMax = {
   Max: 0.95,
 };
 
-export const PLAYLIST_LIMIT = 25; // Recommended for performance
+export const PLAYLIST_LIMIT = 125; // Recommended for performance
 
 export const PLAYLIST_LIMIT_MAX = 500; // JW API limit
 

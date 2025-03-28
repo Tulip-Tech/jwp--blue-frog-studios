@@ -61,6 +61,7 @@ const PlaylistGrid: ScreenComponent<Playlist> = ({ data, isLoading }) => {
         hasSubscription={!!subscription}
         isLoading={isLoading}
         headingLevel={2}
+        titleShadow={false}
       />
     </div>
   );

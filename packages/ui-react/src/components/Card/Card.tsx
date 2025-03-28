@@ -35,6 +35,7 @@ export type CardProps = {
   currentLabel?: string;
   url: string;
   headingLevel?: number;
+  titleShadow?: boolean;
   tabIndex?: number;
   hasSubtitle?: boolean;
 };
@@ -51,6 +52,7 @@ function Card({
   isLocked = true,
   currentLabel,
   headingLevel = 3,
+  titleShadow = true,
   url,
   tabIndex = 0,
   hasSubtitle = false,
@@ -97,7 +99,7 @@ function Card({
   };
 
   const renderHeading = () => {
-    const heading = React.createElement(`h${headingLevel}`, { className: styles.title }, title);
+    const heading = React.createElement(`h${headingLevel}`, { className: classNames(styles.title, { [styles.titleShadow]: titleShadow }) }, title);
     const itemSubtitle = typeof item.subtitle === 'string' ? item.subtitle : null;
     const subtitle = !!scheduledStart && isLiveEvent(item) ? formatLocalizedDateTime(scheduledStart, language) : itemSubtitle;
 

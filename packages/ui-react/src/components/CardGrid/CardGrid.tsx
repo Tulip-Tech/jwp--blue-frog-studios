@@ -12,7 +12,6 @@ import Card from '../Card/Card';
 import InfiniteScrollLoader from '../InfiniteScrollLoader/InfiniteScrollLoader';
 import LayoutGrid from '../LayoutGrid/LayoutGrid';
 import createInjectableComponent from '../../modules/createInjectableComponent';
-import { getScrollParent } from '../../utils/dom';
 
 import styles from './CardGrid.module.scss';
 
@@ -43,6 +42,7 @@ export type CardGridProps = {
   hasSubscription: boolean;
   hasMore?: boolean;
   headingLevel?: number;
+  titleShadow?: boolean;
   loadMore?: () => void;
   onCardHover?: (item: PlaylistItem) => void;
   getUrl: (item: PlaylistItem) => string;
@@ -65,6 +65,7 @@ function CardGrid({
   loadMore,
   onCardHover,
   headingLevel,
+  titleShadow = true,
 }: CardGridProps) {
   const breakpoint: Breakpoint = useBreakpoint();
   const posterAspect = parseAspectRatio(playlist.cardImageAspectRatio || playlist.shelfImageAspectRatio);
@@ -94,6 +95,7 @@ function CardGrid({
         posterAspect={posterAspect}
         item={playlistItem}
         headingLevel={headingLevel}
+        titleShadow={titleShadow}
         hasSubtitle={showSubtitles}
       />
     ),
@@ -104,6 +106,7 @@ function CardGrid({
       getUrl,
       hasSubscription,
       headingLevel,
+      titleShadow,
       isLoading,
       isLoggedIn,
       onCardHover,
