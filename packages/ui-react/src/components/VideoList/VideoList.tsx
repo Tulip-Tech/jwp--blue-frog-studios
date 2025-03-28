@@ -8,7 +8,6 @@ import { testId } from '@jwp/ott-common/src/utils/common';
 
 import VideoListItem from '../VideoListItem/VideoListItem';
 import InfiniteScrollLoader from '../InfiniteScrollLoader/InfiniteScrollLoader';
-import { getScrollParent } from '../../utils/dom';
 
 import styles from './VideoList.module.scss';
 

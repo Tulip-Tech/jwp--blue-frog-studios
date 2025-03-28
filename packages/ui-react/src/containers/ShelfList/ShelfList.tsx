@@ -10,7 +10,7 @@ import { useWatchHistoryStore } from '@jwp/ott-common/src/stores/WatchHistorySto
 import { mediaURL, slugify } from '@jwp/ott-common/src/utils/urlFormatting';
 import { parseAspectRatio, parseTilesDelta } from '@jwp/ott-common/src/utils/collection';
 import { testId } from '@jwp/ott-common/src/utils/common';
-import { PersonalShelf, SHELF_LAYOUT_TYPE, PLAYLIST_LIMIT_MAX } from '@jwp/ott-common/src/constants';
+import { PersonalShelf, PLAYLIST_LIMIT_MAX, SHELF_LAYOUT_TYPE } from '@jwp/ott-common/src/constants';
 import usePlaylists from '@jwp/ott-hooks-react/src/usePlaylists';
 import { useTranslationKey } from '@jwp/ott-hooks-react/src/useTranslationKey';
 
@@ -19,7 +19,6 @@ import InfiniteScrollLoader from '../../components/InfiniteScrollLoader/Infinite
 import ErrorPage from '../../components/ErrorPage/ErrorPage';
 import Fade from '../../components/Animation/Fade/Fade';
 import HeroShelf from '../../components/HeroShelf/HeroShelf';
-import { getScrollParent } from '../../utils/dom';
 import CardGrid from '../../components/CardGrid/CardGrid';
 
 import styles from './ShelfList.module.scss';
