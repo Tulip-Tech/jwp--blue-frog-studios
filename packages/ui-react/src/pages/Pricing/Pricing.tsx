@@ -1,11 +1,12 @@
 import { Check } from 'lucide-react';
-import { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import useOffers from '@jwp/ott-hooks-react/src/useOffers';
 import usePlaylist from '@jwp/ott-hooks-react/src/usePlaylist';
 import { useTranslation } from 'react-i18next';
 import type { Playlist } from 'packages/common/types/playlist';
+import { Helmet } from 'react-helmet';
 
 import Button from '../../components/Button/Button';
 import Loading from '../Loading/Loading';
@@ -30,11 +31,18 @@ const PricingComponent = () => {
   const pathname = location.pathname;
 
   const { subscriptionOffers } = useOffers();
+  const { monthlySubscription, annualSubscription } = useMemo(() => {
+    return {
+      monthlySubscription: subscriptionOffers?.find((s) => s.period === 'month'),
+      annualSubscription: subscriptionOffers?.find((s) => s.period === 'year'),
+    };
+  }, [subscriptionOffers]);
+
   const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'annual'>('monthly');
 
   const { isFetching, error, data } = usePlaylist('zXN6g4vD', {}, true, true, 'playlist');
 
-  const { t } = useTranslation('error');
+  const { t } = useTranslation(['error', 'common']);
 
   if (isFetching) {
     return <Loading />;
@@ -48,8 +56,15 @@ const PricingComponent = () => {
     return <ErrorPage title={t('empty_shelves_heading')} message={t('empty_shelves_description')} />;
   }
 
+  const pageTitle = 'Subscription Pricing - ' + t('common:default_site_name');
+
   return (
     <>
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta property="og:title" content={pageTitle} />
+        <meta name="twitter:title" content={pageTitle} />
+      </Helmet>
       <div className={styles.container}>
         <h1 className={styles.heading}>
           Start your 7-day <span className={styles.italic}>free trial</span> today!
@@ -81,10 +96,10 @@ const PricingComponent = () => {
             <div className={styles.priceContainer}>
               <span className={styles.price}>
                 <span className={styles.price}></span>
-                {(subscriptionOffers && subscriptionOffers?.[0]?.offerCurrency) || ''} {getCurrencySign(subscriptionOffers?.[0]?.offerCurrency || '')}
-                {subscriptionOffers?.[0]?.customerPriceInclTax || '0.00'}
+                {monthlySubscription?.offerCurrency || ''} {getCurrencySign(monthlySubscription?.offerCurrency || '')}
+                {monthlySubscription?.customerPriceInclTax || '0.00'}
               </span>
-              <span className={styles.period}>/{(subscriptionOffers && subscriptionOffers?.[0]?.period) || 'month'}</span>
+              <span className={styles.period}>/{monthlySubscription?.period || 'month'}</span>
             </div>
 
             <Link className={selectedPlan === 'monthly' ? styles.monthlyButton : styles.annualButton} to={`${pathname}/?u=create-account`}>
@@ -114,10 +129,10 @@ const PricingComponent = () => {
             </ul>
             <div className={styles.priceContainer}>
               <span className={styles.price}>
-                {(subscriptionOffers && subscriptionOffers?.[1]?.offerCurrency) || ''} {getCurrencySign(subscriptionOffers?.[1]?.offerCurrency || '')}
-                {subscriptionOffers?.[1]?.customerPriceInclTax || '0.00'}
+                {annualSubscription?.offerCurrency || ''} {getCurrencySign(annualSubscription?.offerCurrency || '')}
+                {annualSubscription?.customerPriceInclTax || '0.00'}
               </span>
-              <span className={styles.period}>/{(subscriptionOffers && subscriptionOffers?.[1]?.period) || 'year'}</span>
+              <span className={styles.period}>/{annualSubscription?.period || 'year'}</span>
             </div>
             <Link className={selectedPlan === 'annual' ? styles.monthlyButton : styles.annualButton} to={`${pathname}/?u=create-account`}>
               Get Started
@@ -126,11 +141,19 @@ const PricingComponent = () => {
         </div>
         <div className={styles.textBlock}>
           <div className={styles.content}>
-            <h1 className={styles.heading} style={{ marginBottom: '3rem', marginTop: '3rem', fontSize: '2.7rem' }}>
+            <h1 className={styles.heading} style={{ margin: '2rem 0', fontSize: '2.7rem' }}>
               Take your concert viewing experience to the next level
             </h1>
             <div style={{ marginBottom: '0.5rem' }}>
-              <PlaylistGrid data={data as Playlist} isLoading={isFetching} />
+              <PlaylistGrid
+                data={
+                  {
+                    ...data,
+                    customPage: true,
+                  } as Playlist
+                }
+                isLoading={isFetching}
+              />
             </div>
 
             <ul className={styles.featuresList}>

@@ -1,6 +1,4 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Helmet } from 'react-helmet';
-
 import styles from './TermsOfUse.module.scss';
 
 const PrivacyPolicyLink = ({ text }: { text?: string }) => {
@@ -17,10 +15,6 @@ const PrivacyPolicyLink = ({ text }: { text?: string }) => {
 const TermsOfUseComponent = () => {
   return (
     <>
-      <Helmet>
-        <script id="CookieDeclaration" src="https://consent.cookiebot.com/603d6ef7-9d8b-408a-81cb-0af069643a8e/cd.js" type="text/javascript" async></script>
-      </Helmet>
-
       <div className={styles.policyContainer}>
         {/* <h1 className={styles.mainTitle}>BlueFrogPlus.com</h1> */}
         {/* <div className={styles.underline}></div> */}
@@ -33,8 +27,9 @@ const TermsOfUseComponent = () => {
             of our website is subject to the following Terms and conditions of use, as amended from time to time (the "Terms"). The Terms are to be read
             together by you with any terms, conditions or disclaimers provided in the pages of our website. Please review the Terms carefully. The Terms apply
             to all users of our website, including without limitation, users who are browsers, customers, merchants, vendors and/or providers of content. If you
-            access and use this website, you accept and agree to be bound by and comply with the Terms and our <PrivacyPolicyLink/>. If you do not agree to the Terms
-            or our <PrivacyPolicyLink/>, you are not authorized to access our website, use any of our website's services or place an order on our website.
+            access and use this website, you accept and agree to be bound by and comply with the Terms and our <PrivacyPolicyLink />. If you do not agree to the
+            Terms or our <PrivacyPolicyLink />, you are not authorized to access our website, use any of our website's services or place an order on our
+            website.
           </p>
 
           <p>
@@ -51,7 +46,7 @@ const TermsOfUseComponent = () => {
             interfere with our website’s network or security features or to gain unauthorized access to our systems. You agree to provide us with accurate
             personal information, such as your email address, mailing address and other contact details in order to complete your order or contact you as
             needed. You agree to promptly update your account and information. You authorize us to collect and use this information to contact you in accordance
-            with our <PrivacyPolicyLink/>.
+            with our <PrivacyPolicyLink />.
           </p>
 
           <p>
@@ -104,7 +99,7 @@ const TermsOfUseComponent = () => {
           </p>
 
           <p>
-            <strong>10. Your Personal Information:</strong> Please see our <PrivacyPolicyLink/> to learn about how we collect, use, and share your personal
+            <strong>10. Your Personal Information:</strong> Please see our <PrivacyPolicyLink /> to learn about how we collect, use, and share your personal
             information.
           </p>
 
@@ -167,7 +162,7 @@ const TermsOfUseComponent = () => {
           </p>
 
           <p>
-            <strong>18. Governing Law & Dispute Resolution:</strong> Any disputes arising out of or relating to the Terms, the <PrivacyPolicyLink/>, use of our
+            <strong>18. Governing Law & Dispute Resolution:</strong> Any disputes arising out of or relating to the Terms, the <PrivacyPolicyLink />, use of our
             website, or our products or services offered on our website will be resolved in accordance with the laws of the Province of British Columbia without
             regard to its conflict of law rules. Any disputes, actions or proceedings relating to the Terms or your access to or use of our website must be
             brought before the courts of the Province of British Columbia in the City of White Rock, BC, and you irrevocably consent to the exclusive
@@ -203,9 +198,10 @@ const TermsOfUseComponent = () => {
             transactions, suspend your access to the Applications, and terminate all of our obligations hereunder.
             <br />
             <br />
-            Once you have created your account, you may update your Payment Method or Cancel your subscription anytime by accessing the payments area in your account properties at
-            {' '}<a href="/pricing" target="_blank" rel="noopener noreferrer">
-             BlueFrog+
+            Once you have created your account, you may update your Payment Method or Cancel your subscription anytime by accessing the payments area in your
+            account properties at{' '}
+            <a href="/pricing" target="_blank" rel="noopener noreferrer">
+              BlueFrog+
             </a>{' '}
             <br />
             Please note access to the subscription content may end immediately upon cancelling your subscription. No refund for any remaining time left on the
@@ -217,8 +213,8 @@ const TermsOfUseComponent = () => {
             <a href="mailto:info@bluefrogstudios.ca">info@bluefrogstudios.ca</a>{' '}
           </p>
           <p>
-            <strong>21. </strong> In addition to Blue Frog Plus’ terms and conditions, InPlayer is the platform used by Blue Frog Plus. This document also serves as notice that
-            you agree to the terms and conditions of InPlayer by reviewing their content at their webpage{' '}
+            <strong>21. </strong> In addition to Blue Frog Plus’ terms and conditions, InPlayer is the platform used by Blue Frog Plus. This document also
+            serves as notice that you agree to the terms and conditions of InPlayer by reviewing their content at their webpage{' '}
             <a href="https://inplayer.com/legal/terms" target="_blank" rel="noopener noreferrer">
               https://inplayer.com/legal/terms
             </a>

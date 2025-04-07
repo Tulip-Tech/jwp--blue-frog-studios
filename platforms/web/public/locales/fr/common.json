@@ -15,8 +15,8 @@
     "close": "Annuler",
     "confirm": "Oui"
   },
-  "default_description": "JW OTT Webapp est un site vidéo open-source généré dynamiquement.",
-  "default_site_name": "Mon application OTT",
+  "default_description": "Stream over 100 live concerts in stunning 4K video with award-winning studio sound from Blue Frog Studios. Enjoy intimate performances recorded live.",
+  "default_site_name": "BLUEFROG+",
   "filter_videos_by": "Filtrer les vidéos par {{name}}",
   "filter_videos_by_genre": "Filtrer les vidéos par genre",
   "home": "Accueil",

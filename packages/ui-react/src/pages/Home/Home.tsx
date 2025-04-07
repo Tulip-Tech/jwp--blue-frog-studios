@@ -3,6 +3,8 @@ import type { Content } from '@jwp/ott-common/types/config';
 import { useConfigStore } from '@jwp/ott-common/src/stores/ConfigStore';
 import { useTranslation } from 'react-i18next';
 import { useAccountStore } from '@jwp/ott-common/src/stores/AccountStore';
+import { Helmet } from 'react-helmet';
+import React from 'react';
 
 import ShelfList from '../../containers/ShelfList/ShelfList';
 import Button from '../../components/Button/Button';
@@ -15,8 +17,15 @@ const Home = () => {
   const { t } = useTranslation('common');
   const isLoggedIn = useAccountStore(({ user }) => !!user);
 
+  const pageTitle = 'Stream 4K Concerts Online | Blue Frog Studios';
   return (
     <>
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta property="og:title" content={pageTitle} />
+        <meta name="twitter:title" content={pageTitle} />
+      </Helmet>
+
       <h1 className="hideUntilFocus">{t('home')}</h1>
 
       {!isLoggedIn && (

@@ -44,12 +44,23 @@ const PlaylistGrid: ScreenComponent<Playlist> = ({ data, isLoading }) => {
 
   return (
     <div className={styles.playlist}>
-      <Helmet>
-        <title>{pageTitle}</title>
-        <meta property="og:title" content={pageTitle} />
-        <meta name="twitter:title" content={pageTitle} />
-      </Helmet>
-      <header className={styles.header}>
+      {!data?.customPage && (
+        <Helmet>
+          <title>{pageTitle}</title>
+          <meta property="og:title" content={pageTitle} />
+          <meta name="twitter:title" content={pageTitle} />
+        </Helmet>
+      )}
+      <header
+        className={styles.header}
+        style={
+          data?.customPage
+            ? {
+                margin: '0.5rem 0',
+              }
+            : {}
+        }
+      >
         <h1>{title}</h1>
         {shouldShowFilter && <Filter name="genre" value={filter} defaultLabel="All" options={categories} setValue={setFilter} />}
       </header>

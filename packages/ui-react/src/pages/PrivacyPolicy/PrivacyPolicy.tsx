@@ -1,3 +1,5 @@
+import CookiebotDeclaration from '../../components/Cookiebot/Cookiebot';
+
 import styles from './PrivacyPolicy.module.scss';
 
 const PrivacyPolicyComponent = () => {
@@ -147,7 +149,7 @@ const PrivacyPolicyComponent = () => {
           The cookies on this website are categorized into the following four types. These descriptions are meant to help you understand how you might want to
           interact with our website and services.
         </p>
-        <script id="CookieDeclaration" src="https://consent.cookiebot.com/603d6ef7-9d8b-408a-81cb-0af069643a8e/cd.js" type="text/javascript" async></script>
+        <CookiebotDeclaration />
         <p>
           <strong>1. Strictly Necessary Cookies</strong> <br />
           These cookies are essential for navigating the website and using certain features. Without them, we cannot provide basic services, such as creating
