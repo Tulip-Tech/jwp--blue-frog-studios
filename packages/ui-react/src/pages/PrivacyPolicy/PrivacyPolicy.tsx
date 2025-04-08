@@ -130,62 +130,10 @@ const PrivacyPolicyComponent = () => {
         </p>
       </div>
 
-      <h2 className={styles.sectionTitle}>Cookie Information</h2>
+      <h2 className={styles.sectionTitle}>Cookie Declaration</h2>
 
       <div className={styles.privacyContent}>
-        <strong>What are Cookies?</strong>
-        <p>
-          Cookies are small pieces of information that a website or application places on your device when you use them. These cookies may involve the
-          transmission of information between us and you, between you and another party acting on our behalf, or in accordance with their privacy policies. We
-          may use cookies to consolidate the information we gather about you. You have the option to receive notifications whenever a cookie is being sent, or
-          to completely disable cookies through your browser settings. Please note that if you disable cookies, many features on this platform may not function
-          properly, which could affect your experience. Some of our services might also be unavailable. For more details on how to manage or disable cookies,
-          refer to the last section below.
-        </p>
-        <p>
-          <br />
-          <strong>What Types of Cookies Are Used?</strong>
-          <br />
-          The cookies on this website are categorized into the following four types. These descriptions are meant to help you understand how you might want to
-          interact with our website and services.
-        </p>
         <CookiebotDeclaration />
-        <p>
-          <strong>1. Strictly Necessary Cookies</strong> <br />
-          These cookies are essential for navigating the website and using certain features. Without them, we cannot provide basic services, such as creating
-          your account or processing your checkout.
-        </p>
-        <p>
-          <strong>2. Performance Cookies</strong> <br />
-          We (or our service providers) may place performance cookies on your device. These cookies gather information used by us to enhance your website
-          experience and for statistical purposes.
-          <br /> Performance cookies collect anonymous data about how users interact with the site. This includes information like which pages are visited most
-          frequently, whether communications we send are opened, which ads are viewed or interacted with, and whether error messages are encountered. The data
-          collected helps us improve the user experience, track statistics, or offer personalized content based on what we believe you might be interested in.
-          These cookies do not collect personal information unless you are a registered user, in which case the information may be linked to your account.{' '}
-          <br />
-          We may also allow third-party advertisers to place performance cookies on your device through their ads. These cookies collect information on how
-          users interact with third-party ads, helping to determine the most effective ad placements. Like our performance cookies, these third-party cookies
-          don’t identify you personally.
-          <br /> You can manage or delete these cookies as outlined in the last section of this Cookie Policy.
-        </p>
-        <p>
-          <strong>3. Functionality Cookies</strong> <br />
-          We (or our service providers) may use functionality cookies to remember choices you make (like language or country preferences) and provide
-          personalized or enhanced features. These cookies help us offer services you request or prevent us from offering services you have opted out of. While
-          they collect anonymous data, if you have a registered account, the information may be associated with your account. For example, functionality cookies
-          can help us track your browsing experience across different devices or websites operated by us or our partners.
-          <br />
-          If you delete these cookies, your preferences and settings won’t be saved for future visits.
-        </p>
-        <p>
-          <strong>4. Targeting or Advertising Cookies</strong> <br />
-          When you see the Ad Choices icon on advertisements, you can click on it to learn more about behaviorally targeted advertising and how to manage these
-          cookies through your browser settings. Additional information can be found at{' '}
-          <a href="https://youronlinechoices.eu/" target="_blank" rel="noopener noreferrer">
-            Your Online Choices.
-          </a>{' '}
-        </p>
         <p>
           <br />
           <strong>Third-Party Targeted Advertising</strong> <br />

@@ -74,7 +74,15 @@ const CustomRegisterField: FC<CustomRegisterFieldCommonProps> = ({ type, value =
           {...props}
           checkboxLabel={
             <div style={{ fontSize: '12px' }}>
-              I accept the <Link to="/terms-of-use">Terms of Use</Link> and <Link to="/privacy-policy">Privacy Policy</Link> of Blue Frog Studios / BlueFrog+
+              I accept the{' '}
+              <Link to="/terms-of-use" target="_blank">
+                Terms of Use
+              </Link>{' '}
+              and{' '}
+              <Link to="/privacy-policy" target="_blank">
+                Privacy Policy
+              </Link>{' '}
+              of Blue Frog Studios / BlueFrog+
             </div>
           }
           checked={isTruthyCustomParamValue(value)}

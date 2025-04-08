@@ -4,6 +4,7 @@
 @use '@jwp/ott-ui-react/src/styles/mixins/typography';
 
 $max-height: 56vw; // To maintain acceptable aspect ratio's
+$top: 50px;
 
 .hero {
   display: flex;
@@ -37,7 +38,7 @@ $max-height: 56vw; // To maintain acceptable aspect ratio's
 
 .poster {
   position: fixed;
-  top: 50px;
+  top: $top;
   right: 0;
   z-index: -1;
   width: 80vw;
@@ -52,7 +53,7 @@ $max-height: 56vw; // To maintain acceptable aspect ratio's
 
 .posterFadeMenu {
   position: fixed;
-  top: 0;
+  top: $top;
   right: 0;
   left: 0;
   z-index: -1;
@@ -62,20 +63,20 @@ $max-height: 56vw; // To maintain acceptable aspect ratio's
 
 .posterBackground {
   position: fixed;
-  top: 0;
+  top: $top;
   right: 0;
   left: 0;
   z-index: -1;
   height: calc(60vh + variables.$header-height + 40px);
   max-height: $max-height;
-  background: rgba(0,0,0,0.2);
+  background: rgba(0, 0, 0, 0.2);
   -webkit-mask-image: linear-gradient(to bottom, var(--body-background-color, variables.$white) 85%, transparent 100%);
   mask-image: linear-gradient(to bottom, var(--body-background-color, variables.$white) 85%, transparent 100%);
 }
 
 .posterFadeBottom {
   position: fixed;
-  top: 0;
+  top: $top;
   right: 0;
   left: 0;
   z-index: -1;
@@ -86,7 +87,7 @@ $max-height: 56vw; // To maintain acceptable aspect ratio's
 
 .posterFadeLeft {
   position: fixed;
-  top: 0;
+  top: $top;
   right: 0;
   z-index: -1;
   width: 80vw;
@@ -100,7 +101,10 @@ $max-height: 56vw; // To maintain acceptable aspect ratio's
     padding: calc(variables.$base-spacing * 2);
   }
 
-  .hero, .poster, .posterBackground, .posterFadeBottom {
+  .hero,
+  .poster,
+  .posterBackground,
+  .posterFadeBottom {
     width: 100vw;
     height: 75vh;
     max-height: 75vw;
@@ -128,7 +132,10 @@ $max-height: 56vw; // To maintain acceptable aspect ratio's
 }
 
 @include responsive.mobile-and-small-tablet() {
-  .hero, .poster, .posterBackground, .posterFadeBottom {
+  .hero,
+  .poster,
+  .posterBackground,
+  .posterFadeBottom {
     height: auto;
     max-height: 100%;
   }
@@ -161,7 +168,6 @@ $max-height: 56vw; // To maintain acceptable aspect ratio's
     display: none;
   }
 }
-
 
 @include responsive.mobile-only() {
   .hero {

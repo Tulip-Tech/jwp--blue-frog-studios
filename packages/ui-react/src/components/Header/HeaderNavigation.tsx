@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import classNames from 'classnames';
 import useBreakpoint, { Breakpoint } from '@jwp/ott-ui-react/src/hooks/useBreakpoint';
+import { useAccountStore } from '@jwp/ott-common/src/stores/AccountStore';
 
 import Button from '../Button/Button';
 
@@ -16,6 +17,7 @@ const scrollOffset = 100;
 const HeaderNavigation = ({ className, navItems }: { className?: string; navItems: NavItem[] }) => {
   const navRef = useRef<HTMLElement>(null);
   const breakpoint: Breakpoint = useBreakpoint();
+  const isLoggedIn = useAccountStore(({ user }) => !!user);
 
   const focusHandler = (event: React.FocusEvent) => {
     if (!navRef.current) return;
@@ -33,12 +35,13 @@ const HeaderNavigation = ({ className, navItems }: { className?: string; navItem
   };
 
   const updatedNavItems = [...navItems];
-  const freeClipsIndex = updatedNavItems.findIndex((item) => item.label === 'Free Clips');
-
-  if (freeClipsIndex !== -1) {
-    updatedNavItems.splice(freeClipsIndex, 0, { label: 'Pricing', to: '/pricing' });
-  } else {
-    updatedNavItems.push({ label: 'Pricing', to: '/pricing' });
+  if (!isLoggedIn) {
+    const freeClipsIndex = updatedNavItems.findIndex((item) => item.label === 'Free Clips');
+    if (freeClipsIndex !== -1) {
+      updatedNavItems.splice(freeClipsIndex, 0, { label: 'Pricing', to: '/pricing' });
+    } else {
+      updatedNavItems.push({ label: 'Pricing', to: '/pricing' });
+    }
   }
 
   const isSmallScreen = breakpoint === Breakpoint.lg;
