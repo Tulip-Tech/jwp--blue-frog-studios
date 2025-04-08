@@ -193,7 +193,10 @@ export default class JWPSubscriptionService extends SubscriptionService {
           },
         );
 
-        const activeSubscription = data.collection.find((subscription: SubscriptionDetails) => subscription.item_id === assetId);
+        const packagesAndAssets = [assetId, 2081297, 2081292, 46326];
+        const activeSubscription = data.collection.find(
+          (subscription: SubscriptionDetails) => subscription?.item_id && packagesAndAssets.indexOf(subscription.item_id) > -1,
+        );
 
         if (activeSubscription) {
           return this.formatActiveSubscription(activeSubscription, hasAccess?.expires_at);
