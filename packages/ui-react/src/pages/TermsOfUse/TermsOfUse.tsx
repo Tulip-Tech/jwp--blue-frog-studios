@@ -209,12 +209,18 @@ const TermsOfUseComponent = () => {
           </p>
 
           <p>
-            <strong>20. Questions or Concerns:</strong> Please send all questions, comments, and feedback to us at{' '}
+            <strong>20. Free Trial:</strong> Please note that free trials are tied to a viewer’s credit card, and not the BlueFrog+ account. If a second account
+            is opened but the same credit card is used to purchase a second subscription, a second free trial will not be provided. A credit card can only be
+            used once to obtain a free trial. This is intended to prevent abuse.
+          </p>
+
+          <p>
+            <strong>21. Questions or Concerns:</strong> Please send all questions, comments, and feedback to us at{' '}
             <a href="mailto:info@bluefrogstudios.ca">info@bluefrogstudios.ca</a>{' '}
           </p>
           <p>
-            <strong>21. </strong> In addition to Blue Frog Plus’ terms and conditions, InPlayer is the platform used by Blue Frog Plus. This document also
-            serves as notice that you agree to the terms and conditions of InPlayer by reviewing their content at their webpage{' '}
+            <strong>22. InPlayer Terms:</strong> In addition to Blue Frog Plus’ terms and conditions, InPlayer is the platform used by Blue Frog Plus. This
+            document also serves as notice that you agree to the terms and conditions of InPlayer by reviewing their content at their webpage{' '}
             <a href="https://inplayer.com/legal/terms" target="_blank" rel="noopener noreferrer">
               https://inplayer.com/legal/terms
             </a>
