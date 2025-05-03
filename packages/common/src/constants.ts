@@ -84,7 +84,7 @@ export const DEFAULT_FEATURES = {
   canChangePasswordWithOldPassword: false,
   canRenewSubscription: false,
   canExportAccountData: false,
-  canDeleteAccount: false,
+  canDeleteAccount: true,
   canUpdatePaymentMethod: false,
   canShowReceipts: false,
   hasSocialURLs: false,

@@ -100,11 +100,7 @@ const Footer: React.FC<Props> = () => {
                   Home
                 </Link>
               </li>
-              <li>
-                <Link target="_blank" href="/p/ImnnYk7s/live">
-                  Live
-                </Link>
-              </li>
+
               <li>
                 <Link target="_blank" href="/p/2hxmUxJ9/upcoming">
                   Upcoming
@@ -138,6 +134,12 @@ const Footer: React.FC<Props> = () => {
               <li>
                 <Link href="/terms-of-use" target="_blank">
                   Terms Of Use
+                </Link>
+              </li>
+
+              <li>
+                <Link href="https://bluefrogstudios.ca/pages/streaming-help" target="_blank">
+                  Add Support
                 </Link>
               </li>
             </ul>

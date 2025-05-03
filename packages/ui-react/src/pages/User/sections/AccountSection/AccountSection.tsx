@@ -404,7 +404,7 @@ const AccountSection = (): JSX.Element => {
             }),
           canDeleteAccount &&
             formSection({
-              label: t('account.delete_account.title'),
+              label: t('account.delete_account.support_title'),
               content: () => (
                 <div className={styles.textWithButtonContainer}>
                   <div>{t('account.delete_account.body')}</div>
@@ -414,7 +414,7 @@ const AccountSection = (): JSX.Element => {
                       type="button"
                       variant="danger"
                       onClick={() => {
-                        navigate(modalURLFromLocation(location, shouldAddPassword ? 'warning-account-deletion' : 'delete-account'));
+                        window.open('https://bluefrogstudios.ca/pages/streaming-help', '_blank');
                       }}
                     />
                   </div>

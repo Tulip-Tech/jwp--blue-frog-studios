@@ -200,7 +200,7 @@ const TermsOfUseComponent = () => {
             <br />
             Once you have created your account, you may update your Payment Method or Cancel your subscription anytime by accessing the payments area in your
             account properties at{' '}
-            <a href="/pricing" target="_blank" rel="noopener noreferrer">
+            <a href="/u/payments" target="_blank" rel="noopener noreferrer">
               BlueFrog+
             </a>{' '}
             <br />
@@ -215,11 +215,17 @@ const TermsOfUseComponent = () => {
           </p>
 
           <p>
-            <strong>21. Questions or Concerns:</strong> Please send all questions, comments, and feedback to us at{' '}
+            <strong>21. BlueFrog+ Communications:</strong> By creating an account with Blue Frog Studios / BlueFrog+, you agree to receive email communications
+            from us, including newsletters, promotional offers, and account updates. You understand that you can unsubscribe from these communications at any
+            time by clicking the unsubscribe link in any such email that you receive from us.
+          </p>
+
+          <p>
+            <strong>22. Questions or Concerns:</strong> Please send all questions, comments, and feedback to us at{' '}
             <a href="mailto:info@bluefrogstudios.ca">info@bluefrogstudios.ca</a>{' '}
           </p>
           <p>
-            <strong>22. InPlayer Terms:</strong> In addition to Blue Frog Plus’ terms and conditions, InPlayer is the platform used by Blue Frog Plus. This
+            <strong>23. InPlayer Terms:</strong> In addition to Blue Frog Plus’ terms and conditions, InPlayer is the platform used by Blue Frog Plus. This
             document also serves as notice that you agree to the terms and conditions of InPlayer by reviewing their content at their webpage{' '}
             <a href="https://inplayer.com/legal/terms" target="_blank" rel="noopener noreferrer">
               https://inplayer.com/legal/terms
