@@ -53,10 +53,11 @@ const ChooseOffer = () => {
   });
   const visibleOffers = values.selectedOfferType === 'tvod' ? mediaOffers : isSwitch ? switchSubscriptionOffers : subscriptionOffers;
 
-  const selectedOffer = visibleOffers?.find((v) => v.offerId === values?.selectedOfferId);
-  const checkoutUrl = modalURLFromLocation(location, 'checkout', {
-    p: selectedOffer?.period ? (selectedOffer?.period === 'month' ? 'monthly' : 'annual') : undefined,
-  });
+  let checkoutUrl = modalURLFromLocation(location, 'checkout');
+  const selectedOfferPeriod = visibleOffers?.find((v) => v.offerId === values?.selectedOfferId)?.period === 'month' ? 'monthly' : 'annual';
+  if (selectedOfferPeriod) {
+    checkoutUrl += `#p=${selectedOfferPeriod}`;
+  }
 
   const upgradePendingUrl = modalURLFromLocation(location, 'upgrade-subscription-pending');
   const upgradeSuccessUrl = modalURLFromLocation(location, 'upgrade-subscription-success');

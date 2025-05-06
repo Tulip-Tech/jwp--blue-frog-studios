@@ -427,7 +427,7 @@ const AccountSection = (): JSX.Element => {
               label: t('account.delete_account.support_title'),
               content: () => (
                 <div className={styles.textWithButtonContainer}>
-                  <div>{t('account.delete_account.body')}</div>
+                  {/*<div>{t('account.delete_account.body')}</div>*/}
                   <div>
                     <Button
                       label={t('account.delete_account.title')}
