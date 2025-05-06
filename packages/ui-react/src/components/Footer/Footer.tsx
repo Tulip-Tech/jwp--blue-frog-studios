@@ -132,7 +132,7 @@ const Footer: React.FC<Props> = () => {
 
               <li>
                 <Link href="https://bluefrogstudios.ca/pages/streaming-help" target="_blank">
-                  Add Support
+                  Support
                 </Link>
               </li>
             </ul>
