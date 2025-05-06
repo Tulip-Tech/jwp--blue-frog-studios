@@ -11,6 +11,8 @@ import { modalURLFromLocation } from '@jwp/ott-ui-react/src/utils/location';
 import { ACCESS_MODEL } from '@jwp/ott-common/src/constants';
 import { type UseFormOnSubmitHandler } from '@jwp/ott-hooks-react/src/useForm';
 import useOffers from '@jwp/ott-hooks-react/src/useOffers';
+import { useAccountStore } from '@jwp/ott-common/src/stores/AccountStore';
+import { shallow } from '@jwp/ott-common/src/utils/compare';
 
 import PersonalDetailsForm from '../../../components/PersonalDetailsForm/PersonalDetailsForm';
 import LoadingOverlay from '../../../components/LoadingOverlay/LoadingOverlay';
@@ -27,6 +29,7 @@ const PersonalDetails = () => {
   const location = useLocation();
   const { t } = useTranslation('account');
   const accessModel = useConfigStore((s) => s.accessModel);
+  const { user } = useAccountStore(({ user }) => ({ user }), shallow);
   const { data, isLoading } = useQuery('captureStatus', accountController.getCaptureStatus);
   const { mediaOffers } = useOffers();
   const hasMediaOffers = mediaOffers.length > 0;
@@ -142,6 +145,7 @@ const PersonalDetails = () => {
       );
 
       await accountController.updateCaptureAnswers(removeEmpty({ ...formData, customAnswers }));
+      if (user?.email) await accountController.registerMailChimp(user.email, formData?.firstName, formData?.lastName);
 
       nextStep();
     } catch (error: unknown) {

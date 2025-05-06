@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { shallow } from '@jwp/ott-common/src/utils/compare';
 import DOMPurify from 'dompurify';
 import { useMutation } from 'react-query';
@@ -342,18 +342,38 @@ const AccountSection = (): JSX.Element => {
             },
             content: (section) => (
               <>
-                {termsConsents?.map((consent, index) => (
-                  <Checkbox
-                    key={index}
-                    name={`consentsValues.${consent.name}`}
-                    checked={isTruthyCustomParamValue(section.values.consentsValues?.[consent.name])}
-                    onChange={section.onChange}
-                    checkboxLabel={formatConsentLabel(consent.label)}
-                    disabled={consent.required || section.isBusy}
-                    required={consent.required}
-                    lang={htmlLang}
-                  />
-                ))}
+                {termsConsents?.map((consent, index) => {
+                  let label;
+                  if (consent?.type === 'checkbox' && consent?.name === 'terms') {
+                    label = (
+                      <div style={{ fontSize: '12px' }}>
+                        I accept the{' '}
+                        <Link to="/terms-of-use" target="_blank">
+                          Terms of Use
+                        </Link>{' '}
+                        and{' '}
+                        <Link to="/privacy-policy" target="_blank">
+                          Privacy Policy
+                        </Link>{' '}
+                        of Blue Frog Studios / BlueFrog+
+                      </div>
+                    );
+                  } else {
+                    label = formatConsentLabel(consent.label);
+                  }
+                  return (
+                    <Checkbox
+                      key={index}
+                      name={`consentsValues.${consent.name}`}
+                      checked={isTruthyCustomParamValue(section.values.consentsValues?.[consent.name])}
+                      onChange={section.onChange}
+                      checkboxLabel={label}
+                      disabled={consent.required || section.isBusy}
+                      //required={consent.required}
+                      lang={htmlLang}
+                    />
+                  );
+                })}
               </>
             ),
           }),

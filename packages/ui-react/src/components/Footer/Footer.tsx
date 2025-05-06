@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Facebook, Instagram, Loader, Twitter, Youtube } from 'lucide-react';
 import { useConfigStore } from '@jwp/ott-common/src/stores/ConfigStore';
 import { shallow } from '@jwp/ott-common/src/utils/compare';
+import { getModule } from '@jwp/ott-common/src/modules/container';
+import AccountController from '@jwp/ott-common/src/controllers/AccountController';
 
 import Link from '../Link/Link';
 
@@ -18,36 +20,27 @@ const Footer: React.FC<Props> = () => {
   const [isSuccess, setIsSuccess] = useState<boolean | null>(null);
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const accountController = getModule(AccountController);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setLoading(true);
-
-    const formData = new FormData();
-    formData.append('EMAIL', email);
-    formData.append('tags', '21');
-
     try {
-      await fetch('https://bluefrogstudios.us5.list-manage.com/subscribe/post?u=db6aa24436dd305543368e54b&id=5e457a6032&f_id=00d4ede0f0', {
-        method: 'POST',
-        mode: 'no-cors',
-        body: formData,
-      });
-      setIsSuccess(true);
-      setMessage('🎉 Successfully subscribed!');
-      setEmail('');
-      setIsPopoverOpen(true);
-      setTimeout(() => {
-        setIsPopoverOpen(false);
-        setTimeout(() => setIsSuccess(null), 300);
-      }, 5000);
+      const response = await accountController.registerMailChimp(email);
+      if (response?.status === 'success') {
+        setIsSuccess(true);
+        setMessage('🎉 Successfully subscribed!');
+        setEmail('');
+      } else {
+        setIsSuccess(false);
+        setMessage('❌ Subscription failed. Please try again.');
+      }
     } catch (error) {
       setIsSuccess(false);
       setMessage('❌ Subscription failed. Please try again.');
-      setIsPopoverOpen(true);
     } finally {
+      setIsPopoverOpen(true);
       setLoading(false);
-
       setTimeout(() => {
         setIsPopoverOpen(false);
         setTimeout(() => setIsSuccess(null), 300);
