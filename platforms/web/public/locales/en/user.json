@@ -21,7 +21,8 @@
         "warning": "All active subscriptions that were purchased through a web browser will be automatically canceled upon erasure of personal data. However, if you purchased a subscription through iOS, Android, Roku, or Amazon apps, please be aware that it will not be canceled automatically. In this case, you will need to follow the usual subscription cancelation steps for each respective platform to manually cancel the subscription."
       },
       "success": "Your account has been deleted",
-      "title": "Delete account"
+      "title": "Get Support",
+      "support_title":"Support"
     },
     "delete_account_password_warning": {
       "text": "To delete your account when using social media account(s) for sign-in, you will first need to add an account password and then initiate the deletion process again.",

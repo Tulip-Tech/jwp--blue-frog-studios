@@ -66,7 +66,7 @@ export default class CleengAccountService extends AccountService {
       canChangePasswordWithOldPassword: false,
       canRenewSubscription: true,
       canExportAccountData: false,
-      canDeleteAccount: false,
+      canDeleteAccount: true,
       canUpdatePaymentMethod: true,
       canShowReceipts: false,
       hasSocialURLs: false,

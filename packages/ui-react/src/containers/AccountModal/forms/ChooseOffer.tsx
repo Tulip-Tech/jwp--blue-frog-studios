@@ -17,16 +17,12 @@ const ChooseOffer = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { t } = useTranslation('account');
+  const selectedSubscriptionType = useQueryParam('p');
   const isSwitch = useQueryParam('u') === 'upgrade-subscription';
   const isPendingOffer = useAccountStore(({ pendingOffer }) => ({ isPendingOffer: !!pendingOffer }));
 
   const { isLoading, mediaOffers, subscriptionOffers, switchSubscriptionOffers, defaultOfferType, hasMultipleOfferTypes, chooseOffer, switchSubscription } =
     useOffers();
-
-  const checkoutUrl = modalURLFromLocation(location, 'checkout');
-  const upgradePendingUrl = modalURLFromLocation(location, 'upgrade-subscription-pending');
-  const upgradeSuccessUrl = modalURLFromLocation(location, 'upgrade-subscription-success');
-  const upgradeErrorUrl = modalURLFromLocation(location, 'upgrade-subscription-error');
 
   const { values, errors, submitting, setValue, handleSubmit, handleChange } = useForm<ChooseOfferFormData>({
     initialValues: { selectedOfferType: defaultOfferType, selectedOfferId: undefined },
@@ -55,16 +51,28 @@ const ChooseOffer = () => {
     },
     onSubmitError: () => navigate(upgradeErrorUrl),
   });
-
   const visibleOffers = values.selectedOfferType === 'tvod' ? mediaOffers : isSwitch ? switchSubscriptionOffers : subscriptionOffers;
+
+  const selectedOffer = visibleOffers?.find((v) => v.offerId === values?.selectedOfferId);
+  const checkoutUrl = modalURLFromLocation(location, 'checkout', {
+    p: selectedOffer?.period ? (selectedOffer?.period === 'month' ? 'monthly' : 'annual') : undefined,
+  });
+
+  const upgradePendingUrl = modalURLFromLocation(location, 'upgrade-subscription-pending');
+  const upgradeSuccessUrl = modalURLFromLocation(location, 'upgrade-subscription-success');
+  const upgradeErrorUrl = modalURLFromLocation(location, 'upgrade-subscription-error');
 
   useEffect(() => {
     if (isLoading || !visibleOffers.length) return;
 
-    const offerId = visibleOffers[visibleOffers.length - 1]?.offerId;
+    let offerId = visibleOffers[visibleOffers.length - 1]?.offerId;
+    if (selectedSubscriptionType) {
+      const _offerId = visibleOffers?.find((v) => v.period === (selectedSubscriptionType === 'monthly' ? 'month' : 'year'))?.offerId;
+      if (_offerId) offerId = _offerId;
+    }
 
     setValue('selectedOfferId', offerId);
-  }, [visibleOffers, values.selectedOfferType, setValue, isLoading]);
+  }, [visibleOffers, selectedSubscriptionType, values.selectedOfferType, setValue, isLoading]);
 
   useEffect(() => {
     if (isLoading || !defaultOfferType) return;

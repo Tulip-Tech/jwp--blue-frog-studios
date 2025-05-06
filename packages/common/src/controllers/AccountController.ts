@@ -517,6 +517,47 @@ export default class AccountController {
     });
   };
 
+  registerMailChimp = async (email: string, fname?: string, lname?: string) => {
+    if (!email) {
+      return {
+        status: 'error',
+        error: 'No email registered',
+      };
+    }
+    const formData = new FormData();
+    formData.append('EMAIL', email);
+    formData.append('tags', '21');
+    if (fname) {
+      formData.append('FNAME', fname);
+    }
+    if (lname) {
+      formData.append('LNAME', lname);
+    }
+
+    try {
+      const response = await fetch('https://bluefrogstudios.us5.list-manage.com/subscribe/post?u=db6aa24436dd305543368e54b&id=5e457a6032&f_id=00d4ede0f0', {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData,
+      });
+      if (response.ok) {
+        return {
+          status: 'success',
+          response,
+        };
+      }
+      return {
+        status: 'error',
+        error: await response.text(),
+      };
+    } catch (error) {
+      return {
+        status: 'error',
+        error,
+      };
+    }
+  };
+
   exportAccountData = async () => {
     const { canExportAccountData } = this.getFeatures();
 
