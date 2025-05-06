@@ -344,9 +344,9 @@ const AccountSection = (): JSX.Element => {
               <>
                 {termsConsents?.map((consent, index) => {
                   let label;
-                  if (consent?.type === 'checkbox' && consent?.name === 'terms') {
+                  if (consent?.type === 'checkbox' && consent?.name?.toLowerCase() === 'terms') {
                     label = (
-                      <div style={{ fontSize: '12px' }}>
+                      <div>
                         I accept the{' '}
                         <Link to="/terms-of-use" target="_blank">
                           Terms of Use
