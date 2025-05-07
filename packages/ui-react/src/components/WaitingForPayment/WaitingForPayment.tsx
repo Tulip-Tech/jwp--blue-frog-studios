@@ -33,7 +33,7 @@ const WaitingForPayment = () => {
           // @TODO should we show a dedicated modal for TVOD access?
           navigate(modalURLFromLocation(location, null));
         } else {
-          navigate(modalURLFromLocation(location, 'welcome'));
+          navigate(modalURLFromLocation(location, 'welcome', {}, true));
         }
       },
     });

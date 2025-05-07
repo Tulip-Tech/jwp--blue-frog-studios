@@ -33,7 +33,7 @@ const FinalizePayment = () => {
   const [errorMessage, setErrorMessage] = useState<string>();
 
   const paymentSuccessUrl = useMemo(() => {
-    return modalURLFromLocation(location, accessModel === ACCESS_MODEL.SVOD ? 'welcome' : null);
+    return modalURLFromLocation(location, accessModel === ACCESS_MODEL.SVOD ? 'welcome' : null, {}, accessModel === ACCESS_MODEL.SVOD);
   }, [accessModel, location]);
 
   const checkPaymentResult = useEventCallback(async (redirectResult: string) => {
@@ -68,7 +68,7 @@ const FinalizePayment = () => {
             variant="contained"
             color="primary"
             size="large"
-            onClick={() => navigate(modalURLFromLocation(location, 'checkout'))}
+            onClick={() => navigate(modalURLFromLocation(location, 'checkout', {}, true))}
             fullWidth
           />
         </>

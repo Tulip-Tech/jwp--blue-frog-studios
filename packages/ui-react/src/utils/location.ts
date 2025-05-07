@@ -7,8 +7,10 @@ export const createURLFromLocation = (location: Location, queryParams: QueryPara
   return createURL(`${location.pathname}${location.search || ''}`, queryParams);
 };
 
-export const modalURLFromLocation = (location: Location, u: keyof AccountModals | null, queryParams?: QueryParamsArg) => {
-  return createURL(`${location.pathname}${location.search || ''}`, { u, ...queryParams });
+export const modalURLFromLocation = (location: Location, u: keyof AccountModals | null, queryParams?: QueryParamsArg, appendLocaltionHash?: boolean) => {
+  const url = createURL(`${location.pathname}${location.search || ''}`, { u, ...queryParams });
+  if (appendLocaltionHash) return `${url}${location.hash}`;
+  return url;
 };
 
 /**
