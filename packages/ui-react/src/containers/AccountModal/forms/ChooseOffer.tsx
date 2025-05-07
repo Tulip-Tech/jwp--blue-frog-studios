@@ -17,7 +17,7 @@ const ChooseOffer = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { t } = useTranslation('account');
-  const selectedSubscriptionType = useQueryParam('p');
+  const selectedSubscriptionType = location.hash.split('p=')?.[1];
   const isSwitch = useQueryParam('u') === 'upgrade-subscription';
   const isPendingOffer = useAccountStore(({ pendingOffer }) => ({ isPendingOffer: !!pendingOffer }));
 

@@ -28,10 +28,9 @@ const Checkout = () => {
   const { t } = useTranslation('account');
   const announce = useAriaAnnouncer();
 
-  const chooseOfferUrl = modalURLFromLocation(location, 'choose-offer');
-  const welcomeUrl = modalURLFromLocation(location, 'welcome');
+  const chooseOfferUrl = modalURLFromLocation(location, 'choose-offer') + location?.hash || '';
+  const welcomeUrl = modalURLFromLocation(location, 'welcome') + location?.hash || '';
   const closeModalUrl = modalURLFromLocation(location, null);
-
   const { recaptchaRef, captchaSiteKey, getCaptchaValue } = useRecaptcha();
 
   const backButtonClickHandler = () => navigate(chooseOfferUrl);
@@ -47,7 +46,7 @@ const Checkout = () => {
       onSubmitPaypalPaymentSuccess: ({ redirectUrl }) => {
         window.location.href = redirectUrl;
       },
-      onSubmitStripePaymentSuccess: () => navigate(modalURLFromLocation(location, 'waiting-for-payment'), { replace: true }),
+      onSubmitStripePaymentSuccess: () => navigate(modalURLFromLocation(location, 'waiting-for-payment') + location?.hash || '', { replace: true }),
     });
 
   const {
@@ -67,7 +66,7 @@ const Checkout = () => {
     onSubmitSuccess: ({ couponCode }): void => setShowCouponCodeSuccess(!!couponCode),
     onSubmitError: ({ error }) => {
       if (error instanceof FormValidationError && error.errors.order?.includes(`Order with id ${order?.id} not found`)) {
-        navigate(modalURLFromLocation(location, 'choose-offer'), { replace: true });
+        navigate(modalURLFromLocation(location, 'choose-offer') + location?.hash || '', { replace: true });
       }
     },
   });
