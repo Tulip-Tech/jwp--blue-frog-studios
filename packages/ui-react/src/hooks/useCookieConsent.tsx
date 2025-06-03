@@ -39,7 +39,8 @@ export function useCookieConsent() {
   }, [consent, isGTMLoaded]);
 
   return {
-    isActive: !!env.APP_GTM_TAG_ID,
+    isActive: false, // because the custom cookie banner is coming from cookie bot
+    // isActive: !!env.APP_GTM_TAG_ID,
     isGTMLoaded,
     consent,
     reset,
