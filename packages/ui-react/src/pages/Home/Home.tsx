@@ -32,25 +32,30 @@ const Home = () => {
         <section className={styles.heroSection}>
           <div className={styles.heroContent}>
             <div className={styles.heroText}>
-              <h2>Watch Your Favorite Concerts</h2>
-              <h3>Free 7 Day Trial</h3>
-              <p className={styles.tagline}>Great music lives here!</p>
+              <h2>Watch Exclusive Full Concerts</h2>
+              <h3>Free for 7 Days</h3>
+              <p className={styles.tagline}><strong>World-class concerts - stream anywhere, anytime.</strong></p>
               <ul className={styles.featuresList}>
-                <li>
-                  <span className={styles.checkIcon}>✓</span>
-                  Exclusive concerts recorded live in 4K at Blue Frog Studios.
-                </li>
-                <li>
-                  <span className={styles.checkIcon}>✓</span>
-                  Watch Live Streams and Premiers on demand, on any device.
-                </li>
-                <li>
-                  <span className={styles.checkIcon}>✓</span>
-                  Sign up to start your risk-free trial today. Cancel anytime.
-                </li>
-              </ul>
+              <li>
+                <span className={styles.checkIcon}>✓</span>
+                <strong>New shows every week. &nbsp;</strong>From rising stars to music legends.
+              </li>
+              <li>
+                <span className={styles.checkIcon}>✓</span>
+                <strong>Full-length concerts.&nbsp;</strong>No clips. No filters. Just real performances.
+              </li>
+              <li>
+                <span className={styles.checkIcon}>✓</span>
+                <strong> Risk-free trial.&nbsp;</strong>7 days free. Cancel anytime - no commitment.
+              </li>
+              <li>
+                <span className={styles.checkIcon}>✓</span>
+                <strong>Shot in 4K with multi-track audio.&nbsp;</strong>Studio-quality sound and visuals.
+              </li>
+            </ul>
+
               <div className={styles.signupForm}>
-                <Button label="Get Started" color="primary" to="/pricing" />
+                <Button label="Start Your Free 7-Day Trial" color="primary" to="/pricing" />
               </div>
               <div style={{ marginTop: '2rem' }}>
                 <span style={{ marginRight: '-.7rem' }}>Already a member? </span>
