@@ -34,25 +34,31 @@ const Home = () => {
             <div className={styles.heroText}>
               <h2>Watch Exclusive Full Concerts</h2>
               <h3>Free for 7 Days</h3>
-              <p className={styles.tagline}><strong>World-class concerts - stream anywhere, anytime.</strong></p>
+              <p className={styles.tagline}>
+                <strong>World-class concerts - stream anywhere, anytime.</strong>
+              </p>
               <ul className={styles.featuresList}>
-              <li>
-                <span className={styles.checkIcon}>✓</span>
-                <strong>New shows every week. &nbsp;</strong>From rising stars to music legends.
-              </li>
-              <li>
-                <span className={styles.checkIcon}>✓</span>
-                <strong>Full-length concerts.&nbsp;</strong>No clips. No filters. Just real performances.
-              </li>
-              <li>
-                <span className={styles.checkIcon}>✓</span>
-                <strong> Risk-free trial.&nbsp;</strong>7 days free. Cancel anytime - no commitment.
-              </li>
-              <li>
-                <span className={styles.checkIcon}>✓</span>
-                <strong>Shot in 4K with multi-track audio.&nbsp;</strong>Studio-quality sound and visuals.
-              </li>
-            </ul>
+                <li>
+                  <span className={styles.checkIcon}>✓</span>
+                  <strong>New shows every week. &nbsp;</strong>
+                  <span>From rising stars to music legends.</span>
+                </li>
+                <li>
+                  <span className={styles.checkIcon}>✓</span>
+                  <strong>Full-length concerts.&nbsp;</strong>
+                  <span>No clips. No filters. Just real performances.</span>
+                </li>
+                <li>
+                  <span className={styles.checkIcon}>✓</span>
+                  <strong> Risk-free trial.&nbsp;</strong>
+                  <span>7 days free. Cancel anytime - no commitment.</span>
+                </li>
+                <li>
+                  <span className={styles.checkIcon}>✓</span>
+                  <strong>Shot in 4K with multi-track audio.&nbsp;</strong>
+                  <span>Studio-quality sound and visuals.</span>
+                </li>
+              </ul>
 
               <div className={styles.signupForm}>
                 <Button label="Start Your Free 7-Day Trial" color="primary" to="/pricing" />
